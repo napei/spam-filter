@@ -6,7 +6,6 @@ Adapted from : https://www.kaggle.com/veleon/spam-classification/execution
 """
 
 
-from sklearn import datasets, svm, metrics
 from sklearn.metrics import precision_score, recall_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import cross_val_score, train_test_split
@@ -193,16 +192,16 @@ y = np.array([0] * len(ham_emails) + [1] * len(spam_emails))
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=85)
+
 X_augmented_train = email_pipeline.fit_transform(X_train)
 
-# classifier = LogisticRegression(solver="liblinear", random_state=85)
-classifier = MLPClassifier(solver='lbfgs', alpha=1e-5,
-                           hidden_layer_sizes=(5, 2), random_state=1)
-# score = cross_val_score(log_clf, X_augmented_train, y_train, cv=3)
+classifier = LogisticRegression(solver="liblinear", random_state=85)
+# classifier = MLPClassifier(solver='lbfgs', alpha=1e-5,
+#                            hidden_layer_sizes=(5, 2), random_state=1)
+# classifier = svm.NuSVC()
 
 X_augmented_test = email_pipeline.transform(X_test)
 
-# log_clf = LogisticRegression(solver="liblinear", random_state=85)
 classifier.fit(X_augmented_train, y_train)
 print("Testing")
 y_pred = classifier.predict(X_augmented_test)
