@@ -1,0 +1,85 @@
+Delivered-To: nattyman0007@gmail.com
+Received: by 2002:a17:906:68ce:0:0:0:0 with SMTP id y14csp4509398ejr;
+        Tue, 22 Sep 2020 09:14:20 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyN7XQGRv1XObneTSYwJdBKNc/8DfQ2sMW8b1X0zON8e7Q4Atvgirr0diMl+VPYjkWa7/Yc
+X-Received: by 2002:aa7:96f1:0:b029:142:2501:39ed with SMTP id i17-20020aa796f10000b0290142250139edmr4611432pfq.60.1600791260038;
+        Tue, 22 Sep 2020 09:14:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600791260; cv=none;
+        d=google.com; s=arc-20160816;
+        b=B1yVl+Ut//ZgrlEf2LJg2UojuhwQqERIPoUv2UOBmoohBZzVg8YfX1YNyr2W3VsY10
+         ghk2D5WUnVyEMZE3LE7XKnabM5T+9wluUrDOIAa1XaaQdSspsTmZlk89Jryt3gpumxwp
+         fWbdUMFGDzy/3qZpazAc65cD1df3tu8c2Vdfj6xnMp2ANY2Jd4/YuyWw/yrRPqTYFIQ1
+         ya1Mqo5379rhk02g6wn9ooZG1PNPQgcQbhT+PCPQJC7BksPtceKfHBDPM6W7shx9ZmUK
+         4Bal1CiGwCKimxVDmmO6iI4rvtOVlySmd/ihXTZcJO24h7/Tdic0H6U3cBtKxgnvjZdw
+         xc5g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:message-id:mail-reply-to:reply-to:subject:to:from:date
+         :content-transfer-encoding:mime-version:dkim-signature:dkim-filter;
+        bh=mIxrMR+PXeHWKX1Aecobxd2rcuu4+ZiQlW6v6IG0TfI=;
+        b=uEKCBljGHkLgHj5TPPbpnewHAL0461dW5IPeSO0IgC8XU0N+SMFOUA46hjkw2vPaBI
+         To3W2L6JYHG+KIEh6L0PSyyMfdqnvdNePTy/qTiTgeVIV09j7ysSoTY+98eGU8DBr4Dd
+         8lvaS7knBLea6LlSZwYisNAPoHWmub8s9pKshwBtyE0j1hYancQP6tQEgy8Ic4rM6a3V
+         XpA+xLdmyzgnviYZSoL4ZW9iVntqqRE3qRjCOmdqbNr0uaSD/JEIQMuMVV8qYg+fb7hV
+         LX0vvgPl3USc7rYHjeAdRUiZ1lGV2V4YYsT1dAyjUVe41WzHjm2hjTUYMrzgIA6ysS5E
+         p2Hw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@monkeytree.com.cn header.s=default header.b=hTJRRXcW;
+       spf=pass (google.com: domain of admin@monkeytree.com.cn designates 23.91.97.176 as permitted sender) smtp.mailfrom=admin@monkeytree.com.cn;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=monkeytree.com.cn
+Return-Path: <admin@monkeytree.com.cn>
+Received: from vpsmail.monkeytree.com.cn (vpsmail.monkeytree.com.cn. [23.91.97.176])
+        by mx.google.com with ESMTP id gc19si2523407pjb.44.2020.09.22.09.14.01;
+        Tue, 22 Sep 2020 09:14:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of admin@monkeytree.com.cn designates 23.91.97.176 as permitted sender) client-ip=23.91.97.176;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@monkeytree.com.cn header.s=default header.b=hTJRRXcW;
+       spf=pass (google.com: domain of admin@monkeytree.com.cn designates 23.91.97.176 as permitted sender) smtp.mailfrom=admin@monkeytree.com.cn;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=monkeytree.com.cn
+Received: from vpsmail.monkeytree.com.cn (localhost [127.0.0.1])
+	by vpsmail.monkeytree.com.cn (Postfix) with ESMTP id 5F1192019819;
+	Wed, 23 Sep 2020 00:12:56 +0800 (CST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 vpsmail.monkeytree.com.cn 5F1192019819
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=monkeytree.com.cn;
+	s=default; t=1600791176;
+	bh=VaVabXwSnl9SHHMOIa7IjCeAZGuDx6toKIyZuZNc8G4=;
+	h=Date:From:To:Subject:Reply-To:From;
+	b=hTJRRXcW9rTjz9bjFHLq3bXbtd+YEFDnYXkUrT5X5u07WLDZR2aPdVzPdJpY1zcss
+	 4GxW3ez3kxnNO1/LqmP/0KshB1vsIAdd3GGe0+GOTBW2SV3QAyoYHzI/BlPaVVVeuG
+	 Ita9wvojoyYhlzau+lsT1KtfrMhIR9bWLOTeq/sZVT4krcG3RMD16X9ZQvP5nvd3uH
+	 Xh/Tg43wlTZy8RFloLauw0//+V6tsnpjRUhhO4byq87tUJontkgFYUyAnq2+72L+g6
+	 pZPUrS/I3T88EFPFhDvFgwXd2CMOee5jHDjLCbuAE//qMrTeGcqAXw/b04faEfR2F3
+	 WyOZRIXodO9ag==
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+Date: Tue, 22 Sep 2020 17:12:56 +0100
+From: Warren Buffett <admin@monkeytree.com.cn>
+To: undisclosed-recipients:;
+Subject: Donation From Mr. Warren Buffet
+Reply-To: wb769644@gmail.com
+Mail-Reply-To: wb769644@gmail.com
+Message-ID: <7512adee2e0b3b1b0a5216c703abed75@monkeytree.com.cn>
+X-Sender: admin@monkeytree.com.cn
+User-Agent: Roundcube Webmail/1.3.8
+
+
+
+-- 
+
+
+Hi
+
+My name is Warren Buffett. I'm a philanthropist from American. I have 
+sign a gift donation payment of $2.700,000.00 Million in your name 
+through the help of CEO/Managing Director of Pnc Bank Florida Head 
+Office for this year pandemic crisis as believe success should be used 
+to help each other.so I know your email address is valid. 
+wb769644@gmail.com Email me
+
+Kindly Email me back with your full information and I will get back to 
+you with full details about your donation payment of $2.700,000.00 
+Million sign today.
+
+Regards,
+Mr. Warren Buffett.

@@ -1,0 +1,106 @@
+Delivered-To: nattyman0007@gmail.com
+Received: by 2002:a17:906:68ce:0:0:0:0 with SMTP id y14csp3455033ejr;
+        Mon, 21 Sep 2020 04:54:04 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJx1tU4ddwNYcxClY0deZghV/fYhmUeP9C1zdElCN/nJd2vEa8WMrBd3XH6fQOLA8Gn+vvua
+X-Received: by 2002:a92:9408:: with SMTP id c8mr36166622ili.61.1600689244552;
+        Mon, 21 Sep 2020 04:54:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600689244; cv=none;
+        d=google.com; s=arc-20160816;
+        b=bm2aFT3ssmEsK2jPnuHRlfq5B8566+pfMoNTUJAtzZnDqhMCysS2BzBQHtPTB97amm
+         if78m9IzO68Rru5DXtWiQf7oVORm3V6pnEa+wTQ576/mntqR8EVO47oMRJEV16zNbX0a
+         5iDwsb2pe3iaCqLYgfa7SbW5ELn9P6fXTo5Y7aD/+U9scLPOd9jK+Nv2RgTui0D5IwJZ
+         8TyVOmU4V8mHvrRFwTfG4MDxP62gUH+lFeazZ2BDbY0fk0F/M7vyeRy1qYnS4GrVKjqc
+         B7ht1RyJ9a1jIoHzEy9smhK3yJvifjH/hH2UCoM/UamHbKTv3rVNiWi00Z2AxU1FoSwr
+         m0Ug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=priority:subject:content-language:mime-version:date:message-id:from
+         :feedback-id:dkim-signature;
+        bh=JxIivboBKfEUi0lt6VwpYg61Z2WI5Rb8y8q/i8JQz1U=;
+        b=u71SZnWcePTeaTQfiVT2ou7tyioDoFkVAEuerz1OK4pfbjaOkHM3AVP/l/82JStpje
+         S0GFds2FcV2Uo0V+hs5YQE78FAx4QQEUF8fqZ0VHT25hS1JQoP3p5kc4zgiNe6oGLp3b
+         qPRZQEvwrlT2jjneg9gvIJ85Xfxh3liY2wepqrMmOnh3pyPHiYv+65TpVKy/xRQ7n2hZ
+         oFpawlXedyXn1bHsqntYRbQhCP9Qkj5kh3uZABl7CfRdq94OBhQEc58gkeqcsHdXXMTp
+         6LhNsNRoCp1br+xSEFUkdvVZ6GP5KzdEShplWeuTxv2u5xhvmX0Tx3g537DTC1CI0l70
+         03ng==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@cogeco.ca header.s=email header.b="TaX/ZUK3";
+       spf=pass (google.com: domain of psim2@cogeco.ca designates 66.226.82.39 as permitted sender) smtp.mailfrom=psim2@cogeco.ca
+Return-Path: <psim2@cogeco.ca>
+Received: from mail8239c14.megamailservers.com (mail8239c14.megamailservers.com. [66.226.82.39])
+        by mx.google.com with ESMTPS id m17si344760ilj.4.2020.09.21.04.53.50
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 21 Sep 2020 04:54:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of psim2@cogeco.ca designates 66.226.82.39 as permitted sender) client-ip=66.226.82.39;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cogeco.ca header.s=email header.b="TaX/ZUK3";
+       spf=pass (google.com: domain of psim2@cogeco.ca designates 66.226.82.39 as permitted sender) smtp.mailfrom=psim2@cogeco.ca
+Received: from postfix-webmail2.cogeco.net (wmsmtp.cogeco.ca [216.221.81.100])
+	by mail8239c14.megamailservers.com (mail8239c14) with ESMTP id 4ABDB92330415;
+	Mon, 21 Sep 2020 07:52:08 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=cogeco.ca; s=email;
+	t=1600689229; bh=JxIivboBKfEUi0lt6VwpYg61Z2WI5Rb8y8q/i8JQz1U=;
+	h=From:Date:Subject:From;
+	b=TaX/ZUK3nnKfw6w/gYQY2RVAqNh3NiRD+CwwassYeYzTtg7/IftHNFL/IpefWs76/
+	 wrqkvt3X1hoEAsN5p3CMKIoOmrELoXVxo7Lg9XAGXk56p357OP7FHeEHcWHaLY1NKN
+	 WK2RS62XF7PxGkL2dDBIdfMo/zK8inB9brFXJUMQ=
+Feedback-ID:psim2@cogeco.ca
+Received: from cgocable.ca (unknown [192.168.200.103])
+	by postfix-webmail2.cogeco.net (Postfix) with ESMTP id 31CD040A0D6F;
+	Mon, 21 Sep 2020 07:52:08 -0400 (EDT)
+Received: from [192.168.201.109] (Forwarded-For: 156.0.213.54) by
+ busywm06.int.cogeco.net (mshttpd); Mon, 21 Sep 2020 04:52:08 -0700
+From: "Mrs caro mark" <psim2@cogeco.ca>
+Message-ID: <72a0c69c629f.5f683178@cgocable.ca>
+Date: Mon, 21 Sep 2020 04:52:08 -0700
+X-Mailer: Oracle Communications Messenger Express 7.0.5.29.0 64bit
+ (built Jul  9 2013)
+MIME-Version: 1.0
+Content-Language: en
+Subject: Attn Beneficiary,  your PackageWorth USD 10.5M with Dhl this
+ morning   so kindly reconfirm you full information: Your Full name:
+ Your Address: Your Country: Your Cell Number:  Contct Mr, Mr. Gill
+ Tony gilltony222@gmail.com
+X-Accept-Language: en
+Priority: normal
+Content-Type: multipart/alternative; boundary="--25238fd657fb2a421f6f"
+X-CSC: 0
+X-CHA: v=2.3 cv=QrwgIm6d c=1 sm=1 tr=0 a=mhp++lgYISqxKd8g2iav1w==:117
+	a=mhp++lgYISqxKd8g2iav1w==:17 a=pGLkceISAAAA:8 a=9cW_t1CCXrUA:10
+	a=Cv0ZRjtxjOcA:10 a=vTYKi3DYiPYA:10 a=reM5J-MqmosA:10
+	a=r77TgQKjGQsHNAKrUKIA:9 a=kLHDsu9wXakj7sVso3MA:9 a=CjuIK1q_8ugA:10
+	a=dlnzAsQFlC8mPj7OLE0A:9 a=pHzHmUro8NiASowvMSCR:22
+	a=n87TN5wuljxrRezIQYnT:22
+X-CTCH-RefID: str=0001.0A020214.5F689410.002A,ss=3,sh,re=0.000,recu=0.000,reip=0.000,cl=3,cld=1,fgs=0
+X-CTCH-VOD: Unknown
+X-CTCH-Spam: Bulk
+X-CTCH-Score: 0.000
+X-CTCH-Rules: 
+X-CTCH-Flags: 0
+X-CTCH-ScoreCust: 0.000
+X-VADE-SPAMSTATE: spam:medium
+X-VADE-SPAMSCORE: 300
+X-VADE-SPAMCAUSE: gggruggvucftvghtrhhoucdtuddrgedujedruddvgdegiecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfjqffuvffqrffkteenuceurghilhhouhhtmecufedttdenucgoufhprghmkfhpucdlfedttddmnecujfgurhephffkfffoggfulhgtsegrtderreertddvnecuhfhrohhmpedfofhrshcutggrrhhouchmrghrkhdfuceophhsihhmvdestghoghgvtghordgtrgeqnecuggftrfgrthhtvghrnhepjeehgedugeekjeekkeeigeejheejgeettdekfeffiedtudejgfdvheevvdeifeefnecukfhppedvudeirddvvddurdekuddruddttddpudehiedrtddrvddufedrheegnecuufhprghmkfhppedvudeirddvvddurdekuddruddttdenucfuphgrmhetlhhirghspeforhhsucgtrghrohcumhgrrhhknecuvehluhhsthgvrhfuihiivgepieenucfrrghrrghmpehinhgvthepvdduiedrvddvuddrkedurddutddtpdhhvghlohepphhoshhtfhhigidqfigvsghmrghilhdvrdgtohhgvggtohdrnhgvthdpmhgrihhlfhhrohhmpedfofhrshcutggrrhhouchmrghrkhdfuceophhsihhmvdestghoghgvtghordgtrgeqpdhrtghpthhtohepnhgrthhtrghpohhlphgrrhgrsehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgrthhtrghpohhnvdelieegudesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthgrphhonheftddutdesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthgr
+ phhonhhjuhhkkhesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthgrphhorhhnrdifrgesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthgrphhorhhnugeksehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgrthhtrghshhgrhhhofhhfmhgrnhesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthgrfigrthdrjhesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthgrfigrthdrthgrrhgrsghoohhnsehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgrthhtrgifrghtuddugedvsehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgrthhtrgifihhtvddvvdesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthgrfihithhtrgesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthgthhegsehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgrthhtvgduvdefgeesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthgvughrvgifsehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgrthhtfhgrlhhkvghnsehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgrthhthhgrrdhnrghnrghkohhrnhesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthhhrgduudefkeesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthhhrghnrghnrdhkohhksehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgrthhthhgrnhgvrghslhgvrhesghhmrghilhdrtghomhdprhgtphhtthhopehnr
+ ghtthhhrghnnhhguhihvghngehusehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgrthhthhgrphhhohhlrdegieesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthhhrghphhhonhhgrdhtvggrmhesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthhhrghvrghtvdeksehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgrthhthhgrhihougesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthhhvghshhgrughofiesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthhhohhnvggttgesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthhiieehsehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgrthhtlhgvfhhrohhsthgvnhesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthhlvghsnhgrkhgvuddtsehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgrthhtmhgtkhgvvgesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthhnledtudesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthhnohhnshgvnhhsvgesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthhofhhfihgtihgrlhesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthhsrghjihesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthhsthgvfhesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthhsuhhrfhesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthihsghohiegle
+ elsehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgrthhthigsohihkeesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthihghhthhgvmhgrnhesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtthihkhdvuddvsehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgrthhthihmrghntddttdejsehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgrthhthihnrghrfihhrghlsehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgrthhthiifohhnghhlohhlsehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgrthhthiiivggvnhhhrgesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtuhgsohhrghgvshhssehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgrthhuvghmsehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgrthhunhgvnhdrjhhoohhnrgesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtuhhrtddtjeesghhmrghilhdrtghomhdprhgtphhtthhopehnrghtuhhrfehifhihsehgmhgrihhlrdgtohhm
+X-Origin-Country: CA
+
+This is a multi-part message in MIME format.
+
+----25238fd657fb2a421f6f
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: 7bit
+
+
+
+--
+
+----25238fd657fb2a421f6f
+Content-Type: text/html; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: 7bit
+
+<br /><br />--
+
+----25238fd657fb2a421f6f--
