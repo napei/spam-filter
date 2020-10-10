@@ -6,13 +6,16 @@ Adapted from : https://www.kaggle.com/veleon/spam-classification/execution
 """
 
 
+from sklearn import datasets, svm, metrics
 from sklearn.metrics import precision_score, recall_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import cross_val_score, train_test_split
 from sklearn.pipeline import Pipeline
+from sklearn import datasets, svm, metrics, tree
 from scipy.sparse import csr_matrix
 from sklearn.base import BaseEstimator, TransformerMixin
 import nltk
+from sklearn.neural_network import MLPClassifier
 from collections import Counter
 import pandas as pd
 import numpy as np
@@ -22,22 +25,28 @@ import email.policy
 from bs4 import BeautifulSoup
 import urlextract
 
-ham_dir = "data/hamnspam/ham"
-spam_dir = "data/hamnspam/spam"
+ham_dir = "data/spamassassin/ham"
+spam_dir = "data/spamassassin/spam"
 
-ham_filenames = [name for name in sorted(os.listdir(ham_dir))]
-spam_filenames = [name for name in sorted(os.listdir(spam_dir))]
+# ham_filenames = list(sorted(os.listdir(ham_dir)))
+# spam_filenames = list(sorted(os.listdir(spam_dir)))
 
 
-def load_email(path):
+def load_single_email(path):
     with open(path, "rb") as f:
         return BytesParser(policy=email.policy.default).parse(f)
 
 
-ham_emails = [load_email(os.path.join(ham_dir, name))
-              for name in ham_filenames]
-spam_emails = [load_email(os.path.join(spam_dir, name))
-               for name in spam_filenames]
+def load_folder_of_emails(path):
+    return [load_single_email(os.path.join(path, f)) for f in sorted(os.listdir(path))]
+
+
+print("Loading emails")
+ham_emails = load_folder_of_emails(ham_dir)
+spam_emails = load_folder_of_emails(spam_dir)
+
+print("Loaded {} ham emails and {} spam emails".format(
+    len(ham_emails), len(spam_emails)))
 
 
 def get_email_structure(email):
@@ -178,28 +187,29 @@ email_pipeline = Pipeline([
 
 
 # Training Model
-
-X = np.array(ham_emails + spam_emails)
+print("Training Model")
+X = np.array(ham_emails + spam_emails, dtype=object)
 y = np.array([0] * len(ham_emails) + [1] * len(spam_emails))
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=85)
 X_augmented_train = email_pipeline.fit_transform(X_train)
 
-log_clf = LogisticRegression(solver="liblinear", random_state=85)
-score = cross_val_score(log_clf, X_augmented_train, y_train, cv=3)
+# classifier = LogisticRegression(solver="liblinear", random_state=85)
+classifier = MLPClassifier(solver='lbfgs', alpha=1e-5,
+                           hidden_layer_sizes=(5, 2), random_state=1)
+# score = cross_val_score(log_clf, X_augmented_train, y_train, cv=3)
 
 X_augmented_test = email_pipeline.transform(X_test)
 
-log_clf = LogisticRegression(solver="liblinear", random_state=85)
-log_clf.fit(X_augmented_train, y_train)
-
-y_pred = log_clf.predict(X_augmented_test)
-
+# log_clf = LogisticRegression(solver="liblinear", random_state=85)
+classifier.fit(X_augmented_train, y_train)
+print("Testing")
+y_pred = classifier.predict(X_augmented_test)
 print("Precision: {:.2f}%".format(100 * precision_score(y_test, y_pred)))
 print("Recall: {:.2f}%".format(100 * recall_score(y_test, y_pred)))
+print("Running Custom Test")
+custom_test_data = load_folder_of_emails("data/custom/ham")
+x_cust_test = email_pipeline.transform(custom_test_data)
 
-custom_test_email = [load_email("data/custom/ham/gmail.1")]
-x_cust_test = email_pipeline.transform(custom_test_email)
-
-print(log_clf.predict(x_cust_test))
+print(classifier.predict(x_cust_test))
