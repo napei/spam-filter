@@ -1,6 +1,11 @@
 """
+Spam detection ML Algorithm
+Adapted from : https://www.kaggle.com/veleon/spam-classification/execution
+
 @author: Nathaniel Peiffer
 """
+
+
 from sklearn.metrics import precision_score, recall_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import cross_val_score, train_test_split
