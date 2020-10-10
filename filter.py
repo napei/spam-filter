@@ -9,78 +9,90 @@ from collections import Counter
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.svm import LinearSVC
 from sklearn.metrics import confusion_matrix
+from sklearn.feature_extraction.text import CountVectorizer
+from tqdm import tqdm
 
 
 def make_Dictionary(train_dir):
+    print("Loading data")
     emails = [os.path.join(train_dir, f) for f in os.listdir(train_dir)]
     all_words = []
-    for mail in emails:
+    for mail in tqdm(emails):
         with open(mail) as m:
             for i, line in enumerate(m):
                 if i == 2:
                     words = line.split()
                     all_words += words
 
-    dictionary = Counter(all_words)
+    d = Counter(all_words)
 
-    list_to_remove = dictionary.keys()
-    for item in list_to_remove:
+    for item in tqdm(d.copy()):
         if item.isalpha() == False:
-            del dictionary[item]
+            d.pop(item)
         elif len(item) == 1:
-            del dictionary[item]
-    dictionary = dictionary.most_common(3000)
-    return dictionary
+            d.pop(item)
+    d = d.most_common(3000)
+    return d
 
 
 def extract_features(mail_dir):
-    files = [os.path.join(mail_dir, fi) for fi in os.listdir(mail_dir)]
-    features_matrix = np.zeros((len(files), 3000))
-    docID = 0
-    for fil in files:
-        with open(fil) as fi:
-            for i, line in enumerate(fi):
-                if i == 2:
-                    words = line.split()
-                    for word in words:
-                        wordID = 0
-                        for i, d in enumerate(dictionary):
-                            if d[0] == word:
-                                wordID = i
-                                features_matrix[docID,
-                                                wordID] = words.count(word)
-            docID = docID + 1
-    return features_matrix
+    print("Extracting Features")
+
+    files = [open(os.path.join(mail_dir, fi)).read()
+             for fi in os.listdir(mail_dir)]
+    v = CountVectorizer()
+    v.fit(files)
+    vector = v.transform(files)
+
+    # features_matrix = np.zeros((len(files), 3000))
+    # docID = 0
+    # for f in tqdm(files):
+    #     with open(f) as fi:
+    #         for i, line in enumerate(fi):
+    #             if i == 2:
+    #                 words = line.split()
+    #                 for word in words:
+    #                     wordID = 0
+    #                     for i, d in enumerate(dictionary):
+    #                         if d[0] == word:
+    #                             wordID = i
+    #                             features_matrix[docID,
+    #                                             wordID] = words.count(word)
+    #         docID = docID + 1
+    # return features_matrix
+    return vector.toarray()
 
 # Create a dictionary of words with its frequency
 
 
-train_dir = 'data\\lingspam_lemm_stop\\training'
+train_dir = 'data/lingspam_lemm_stop/training'
 dictionary = make_Dictionary(train_dir)
 
-# Prepare feature vectors per training mail and its labels
 
-train_labels = np.zeros(702)
-train_labels[351:701] = 1
+# Prepare feature vectors per training mail and its labels
+print("Training")
+train_labels = np.zeros(2602)
+train_labels[2169:2601] = 1
 train_matrix = extract_features(train_dir)
 
 # Training SVM and Naive bayes classifier and its variants
 
-model1 = LinearSVC()
-model2 = MultinomialNB()
+model1 = LinearSVC(dual=True, max_iter=5000)
+# model2 = MultinomialNB()
 
 model1.fit(train_matrix, train_labels)
-model2.fit(train_matrix, train_labels)
+os._exit(1)
+# model2.fit(train_matrix, train_labels)
 
 # Test the unseen mails for Spam
-
-test_dir = 'data\\lingspam_lemm_stop\\testing'
+print("Testing")
+test_dir = 'data/lingspam_lemm_stop/testing'
 test_matrix = extract_features(test_dir)
-test_labels = np.zeros(260)
-test_labels[130:260] = 1
+test_labels = np.zeros(291)
+test_labels[241:290] = 1
 
 result1 = model1.predict(test_matrix)
-result2 = model2.predict(test_matrix)
+# result2 = model2.predict(test_matrix)
 
 print(confusion_matrix(test_labels, result1))
-print(confusion_matrix(test_labels, result2))
+# print(confusion_matrix(test_labels, result2))
