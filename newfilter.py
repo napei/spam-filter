@@ -56,6 +56,14 @@ def html_to_plain(email):
         return "empty"
 
 
+def get_email_subject(email):
+    try:
+        sub = email.get("Subject")
+        return sub
+    except:
+        return ""
+
+
 def email_to_plain(email):
     struct = get_email_structure(email)
     for part in email.walk():
@@ -82,7 +90,7 @@ def email_to_plain(email):
 
 class EmailToWords(BaseEstimator, TransformerMixin):
     def __init__(self, stripHeaders=True, lowercaseConversion=True, punctuationRemoval=True,
-                 urlReplacement=True, numberReplacement=True, stemming=True):
+                 urlReplacement=True, numberReplacement=True, stemming=True, includeSubject=True):
         self.stripHeaders = stripHeaders
         self.lowercaseConversion = lowercaseConversion
         self.punctuationRemoval = punctuationRemoval
@@ -91,6 +99,7 @@ class EmailToWords(BaseEstimator, TransformerMixin):
         self.numberReplacement = numberReplacement
         self.stemming = stemming
         self.stemmer = nltk.PorterStemmer()
+        self.includeSubject = includeSubject
 
     def fit(self, X, y=None):
         return self
@@ -114,6 +123,10 @@ class EmailToWords(BaseEstimator, TransformerMixin):
                 text = text.replace(',', '')
                 text = text.replace('!', '')
                 text = text.replace('?', '')
+
+            if self.includeSubject:
+                s = get_email_subject(email)
+                text = str(s).lower() + text
 
             word_counts = Counter(text.split())
             if self.stemming:
@@ -153,11 +166,6 @@ class WordCountToVector(BaseEstimator, TransformerMixin):
         return csr_matrix((data, (rows, cols)), shape=(len(X), self.vocabulary_size + 1))
 
 
-vocab_transformer = WordCountToVector()
-X_few_vectors = vocab_transformer.fit_transform(
-    EmailToWords().fit_transform(ham_emails))
-
-
 email_pipeline = Pipeline([
     ("Email to Words", EmailToWords()),
     ("Wordcount to Vector", WordCountToVector()),
@@ -186,7 +194,7 @@ y_pred = log_clf.predict(X_augmented_test)
 print("Precision: {:.2f}%".format(100 * precision_score(y_test, y_pred)))
 print("Recall: {:.2f}%".format(100 * recall_score(y_test, y_pred)))
 
-custom_test_email = [load_email("data/custom/spam/gmail.2")]
+custom_test_email = [load_email("data/custom/ham/gmail.1")]
 x_cust_test = email_pipeline.transform(custom_test_email)
 
 print(log_clf.predict(x_cust_test))

@@ -1,0 +1,955 @@
+Delivered-To: nattyman0007@gmail.com
+Received: by 2002:a17:906:6d12:0:0:0:0 with SMTP id m18csp2388836ejr;
+        Fri, 9 Oct 2020 10:25:21 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyi5vOtY0KoGX3MqTVim1Z/0vu5tqixex0JZ2nFVydcDaEr2+XwxMFkp5Fq0y4mkkPghizH
+X-Received: by 2002:aa7:c608:: with SMTP id h8mr276860edq.16.1602264320931;
+        Fri, 09 Oct 2020 10:25:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602264320; cv=none;
+        d=google.com; s=arc-20160816;
+        b=xmkGuZLC9aaE5XSEwGcX8LXFnc/4uOBNPPaacWMO2pYyWRAAubSMqjz8GUWslavTqv
+         wCbArNMAqy8sVAkAd/yJzeTAYdcHUHnUFkbu/ikpo4UPeYGEBJfd4beV6dWRGYX+ebN1
+         yjIj9YoHnSlOqd2rLjeUcWqLRyl+KOIo8Jt8xqAdjYz+HSyii5hOKU5rF1RxZDM1dZwP
+         Iv7CP6tXuFl/1kYXrBjDLrBeDko+YckPGBc+tQaZ8W8p0V7IQZDVWM+UerNmwIbBxI+k
+         +jqnFDnFnrcmD1D0JmIng+xaJGJg1CSvlI2ZxwBPEReSQMTwV4nEFHOQdqZuiwkpWCay
+         VA2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:message-id:list-unsubscribe-post:list-unsubscribe:list-id
+         :mime-version:from:subject:to:dkim-signature:dkim-signature;
+        bh=9s9V6Drk9j6+Cy92N2CxgeDzzQLbXHmonQUQhV+9X/0=;
+        b=NAXsBfRgkOs4KPHU5Mc0Icw+nsS5j+Tx874DzBNREXz8oXWJR7MyNohlsrABeDi18N
+         pDm5RLVNSktsAUyP7yJeKo/kWanHtChNMaKba/TPM9kBipcrqF6NmDr3yZ/BzALy9rXW
+         QDfk4qsdi9xOOMhAkw+06YaQHSmznRdySwCghvWOgCyAnqRIN41T+yFLsLR9Og5qpWvF
+         EgKgg5RTXKdA3XCFjm52mTXBIxu6i1+ubR7pi88n+yV/RjLKp4yXueTTXSboYyQYJO0k
+         dQNP4gMhojWVb1At0MMhNzL6B+1lcn1TtbtlpHoexCD3ZhOp5HEDDpZDGzzyLG1zFEyr
+         4eVw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mail-na.wargaming.net header.s=key2 header.b=mGSLU40j;
+       dkim=pass header.i=@emarsys.net header.s=key2 header.b=EvlhAQG6;
+       spf=pass (google.com: domain of suite5@xpressus.emarsys.net designates 185.4.120.124 as permitted sender) smtp.mailfrom=suite5@xpressus.emarsys.net;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mail-na.wargaming.net
+Return-Path: <suite5@xpressus.emarsys.net>
+Received: from uspmta120124.emarsys.net (uspmta120124.emarsys.net. [185.4.120.124])
+        by mx.google.com with ESMTPS id e21si6460889ejr.501.2020.10.09.10.25.20
+        for <nattyman0007@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 09 Oct 2020 10:25:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of suite5@xpressus.emarsys.net designates 185.4.120.124 as permitted sender) client-ip=185.4.120.124;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mail-na.wargaming.net header.s=key2 header.b=mGSLU40j;
+       dkim=pass header.i=@emarsys.net header.s=key2 header.b=EvlhAQG6;
+       spf=pass (google.com: domain of suite5@xpressus.emarsys.net designates 185.4.120.124 as permitted sender) smtp.mailfrom=suite5@xpressus.emarsys.net;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mail-na.wargaming.net
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=key2; d=mail-na.wargaming.net;
+ h=To:Subject:From:MIME-Version:List-Id:X-CSA-Complaints:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:Message-ID:Date; i=wot@mail-na.wargaming.net;
+ bh=9s9V6Drk9j6+Cy92N2CxgeDzzQLbXHmonQUQhV+9X/0=;
+ b=mGSLU40jRJMGe1IE5djZOi9FK/QvWU+CLklPsJMjRUygb6iqUshhpUAbuxqqnoItKUs5AFkV1SpY
+   7AFhzCXEgG+TlDBblWTcm0CjWiWRXrZ3e2TeFxFziGGgmTw9wrNRHmNSK/LepbtPRAb80+iU2g7a
+   ZkkXXc8lm8liMEpkqEU=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=key2; d=emarsys.net;
+ h=To:Subject:From:MIME-Version:List-Id:X-CSA-Complaints:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:Message-ID:Date;
+ bh=9s9V6Drk9j6+Cy92N2CxgeDzzQLbXHmonQUQhV+9X/0=;
+ b=EvlhAQG6W3ODvyAmzykurp7ikIxWApyjKdsz097gMK5TE8hbFRjgNaPw8jqF7nAdOG+Bld51JxDe
+   2pUTqlOdmVh5Yq4D1fnfQZ/MCyQKLZ1o7kCHaXhn3mb6qllVv8jgPkNbv9v/UVmyYjiBwRCeat8T
+   JXzgxMGnvzhSedz208A=
+To: nattyman0007@gmail.com
+Subject: Steel Hunter returns with Stage 3!
+X-Mailer: class SMTPMail
+From: "World of Tanks" <wot@mail-na.wargaming.net>
+MIME-Version: 1.0
+List-Id: 272760712 <World of Tanks>
+X-EMarSys-Identify: 272760712_1938862_1502277
+X-EMarSys-Environment: suite5
+X-Report-Abuse: Please report abuse here: abuse-report@emarsys.com
+X-CSA-Complaints: whitelist-complaints@eco.de
+List-Unsubscribe: <mailto:list-unsubscribe+272760712_1938862_1502277_Tx1T0Nq98p@emarsys.net>, <https://list-unsubscribe.eservice.emarsys.net/api/unsubscribe/272760712_1938862_1502277_Tx1T0Nq98p>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative;
+ boundary="--=_---NextPart--=_-bZBjK53FKX"
+Message-ID: <0.1.45.738.1D69E610B42D898.0@uspmta120124.emarsys.net>
+Date: Fri, 9 Oct 2020 19:24:29 +0200
+
+
+----=_---NextPart--=_-bZBjK53FKX
+Content-Type: text/plain; charset=utf-8
+Content-transfer-encoding: quoted-printable
+
+The hunt continues with our latest stage of Steel
+Hunter!
+
+ENGLISH (
+https://link-na.wargaming.net/custloads/272760712/d_gulitskiy/GCRM-6067/ind=
+ex_en.html
+)
+
+ESPA=C3=91OL (
+https://link-na.wargaming.net/custloads/272760712/d_gulitskiy/GCRM-6067/ind=
+ex_es.html
+)
+
+PORTUGU=C3=8AS (
+https://link-na.wargaming.net/custloads/272760712/d_gulitskiy/GCRM-6067/ind=
+ex_pt.html
+)
+
+( https://worldoftanks.com/ )
+
+World of Tanks (
+https://worldoftanks.com/en/news/game-modes/steel-hunter-stage-3-1020/?utm_=
+source=3Demail&utm_medium=3Demail&utm_campaign=3Dwot-crm&utm_content=3Dcrm-=
+100920-steelhunterstage3&utm_term=3Dinf
+)
+
+Steel Hunter Stage 3
+
+Get your hunting gear in
+order because Steel Hunter Stage 3 begins this Monday, October
+12th! Choose between a Survivor, Hunter, or Scout and bag
+yourself some Bonds, Credits, a unique 2D Style and more. May the
+best predator prevail!
+
+THE MOST DANGEROUS
+GAME (
+https://worldoftanks.com/en/news/game-modes/steel-hunter-stage-3-1020/?utm_=
+source=3Demail&utm_medium=3Demail&utm_campaign=3Dwot-crm&utm_content=3Dcrm-=
+100920-steelhunterstage3&utm_term=3Dinf
+)
+
+(
+https://worldoftanks.com/en/news/premium-shop/waffentrager-offers-0920/?utm=
+_source=3Demail&utm_medium=3Demail&utm_campaign=3Dwot-crm&utm_content=3Dcrm=
+-100920-lwt-footlockerslastchance&utm_term=3Dmnt
+)
+
+The Last Waffentr=C3=A4ger Special
+Footlockers =E2=80=93 Last Chance
+
+Heads up tankers, The Last
+Waffentr=C3=A4ger=E2=80=99s Special Footlockers are leaving the Premium Sho=
+p
+on October 12th! This is your last chance to unlock the keys to
+the Last Waffentr=C3=A4ger itself, alongside a cargo load of in-game
+goods like Credits, WoT Premium and more. There=E2=80=99s a chance you=E2=
+=80=99ll
+also receive one of 16 Premium vehicles, so grab your keys and
+open up a box of sweet stuff before they expire!
+
+SPECIAL DELIVERY (
+https://worldoftanks.com/en/news/premium-shop/waffentrager-offers-0920/?utm=
+_source=3Demail&utm_medium=3Demail&utm_campaign=3Dwot-crm&utm_content=3Dcrm=
+-100920-lwt-footlockerslastchance&utm_term=3Dmnt
+)
+
+(
+https://youtu.be/LufbTwW55t4/?utm_source=3Demail&utm_medium=3Demail&utm_cam=
+paign=3Dwot-crm&utm_content=3Dcrm-100920-wotsnext19&utm_term=3Dinf
+)
+
+WoT=E2=80=99s Next #19
+
+This week, Cmdr_AF reminds you not
+to be the last to know about our soon-to-be-closing Last
+Waffentr=C3=A4ger event, with official Catch Us If You Can streams
+featuring our Wargaming team fending off other players in
+high-stakes battles to keep our tanking dignity. Stick around
+through the end of the video for info on the World of Tanks
+SteelSeries Community League, Update 1.10.1 Common Test, Steel
+Hunter Stage 3, and, of course, bonus missions and a free Premium
+vehicle for one lucky community member!
+
+NYAH NYAH, CAN=E2=80=99T CATCH US (
+https://youtu.be/LufbTwW55t4/?utm_source=3Demail&utm_medium=3Demail&utm_cam=
+paign=3Dwot-crm&utm_content=3Dcrm-100920-wotsnext19&utm_term=3Dinf
+)
+
+Twitter ( https://twitter.com/worldoftanks/ )
+Facebook ( https://www.facebook.com/WorldOfTanks )
+Youtube ( https://www.youtube.com/user/WorldOfTanksCom )
+
+All images, content, and
+text =C2=A9 2009-2020 Wargaming Group Limited. All rights reserved.
+
+=C2=A9 Wargaming (USA) Inc.,
+PO Box 202555 Austin, TX 78720 USA
+
+EULA ( http://legal.na.wargaming.net/?EULA ) PRIVACY POLICY (
+http://legal.na.wargaming.net/?Privacy-Policy ) CUSTOMER
+SERVICE CENTER ( https://na.wargaming.net/support/ )
+
+If you no longer wish to receive our newsletters, you can
+unsubscribe. ( https://na.wargaming.net/personal/subscriptions/ )
+
+Wargaming ( https://na.wargaming.net/en/ )
+
+ESRB
+
+Online Interactions
+Not Rated by the ESRB
+
+----=_---NextPart--=_-bZBjK53FKX
+Content-Type: text/html; charset=utf-8
+Content-transfer-encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPer=
+Inch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
+<title>Steel Hunter returns with Stage 3!</title>
+<meta content=3D"text/html; charset=3Dutf-8" http-equiv=3D"Content-Type" />
+<meta content=3D"width=3Ddevice-width, initial-scale=3D1.0" name=3D"viewpor=
+t" />
+<style type=3D"text/css">
+a[x-apple-data-detectors] {
+color: inherit !important;
+text-decoration: none !important;
+}
+a[href^=3D"tel"]:hover {
+text-decoration: none !important;
+}
+table td {
+mso-line-height-rule: exactly;
+}
+a img {
+border: none;
+}
+th {
+padding: 0;
+}
+td {
+text-decoration: none;
+}
+a {
+outline: none;
+color: #010101;
+text-decoration: underline;
+}
+a:hover {
+text-decoration: none !important;
+}
+.h-u a {
+text-decoration: none;
+}
+.h-u a:hover {
+text-decoration: underline !important;
+}
+.btn-01:hover {
+background-color: #0e1e38 !important;
+}
+.active a:hover {
+opacity: 0.8;
+}
+.btn-01,
+.active a {
+transition: all 0.3s ease;
+}
+ul {
+Margin: 0 0 0 20px;
+padding: 0;
+}
+@media only screen and (max-width:375px) and (min-width:374px) {
+.gmail-fix {
+min-width: 374px !important;
+}
+}
+@media only screen and (max-width:414px) and (min-width:413px) {
+.gmail-fix {
+min-width: 413px !important;
+}
+}
+@media only screen and (max-width:500px) {
+
+.flexible {
+width: 100% !important;
+}
+.img-flex img {
+width: 100% !important;
+height: auto !important;
+}
+.table-holder {
+display: table !important;
+width: 100% !important;
+}
+.thead {
+display: table-header-group !important;
+width: 100% !important;
+}
+.tfoot {
+display: table-footer-group !important;
+width: 100% !important;
+}
+.tflex {
+display: block !important;
+width: 100% !important;
+}
+.hide {
+display: none !important;
+width: 0 !important;
+height: 0 !important;
+padding: 0 !important;
+font-size: 0 !important;
+line-height: 0 !important;
+}
+.tc {
+margin: 0 auto !important;
+float: none !important;
+}
+.ac {
+text-align: center !important;
+}
+.h-0 {
+height: 0 !important;
+}
+.p-0 {
+padding: 0 !important;
+}
+.p-20 {
+padding: 20px !important;
+}
+.p-30 {
+padding: 30px !important;
+}
+.plr-0 {
+padding-left: 0 !important;
+padding-right: 0 !important;
+}
+.plr-10 {
+padding-left: 10px !important;
+padding-right: 10px !important;
+}
+.plr-15 {
+padding-left: 15px !important;
+padding-right: 15px !important;
+}
+.pt-20 {
+padding-top: 20px !important;
+}
+.pt-30 {
+padding-top: 30px !important;
+}
+.pb-20 {
+padding-bottom: 20px !important;
+}
+.pb-30 {
+padding-bottom: 30px !important;
+}
+
+.fs-16 {
+font-size: 15px !important;
+line-height: 18px !important;
+}
+.fs-18 {
+font-size: 18px !important;
+line-height: 22px !important;
+}
+.bg-01 {
+background: #0e1e38 !important;
+}
+.pt-100 {
+padding-top: 20px !important;
+text-shadow: 1px 1px 3px #000;
+}
+.w-100 img {
+width: 100% !important;
+height: auto !important;
+}
+}
+@media screen and (max-width: 599px) {
+.widthResponsive {
+width: 320px !important;
+}
+.widthResponsivePreheader {
+width: 300px !important;
+}
+.widthResponsiveInterne {
+width: 300px !important;
+}
+.widthResponsiveInterneTitle {
+width: 300px !important;
+font-size: 38px !important;
+}
+.widthResponsiveInterneToCenter {
+width: 300px !important;
+text-align: center !important;
+}
+.widthResponsiveInterneHeightAuto {
+width: 300px !important;
+height: auto !important;
+text-align: center !important;
+}
+.widthResponsiveInterneBlock {
+width: 300px !important;
+display: block !important;
+}
+.widthResponsiveInterneBlockToCenter {
+width: 300px !important;
+text-align: center !important;
+display: block !important;
+margin: auto !important;
+}
+.widthLang {
+width: 187px !important;
+}
+.widthRewardsElement {
+width: 130px !important;
+}
+.widthRewards {
+width: 299px !important;
+}
+.width1 {
+width: 1px !important;
+}
+.fullWidth {
+width: 100% !important;
+}
+.demi {
+width: 320px !important;
+}
+.demiBlock {
+width: 320px !important;
+display: block !important;
+}
+.width275 {
+width: 275px !important;
+}
+.width150ToCenter {
+width: 150px !important;
+text-align: center !important;
+}
+.centerTable {
+margin: 0 auto !important;
+text-align: center;
+}
+.block {
+display: block !important;
+}
+.hide {
+display: none !important;
+}
+}
+.tonline {
+display: block !important;
+}
+.appleLinks a {
+color: #999999;
+text-decoration: none;
+}
+i
+</style>
+</head>
+<body style=3D"margin: 0px; padding: 0px; text-size-adjust: 100%;" bgcolor=
+=3D"#eeeeee">
+<div ems:preheader style=3D"display:none!important;font-size:1px;color:#333=
+333;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;=
+mso-hide:all">The hunt continues with our latest stage of Steel Hunter!</di=
+v>
+<table cellpadding=3D"0" cellspacing=3D"0" style=3D"min-width: 320px;" widt=
+h=3D"100%" bgcolor=3D"#eeeeee" class=3D"gmail-fix">
+<!-- pre-header -->
+<tr>
+<td style=3D"display: none; font-size: 0px; line-height: 0;">
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" bgcolor=3D"#000000"=
+ class=3D"full">
+<tr>
+<td style=3D"display:none !important; visibility:hidden; mso-hide:all; font=
+-size:1px; color:#000000; line-height:1px; max-height:0px; max-width:0px; o=
+pacity:0; overflow:hidden;">The hunt continues with our latest stage of Ste=
+el Hunter!</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- /pre-header -->
+<tr>
+<td>
+<table cellspacing=3D"0" cellpadding=3D"0" style=3D"margin: 0px auto;" alig=
+n=3D"center" width=3D"600" class=3D"widthResponsive">
+<tr>
+<td bgcolor=3D"#000000">
+<table cellspacing=3D"0" cellpadding=3D"0" width=3D"100%">
+<!-- HEADER -->
+<tr>
+<td height=3D"12" style=3D"font-size:0px; line-height:0px;" bgcolor=3D"#000=
+000">&nbsp;</td>
+</tr>
+<!-- langues -->
+<tr>
+<td valign=3D"middle" align=3D"center" width=3D"600" class=3D"widthResponsi=
+ve">
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" bgcolor=3D"#000000"=
+ class=3D"widthResponsivePreheader" align=3D"center">
+<tr>
+<td valign=3D"middle" align=3D"center" class=3D"demiBlock">
+<table style=3D"border-collapse: collapse; table-layout: fixed;" align=3D"c=
+enter" class=3D"centerTable">
+<tr>
+<!--[if !mso]>-->
+<td width=3D"10" style=3D"font-size:0px; line-height:0px;">&nbsp;</td>
+<!--<![endif]-->
+<td valign=3D"middle"><a style=3D"font-family: Arial, Tahoma, sans-serif; c=
+olor:#f35d02; font-size: 13px; text-decoration: none;" href=3D"https://link=
+-na.wargaming.net/u/nrd.php?p=3DTx1T0Nq98p_1502277_1938862_1_1&ems_l=3D2089=
+303">ENGLISH</a>
+<!--[if mso]>&nbsp;<![endif]-->
+</td>
+<!--[if !mso]>-->
+<td width=3D"10" style=3D"font-size:0px; line-height:0px;">&nbsp;</td>
+<!--<![endif]-->
+<td valign=3D"middle"><a style=3D"font-family: Arial, Tahoma, sans-serif; c=
+olor:#a09c86; font-size: 13px; text-decoration: none;" href=3D"https://link=
+-na.wargaming.net/u/nrd.php?p=3DTx1T0Nq98p_1502277_1938862_1_2&ems_l=3D2089=
+303">ESPA&Ntilde;OL</a>
+<!--[if mso]>&nbsp;<![endif]-->
+</td>
+<!--[if !mso]>-->
+<td width=3D"10" style=3D"font-size:0px; line-height:0px;">&nbsp;</td>
+<!--<![endif]-->
+<td valign=3D"middle"><a style=3D"font-family: Arial, Tahoma, sans-serif; c=
+olor:#a09c86; font-size: 13px; text-decoration: none;" href=3D"https://link=
+-na.wargaming.net/u/nrd.php?p=3DTx1T0Nq98p_1502277_1938862_1_3&ems_l=3D2089=
+303">PORTUGU=C3=8AS</a>
+<!--[if mso]>&nbsp;<![endif]-->
+</td>
+<!--[if !mso]>-->
+<td width=3D"10" style=3D"font-size:0px; line-height:0px;">&nbsp;</td>
+<!--<![endif]-->
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- /langues -->
+<!-- logo -->
+<tr>
+<td style=3D"padding-top: 40px; padding-bottom: 20px;" align=3D"center" val=
+ign=3D"middle">
+<a target=3D"_blank" href=3D"https://link-na.wargaming.net/u/nrd.php?p=3DTx=
+1T0Nq98p_1502277_1938862_1_4&ems_l=3D2089303"><img width=3D"43" border=3D"0=
+" style=3D"display: block;" src=3D"https://link-na.wargaming.net/custloads/=
+272760712/md_775251.png" /></a>
+</td>
+</tr>
+<!-- /logo -->
+<!-- /HEADER -->
+<!-- MAIN PART -->
+<!-- image -->
+<tr>
+<td class=3D"img-flex" align=3D"center">
+<a target=3D"_blank" href=3D"https://link-na.wargaming.net/u/nrd.php?p=3DTx=
+1T0Nq98p_1502277_1938862_1_5&ems_l=3D2089303">
+<img alt=3D"World of Tanks" width=3D"600" border=3D"0" style=3D"vertical-al=
+ign: top; height: auto; width: 600px;" src=3D"https://link-na.wargaming.net=
+/custloads/272760712/d_gulitskiy/GCRM-6067/header1-steel-hunter-600x337.jpg=
+" />
+</a>
+</td>
+</tr>
+<!-- /image -->
+<!-- titre -->
+<tr>
+<td class=3D"widthResponsive" align=3D"center" valign=3D"middle" style=3D"f=
+ont-family: Arial, Helvetica, sans-serif; font-size: 26px; color: rgb(245, =
+183, 124); width: 600px; padding-top: 20px; padding-bottom: 20px;">
+<table class=3D"widthResponsiveInterne" bgcolor=3D"#000000" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"width: 528px;">
+<tr>
+<td class=3D"widthResponsiveInterneTitle" align=3D"center" valign=3D"middle=
+" style=3D"font-family: Arial, Helvetica, sans-serif; font-size: 25px; colo=
+r: rgb(233, 226, 191); width: 528px;"><strong>Steel Hunter Stage 3</strong>=
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- titre -->
+<!-- text -->
+<tr>
+<td class=3D"widthResponsive" align=3D"center" valign=3D"middle" style=3D"f=
+ont-family: Arial, Helvetica, sans-serif; font-size: 26px; padding-bottom: =
+20px; color: rgb(245, 183, 124); width: 600px;">
+<table class=3D"widthResponsiveInterne" bgcolor=3D"#000000" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"width: 420px;">
+<tr>
+<td class=3D"widthResponsiveInterne" align=3D"center" valign=3D"middle" sty=
+le=3D"font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: rg=
+b(160, 156, 134); width: 420px;">
+Get your hunting gear in order because Steel Hunter Stage 3 begins this Mon=
+day, October 12<sup>th</sup>! Choose between a Survivor, Hunter, or Scout a=
+nd bag yourself some Bonds, Credits, a unique 2D Style and more. May the be=
+st predator prevail!<br />
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- text -->
+<!-- CTA -->
+<tr>
+<td style=3D"padding-bottom: 20px;" align=3D"center" valign=3D"middle">
+<table style=3D"border-collapse: separate; width: auto;" cellspacing=3D"0" =
+cellpadding=3D"0" border=3D"0">
+<tr>
+<td height=3D"32" width=3D"16">
+<div>
+<!--[if mso]>
+<v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schem=
+as-microsoft-com:office:word" href=3D"https://worldoftanks.com/en/news/game=
+-modes/steel-hunter-stage-3-1020/?utm_source=3Demail&utm_medium=3Demail&utm=
+_campaign=3Dwot-crm&utm_content=3Dcrm-100920-steelhunterstage3&utm_term=3Di=
+nf" ems:notrack=3D"true" target=3D"_blank" style=3D"height:36px;v-text-anch=
+or:middle;width:222px;" arcsize=3D"57%" strokecolor=3D"#ff5200" fillcolor=
+=3D"#ff5200">
+<w:anchorlock/>
+<center class=3D"tonline" style=3D"display: none;color:#ffffff;font-family:=
+sans-serif;font-size:13px;font-weight:bold;">THE MOST DANGEROUS GAME</cente=
+r>
+</v:roundrect>
+<![endif]-->
+<a href=3D"https://link-na.wargaming.net/u/nrd.php?p=3DTx1T0Nq98p_1502277_1=
+938862_1_6&ems_l=3D2089303" target=3D"_blank" style=3D"background-color:#ff=
+5200;border:1px solid #ff5200;border-radius:18px;color:#ffffff;display:inli=
+ne-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height=
+:32px;text-align:center;text-decoration:none;width:222px;-webkit-text-size-=
+adjust:none;mso-hide:all;">THE MOST DANGEROUS GAME</a>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- CTA -->
+<!-- divider -->
+<tr>
+<td class=3D"widthResponsive" align=3D"center" valign=3D"middle" style=3D"w=
+idth: 600px; padding-bottom: 20px;"><img class=3D"widthResponsiveInterne" b=
+order=3D"0" width=3D"337" src=3D"https://link-na.wargaming.net/custloads/27=
+2760712/md_775252.png" /></td>
+</tr>
+<!-- divider -->
+<!-- /MAIN PART -->
+<!-- PART I -->
+<!-- image -->
+<tr>
+<td class=3D"widthResponsive" align=3D"center" valign=3D"middle" style=3D"w=
+idth: 600px; padding-bottom: 20px;"><a target=3D"_blank" href=3D"https://li=
+nk-na.wargaming.net/u/nrd.php?p=3DTx1T0Nq98p_1502277_1938862_1_7&ems_l=3D20=
+89303" style=3D"font-family: Arial, Tahoma, sans-serif; color: rgb(0, 0, 0)=
+; font-size: 12px; text-decoration: none;"><img class=3D"widthResponsiveInt=
+erne" border=3D"0" width=3D"451" src=3D"https://link-na.wargaming.net/custl=
+oads/272760712/d_gulitskiy/GCRM-6067/header2-footlockers-600x337.jpg" /></a=
+>
+<!--[if mso]>&nbsp;<![endif]-->
+</td>
+</tr>
+<!-- /image -->
+<!-- title -->
+<tr>
+<td class=3D"widthResponsive" align=3D"center" valign=3D"middle" style=3D"f=
+ont-family: Arial, Helvetica, sans-serif; font-size: 26px; color: rgb(245, =
+183, 124); width: 600px; padding-bottom: 20px;">
+<table class=3D"widthResponsiveInterne" bgcolor=3D"#000000" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"width: 528px;">
+<tr>
+<td class=3D"widthResponsiveInterneTitle" align=3D"center" valign=3D"middle=
+" style=3D"font-family: Arial, Helvetica, sans-serif; font-size: 25px; colo=
+r: rgb(233, 226, 191); width: 528px;"><strong>The Last Waffentr=C3=A4ger Sp=
+ecial Footlockers =E2=80=93 Last Chance</strong></td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- /title -->
+<!-- text -->
+<tr>
+<td class=3D"widthResponsive" align=3D"center" valign=3D"middle" style=3D"f=
+ont-family: Arial, Helvetica, sans-serif; font-size: 26px; color: rgb(245, =
+183, 124); width: 600px; padding-bottom: 20px;">
+<table class=3D"widthResponsiveInterne" bgcolor=3D"#000000" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"width: 420px;">
+<tr>
+<td class=3D"widthResponsiveInterne" align=3D"center" valign=3D"middle" sty=
+le=3D"font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: rg=
+b(160, 156, 134); width: 420px;">
+Heads up tankers, The Last Waffentr=C3=A4ger=E2=80=99s Special Footlockers =
+are leaving the Premium Shop on October 12th! This is your last chance to u=
+nlock the keys to the Last Waffentr=C3=A4ger itself, alongside a cargo load=
+ of in-game goods like Credits, WoT Premium and more. There=E2=80=99s a cha=
+nce you=E2=80=99ll also receive one of 16 Premium vehicles, so grab your ke=
+ys and open up a box of sweet stuff before they expire!
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- /text -->
+<!-- CTA -->
+<tr>
+<td style=3D"padding-bottom: 20px;" align=3D"center" valign=3D"middle">
+<table style=3D"border-collapse: separate; width: auto;" cellspacing=3D"0" =
+cellpadding=3D"0" border=3D"0">
+<tr>
+<td height=3D"32" width=3D"16">
+<div>
+<!--[if mso]>
+<v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schem=
+as-microsoft-com:office:word" href=3D"https://worldoftanks.com/en/news/prem=
+ium-shop/waffentrager-offers-0920/?utm_source=3Demail&utm_medium=3Demail&ut=
+m_campaign=3Dwot-crm&utm_content=3Dcrm-100920-lwt-footlockerslastchance&utm=
+_term=3Dmnt" ems:notrack=3D"true" target=3D"_blank" style=3D"height:36px;v-=
+text-anchor:middle;width:222px;" arcsize=3D"57%" strokecolor=3D"#ff5200" fi=
+llcolor=3D"#ff5200">
+<w:anchorlock/>
+<center class=3D"tonline" style=3D"display: none;color:#ffffff;font-family:=
+sans-serif;font-size:13px;font-weight:bold;">SPECIAL DELIVERY</center>
+</v:roundrect>
+<![endif]-->
+<a href=3D"https://link-na.wargaming.net/u/nrd.php?p=3DTx1T0Nq98p_1502277_1=
+938862_1_8&ems_l=3D2089303" target=3D"_blank" style=3D"background-color:#ff=
+5200;border:1px solid #ff5200;border-radius:18px;color:#ffffff;display:inli=
+ne-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height=
+:32px;text-align:center;text-decoration:none;width:222px;-webkit-text-size-=
+adjust:none;mso-hide:all;">SPECIAL DELIVERY</a>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- CTA -->
+<!-- divider -->
+<tr>
+<td class=3D"widthResponsive" align=3D"center" valign=3D"middle" style=3D"w=
+idth: 600px; padding-bottom: 20px;"><img class=3D"widthResponsiveInterne" b=
+order=3D"0" width=3D"337" src=3D"https://link-na.wargaming.net/custloads/27=
+2760712/md_775252.png" /></td>
+</tr>
+<!-- divider -->
+<!-- /PART I -->
+<!-- PART I -->
+<!-- image -->
+<tr>
+<td class=3D"widthResponsive" align=3D"center" valign=3D"middle" style=3D"w=
+idth: 600px; padding-bottom: 20px;"><a target=3D"_blank" href=3D"https://li=
+nk-na.wargaming.net/u/nrd.php?p=3DTx1T0Nq98p_1502277_1938862_1_9&ems_l=3D20=
+89303" style=3D"font-family: Arial, Tahoma, sans-serif; color: rgb(0, 0, 0)=
+; font-size: 12px; text-decoration: none;"><img class=3D"widthResponsiveInt=
+erne" border=3D"0" width=3D"451" src=3D"https://link-na.wargaming.net/custl=
+oads/272760712/d_gulitskiy/GCRM-6067/header3-en-wotsnext19-600x337.jpg" /><=
+/a>
+<!--[if mso]>&nbsp;<![endif]-->
+</td>
+</tr>
+<!-- /image -->
+<!-- titre -->
+<tr>
+<td class=3D"widthResponsive" align=3D"center" valign=3D"middle" style=3D"f=
+ont-family: Arial, Helvetica, sans-serif; font-size: 26px; color: rgb(245, =
+183, 124); width: 600px; padding-bottom: 20px;">
+<table class=3D"widthResponsiveInterne" bgcolor=3D"#000000" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"width: 528px;">
+<tr>
+<td class=3D"widthResponsiveInterneTitle" align=3D"center" valign=3D"middle=
+" style=3D"font-family: Arial, Helvetica, sans-serif; font-size: 25px; colo=
+r: rgb(233, 226, 191); width: 528px;"><strong>WoT=E2=80=99s Next #19</stron=
+g></td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- /titre -->
+<!-- text -->
+<tr>
+<td class=3D"widthResponsive" align=3D"center" valign=3D"middle" style=3D"f=
+ont-family: Arial, Helvetica, sans-serif; font-size: 26px; color: rgb(245, =
+183, 124); width: 600px; padding-bottom: 20px;">
+<table class=3D"widthResponsiveInterne" bgcolor=3D"#000000" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"width: 420px;">
+<tr>
+<td class=3D"widthResponsiveInterne" align=3D"center" valign=3D"middle" sty=
+le=3D"font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: rg=
+b(160, 156, 134); width: 420px;">
+This week, Cmdr_AF reminds you not to be the last to know about our soon-to=
+-be-closing Last Waffentr=C3=A4ger event, with official Catch Us If You Can=
+ streams featuring our Wargaming team fending off other players in high-sta=
+kes battles to keep our tanking dignity. Stick around through the end of th=
+e video for info on the World of Tanks SteelSeries Community League, Update=
+ 1.10.1 Common Test, Steel Hunter Stage 3, and, of course, bonus missions a=
+nd a free Premium vehicle for one lucky community member!
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- /text -->
+<!-- CTA -->
+<tr>
+<td style=3D"padding-bottom: 20px;" align=3D"center" valign=3D"middle">
+<table style=3D"border-collapse: separate; width: auto;" cellspacing=3D"0" =
+cellpadding=3D"0" border=3D"0">
+<tr>
+<td height=3D"32" width=3D"16">
+<div>
+<!--[if mso]>
+<v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schem=
+as-microsoft-com:office:word" href=3D"https://youtu.be/LufbTwW55t4/?utm_sou=
+rce=3Demail&utm_medium=3Demail&utm_campaign=3Dwot-crm&utm_content=3Dcrm-100=
+920-wotsnext19&utm_term=3Dinf" ems:notrack=3D"true" target=3D"_blank" style=
+=3D"height:36px;v-text-anchor:middle;width:222px;" arcsize=3D"57%" strokeco=
+lor=3D"#ff5200" fillcolor=3D"#ff5200">
+<w:anchorlock/>
+<center class=3D"tonline" style=3D"display: none;color:#ffffff;font-family:=
+sans-serif;font-size:13px;font-weight:bold;">NYAH NYAH, CAN=E2=80=99T CATCH=
+ US</center>
+</v:roundrect>
+<![endif]-->
+<a href=3D"https://link-na.wargaming.net/u/nrd.php?p=3DTx1T0Nq98p_1502277_1=
+938862_1_10&ems_l=3D2089303" target=3D"_blank" style=3D"background-color:#f=
+f5200;border:1px solid #ff5200;border-radius:18px;color:#ffffff;display:inl=
+ine-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-heigh=
+t:32px;text-align:center;text-decoration:none;width:222px;-webkit-text-size=
+-adjust:none;mso-hide:all;">NYAH NYAH, CAN=E2=80=99T CATCH US</a>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- CTA -->
+<!-- divider -->
+<tr>
+<td class=3D"widthResponsive" align=3D"center" valign=3D"middle" style=3D"w=
+idth: 600px; padding-bottom: 20px;"><img class=3D"widthResponsiveInterne" b=
+order=3D"0" width=3D"337" src=3D"https://link-na.wargaming.net/custloads/27=
+2760712/md_775252.png" /></td>
+</tr>
+<!-- divider -->
+<!-- /PART I -->
+<!-- FOOTER -->
+<!-- social medias -->
+<tr>
+<td align=3D"center">
+<table width=3D"600" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" class=
+=3D"demi" style=3D"background-color:#000000;">
+<tr>
+<td style=3D"background-color:#000000;" align=3D"center" valign=3D"middle">
+<table style=3D"width:170px;" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" bgcolor=3D"#000000">
+<tr>
+<td width=3D"47" valign=3D"middle" align=3D"center" style=3D"background-col=
+or:#000000;"><a href=3D"https://link-na.wargaming.net/u/nrd.php?p=3DTx1T0Nq=
+98p_1502277_1938862_1_11&ems_l=3D2089303" target=3D"_blank"><img src=3D"htt=
+ps://link-na.wargaming.net/custloads/272760712/md_774758.png" alt=3D"Twitte=
+r" width=3D"40" border=3D"0" /></a></td>
+<td width=3D"47" valign=3D"middle" align=3D"center" style=3D"background-col=
+or:#000000;"><a href=3D"https://link-na.wargaming.net/u/nrd.php?p=3DTx1T0Nq=
+98p_1502277_1938862_1_12&ems_l=3D2089303" target=3D"_blank"><img src=3D"htt=
+ps://link-na.wargaming.net/custloads/272760712/md_774756.png" alt=3D"Facebo=
+ok" width=3D"40" border=3D"0" /></a></td>
+<td width=3D"47" valign=3D"middle" align=3D"center" style=3D"background-col=
+or:#000000;"><a href=3D"https://link-na.wargaming.net/u/nrd.php?p=3DTx1T0Nq=
+98p_1502277_1938862_1_13&ems_l=3D2089303" target=3D"_blank"><img src=3D"htt=
+ps://link-na.wargaming.net/custloads/272760712/md_774760.png" alt=3D"Youtub=
+e" width=3D"40" border=3D"0" /></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- /social medias -->
+<!-- text -->
+<tr>
+<td style=3D"width:600px;" valign=3D"middle" align=3D"center" class=3D"widt=
+hResponsive">
+<table style=3D"width:450px;" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" bgcolor=3D"#000000" class=3D"widthResponsiveInterne">
+<tr>
+<td style=3D"font-family:Arial, Helvetica, sans-serif; font-size:11px; colo=
+r:#999999; width:450px; padding-top:25px; padding-bottom:40px;" valign=3D"m=
+iddle" align=3D"center" class=3D"widthResponsiveInterne">All images, conten=
+t, and text =C2=A9 <span class=3D"appleLinks"><a style=3D"color: #999999; t=
+ext-decoration: none;">2009-2020</a></span> Wargaming Group Limited. All ri=
+ghts reserved. <br/>
+=C2=A9 Wargaming (USA) Inc., <span class=3D"appleLinks"><a style=3D"color: =
+#999999; text-decoration: none;">PO Box 202555 Austin, TX 78720 USA</a></sp=
+an> <br />
+<br />
+<a href=3D"https://link-na.wargaming.net/u/nrd.php?p=3DTx1T0Nq98p_1502277_1=
+938862_1_14&ems_l=3D2089303" style=3D"color:#e9e2bf; text-decoration: none;=
+ font-size:11px;" target=3D"_blank">EULA</a> &nbsp; <a href=3D"https://link=
+-na.wargaming.net/u/nrd.php?p=3DTx1T0Nq98p_1502277_1938862_1_15&ems_l=3D208=
+9303" style=3D"color:#e9e2bf; text-decoration: none; font-size:11px;" targe=
+t=3D"_blank">PRIVACY POLICY</a> &nbsp; <a href=3D"https://link-na.wargaming=
+.net/u/nrd.php?p=3DTx1T0Nq98p_1502277_1938862_1_16&ems_l=3D2089303" style=
+=3D"color:#e9e2bf; text-decoration: none; font-size:11px;" target=3D"_blank=
+">CUSTOMER SERVICE CENTER</a><br />
+<br />If you no longer wish to receive our newsletters, you can <a href=3D"=
+https://link-na.wargaming.net/u/nrd.php?p=3DTx1T0Nq98p_1502277_1938862_1_17=
+&ems_l=3D2089303" style=3D"color:#e9e2bf; text-decoration: underline; font-=
+size:10px;" target=3D"_blank"> unsubscribe.</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- /text -->
+<!-- logo -->
+<tr>
+<td style=3D"width:600px;" valign=3D"middle" align=3D"center" class=3D"widt=
+hResponsive">
+<table style=3D"width:450px;" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" bgcolor=3D"#000000" class=3D"widthResponsiveInterne">
+<tr>
+<td style=3D"font-family:Arial, Helvetica, sans-serif; font-size:11px; colo=
+r:#999999; width:450px; padding-bottom:50px;" valign=3D"middle" align=3D"ce=
+nter" >
+<table style=3D"width:450px;" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" bgcolor=3D"#000000" class=3D"widthResponsiveInterne">
+<tr>
+<td width=3D"200" valign=3D"middle" align=3D"left" style=3D"background-colo=
+r:#000000;">
+<a href=3D"https://link-na.wargaming.net/u/nrd.php?p=3DTx1T0Nq98p_1502277_1=
+938862_1_18&ems_l=3D2089303" target=3D"_blank">
+<img src=3D"https://link-na.wargaming.net/custloads/272760712/md_718884.png=
+" alt=3D"Wargaming" width=3D"158" border=3D"0" />
+</a>
+</td>
+<td width=3D"200" valign=3D"middle" align=3D"right" style=3D"background-col=
+or:#000000;" >
+<img src=3D"http://image.wg-email.wargaming.net/image/wargaming/NA/WoTPC/00=
+_NEW_CRM_TEMPLATE_ELEMENTS/wotpcESRB.jpg" alt=3D"ESRB" width=3D"128" border=
+=3D"0" />
+<table style=3D"width:128px;" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" bgcolor=3D"#000000">
+<tr>
+<td width=3D"128" valign=3D"middle" align=3D"center" style=3D"font-family:A=
+rial, Helvetica, sans-serif; font-size:11px; color:#999999;background-color=
+:#000000;">
+<br>Online Interactions<br/>Not Rated by the ESRB
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- /logo -->
+<!-- /FOOTER -->
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<img src=3D"https://link-na.wargaming.net/mo/Tx1T0Nq98p_272760712_1938862_1=
+502277_2089303.gif" height=3D"2" width=3D"2" border=3D"0"></body>
+</html>
+----=_---NextPart--=_-bZBjK53FKX--
