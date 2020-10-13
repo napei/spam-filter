@@ -7,6 +7,7 @@ Adapted from : https://www.kaggle.com/veleon/spam-classification/execution
 
 
 from sklearn.metrics import precision_score, recall_score
+from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import cross_val_score, train_test_split
 from sklearn.pipeline import Pipeline
@@ -23,6 +24,7 @@ from email.parser import BytesParser
 import email.policy
 from bs4 import BeautifulSoup
 import urlextract
+from tqdm import tqdm
 
 ham_dir = "data/spamassassin/ham"
 spam_dir = "data/spamassassin/spam"
@@ -37,7 +39,7 @@ def load_single_email(path):
 
 
 def load_folder_of_emails(path):
-    return [load_single_email(os.path.join(path, f)) for f in sorted(os.listdir(path))]
+    return [load_single_email(os.path.join(path, f)) for f in tqdm(sorted(os.listdir(path)), desc="Loading emails: {}".format(path))]
 
 
 print("Loading emails")
@@ -119,7 +121,7 @@ class EmailToWords(BaseEstimator, TransformerMixin):
 
     def transform(self, X, y=None):
         X_to_words = []
-        for email in X:
+        for email in tqdm(X, desc='Transforming'):
             text = email_to_plain(email)
             if text is None:
                 text = 'empty'
@@ -153,12 +155,12 @@ class EmailToWords(BaseEstimator, TransformerMixin):
 
 
 class WordCountToVector(BaseEstimator, TransformerMixin):
-    def __init__(self, vocabulary_size=1000):
+    def __init__(self, vocabulary_size=2000):
         self.vocabulary_size = vocabulary_size
 
     def fit(self, X, y=None):
         total_word_count = Counter()
-        for word_count in X:
+        for word_count in tqdm(X, desc="Fitting word_count"):
             for word, count in word_count.items():
                 total_word_count[word] += min(count, 10)
         self.most_common = total_word_count.most_common()[
@@ -171,7 +173,7 @@ class WordCountToVector(BaseEstimator, TransformerMixin):
         rows = []
         cols = []
         data = []
-        for row, word_count in enumerate(X):
+        for row, word_count in tqdm(enumerate(X), desc="Transforming word_count"):
             for word, count in word_count.items():
                 rows.append(row)
                 cols.append(self.vocabulary_.get(word, 0))
@@ -195,6 +197,8 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 X_augmented_train = email_pipeline.fit_transform(X_train)
 
+# classifier = MultinomialNB()
+# classifier = svm.OneClassSVM() # Not working
 classifier = LogisticRegression(solver="liblinear", random_state=85)
 # classifier = MLPClassifier(solver='lbfgs', alpha=1e-5,
 #                            hidden_layer_sizes=(5, 2), random_state=1)
