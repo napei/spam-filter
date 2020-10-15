@@ -6,17 +6,34 @@ Adapted from : https://www.kaggle.com/veleon/spam-classification/execution
 """
 
 
-from sklearn.metrics import precision_score, recall_score
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.linear_model import LogisticRegression
+from nltk.tokenize import word_tokenize
+from sklearn.metrics import precision_score, recall_score, classification_report
+from sklearn.linear_model import *
 from sklearn.model_selection import cross_val_score, train_test_split
+from sklearn.feature_extraction import DictVectorizer
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.multiclass import *
+from sklearn.naive_bayes import *
 from sklearn.pipeline import Pipeline
 from sklearn import datasets, svm, metrics, tree
 from scipy.sparse import csr_matrix
 from sklearn.base import BaseEstimator, TransformerMixin
-import nltk
 from sklearn.neural_network import MLPClassifier
-from collections import Counter
+from collections import Counter, OrderedDict
+
+from sklearn.naive_bayes import *
+from sklearn.dummy import *
+from sklearn.ensemble import *
+from sklearn.neighbors import *
+from sklearn.tree import *
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import HashingVectorizer
+from sklearn.calibration import *
+from sklearn.linear_model import *
+from sklearn.multiclass import *
+from sklearn.svm import *
+
 import pandas as pd
 import numpy as np
 import os
@@ -25,6 +42,14 @@ import email.policy
 from bs4 import BeautifulSoup
 import urlextract
 from tqdm import tqdm
+from string import punctuation, digits
+from itertools import chain, islice
+import re
+import time
+import pprint
+
+import nltk
+nltk.download('punkt')
 
 ham_dir = "data/spamassassin/ham"
 spam_dir = "data/spamassassin/spam"
@@ -39,7 +64,7 @@ def load_single_email(path):
 
 
 def load_folder_of_emails(path):
-    return [load_single_email(os.path.join(path, f)) for f in tqdm(sorted(os.listdir(path)), desc="Loading emails: {}".format(path))]
+    return [load_single_email(os.path.join(path, f)) for f in (tqdm(sorted(os.listdir(path)), desc="Loading emails: {}".format(path)))]
 
 
 print("Loading emails")
@@ -68,7 +93,7 @@ def html_to_plain(email):
         soup = BeautifulSoup(email.get_content(), 'html.parser')
         return soup.text.replace('\n\n', '')
     except:
-        return "empty"
+        return ""
 
 
 def get_email_subject(email):
@@ -101,118 +126,138 @@ def email_to_plain(email):
 # - Replace urls with "URL"
 # - Replace numbers with "NUMBER"
 # - Perform Stemming (trim word endings with library)
-
-
 class EmailToWords(BaseEstimator, TransformerMixin):
-    def __init__(self, stripHeaders=True, lowercaseConversion=True, punctuationRemoval=True,
-                 urlReplacement=True, numberReplacement=True, stemming=True, includeSubject=True):
-        self.stripHeaders = stripHeaders
-        self.lowercaseConversion = lowercaseConversion
-        self.punctuationRemoval = punctuationRemoval
-        self.urlReplacement = urlReplacement
+    def __init__(self, includeSubject=True, stripNumbers=True):
         self.url_extractor = urlextract.URLExtract()
-        self.numberReplacement = numberReplacement
-        self.stemming = stemming
         self.stemmer = nltk.PorterStemmer()
         self.includeSubject = includeSubject
+        self.stripNumbers = stripNumbers
 
     def fit(self, X, y=None):
         return self
 
+    # Transforms raw email into parseable text
     def transform(self, X, y=None):
-        X_to_words = []
-        for email in tqdm(X, desc='Transforming'):
+        c = []
+        regex = re.compile(r"[0-9]+")
+        for email in tqdm(X, desc='Transforming emails'):
             text = email_to_plain(email)
+            subject = str(get_email_subject(email)).lower()
+            if subject is None:
+                subject = ""
             if text is None:
-                text = 'empty'
-            if self.lowercaseConversion:
-                text = text.lower()
+                text = ""
+            text += " " + subject
 
-            if self.urlReplacement:
-                urls = self.url_extractor.find_urls(text)
-                for url in urls:
-                    text = text.replace(url, 'URL')
-
-            if self.punctuationRemoval:
-                text = text.replace('.', '')
-                text = text.replace(',', '')
-                text = text.replace('!', '')
-                text = text.replace('?', '')
-
-            if self.includeSubject:
-                s = get_email_subject(email)
-                text = str(s).lower() + text
-
-            word_counts = Counter(text.split())
-            if self.stemming:
-                stemmed_word_count = Counter()
-                for word, count in word_counts.items():
-                    stemmed_word = self.stemmer.stem(word)
-                    stemmed_word_count[stemmed_word] += count
-                word_counts = stemmed_word_count
-            X_to_words.append(word_counts)
-        return np.array(X_to_words)
+            urls = self.url_extractor.find_urls(text)
+            for url in urls:
+                text = text.replace(url, ' URL ')
+            text = re.sub(regex, ' NUMBER ', text)
+            text = text.translate(str.maketrans('', '', punctuation)).lower()
+            # c.append(text)
+            words = word_tokenize(text)
+            # c.update([self.stemmer.stem(word) for word in words])
+            c.append(" ".join([self.stemmer.stem(word) for word in words]))
+        return c
 
 
-class WordCountToVector(BaseEstimator, TransformerMixin):
-    def __init__(self, vocabulary_size=2000):
-        self.vocabulary_size = vocabulary_size
+process_emails = Pipeline([
+    ("email_stemming", EmailToWords()),
+], verbose=True)
 
-    def fit(self, X, y=None):
-        total_word_count = Counter()
-        for word_count in tqdm(X, desc="Fitting word_count"):
-            for word, count in word_count.items():
-                total_word_count[word] += min(count, 10)
-        self.most_common = total_word_count.most_common()[
-            :self.vocabulary_size]
-        self.vocabulary_ = {word: index + 1 for index,
-                            (word, count) in enumerate(self.most_common)}
-        return self
+# Transform Ham
+processed_ham = process_emails.fit_transform(ham_emails)
+if len(ham_emails) != len(processed_ham):
+    raise ValueError("Ham not ham")
 
-    def transform(self, X, y=None):
-        rows = []
-        cols = []
-        data = []
-        for row, word_count in tqdm(enumerate(X), desc="Transforming word_count"):
-            for word, count in word_count.items():
-                rows.append(row)
-                cols.append(self.vocabulary_.get(word, 0))
-                data.append(count)
-        return csr_matrix((data, (rows, cols)), shape=(len(X), self.vocabulary_size + 1))
+# Transform Spam
+processed_spam = process_emails.fit_transform(spam_emails)
+if len(spam_emails) != len(processed_spam):
+    raise ValueError("Spam not spam")
+
+# Concatenate X and y and label
+X = np.array(processed_ham + processed_spam, dtype=object)
+y = np.array(["ham"] * len(processed_ham) + ["spam"] * len(processed_spam))
+
+# X_train, X_test, y_train, y_test = train_test_split(
+#     X, y, test_size=0.2)
+
+# vectorizer = CountVectorizer()
+
+# X_train_vec = vectorizer.fit_transform(X_train)
+# X_test_vec = vectorizer.transform(X_test)
+
+# classifier = LogisticRegression(
+#     solver="liblinear", random_state=85)
+
+# print("Training Model")
+# classifier.fit(X_train_vec, y_train)
+
+# score = classifier.score(X_test_vec, y_test)
+# print("{:.2f}%".format(100*score))
+# # y_pred = classifier.predict(X_test_vec)
+# # print("Precision: {:.2f}%".format(100 * precision_score(y_test, y_pred)))
+# # print("Recall: {:.2f}%".format(100 * recall_score(y_test, y_pred)))
+# print("Running Custom Test")
+# custom_test_data = load_folder_of_emails("data/custom/spam")
+# x_cust_test = process_emails.transform(custom_test_data)
+# x_vect_cust_test = vectorizer.transform(x_cust_test)
+# #
+# print(classifier.predict(x_vect_cust_test))
 
 
-email_pipeline = Pipeline([
-    ("Email to Words", EmailToWords()),
-    ("Wordcount to Vector", WordCountToVector()),
-])
+test_classifiers = [
+    # MultinomialNB(),
+    LogisticRegression(),
+    BernoulliNB(),
+    RandomForestClassifier(n_estimators=100, n_jobs=-1),
+    AdaBoostClassifier(),
+    BaggingClassifier(),
+    ExtraTreesClassifier(),
+    GradientBoostingClassifier(),
+    DecisionTreeClassifier(),
+    CalibratedClassifierCV(),
+    DummyClassifier(),
+    PassiveAggressiveClassifier(),
+    RidgeClassifier(),
+    RidgeClassifierCV(),
+    SGDClassifier(),
+    OneVsRestClassifier(SVC(kernel='linear')),
+    OneVsRestClassifier(LogisticRegression()),
+    KNeighborsClassifier()
+]
+
+test_vectorizers = [
+    CountVectorizer(),
+    TfidfVectorizer(),
+    HashingVectorizer()
+]
 
 
-# Training Model
-print("Training Model")
-X = np.array(ham_emails + spam_emails, dtype=object)
-y = np.array([0] * len(ham_emails) + [1] * len(spam_emails))
+def benchmark(cs, vs, X, y):
+    results = ["classifier,vectorizer,p_score,r_score"]
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2)
+    for c in tqdm(cs):
+        for v in vs:
+            # Train classifier
+            X_train_vec = v.fit_transform(X_train)
+            X_test_vec = v.transform(X_test)
 
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=85)
+            c.fit(X_train_vec, y_train)
+            # Test classifier
+            y_test_predicted = c.predict(X_test_vec)
+            p_score = precision_score(y_test, y_test_predicted)
+            r_score = recall_score(y_test, y_test_predicted)
+            # score = c.score(X_test_vec, y_test)
 
-X_augmented_train = email_pipeline.fit_transform(X_train)
+            results.append(
+                ",".join([c.__class__.__name__, v.__class__.__name__, "{:.5f}".format(p_score), "{:.5f}".format(r_score)]))
+    return results
 
-# classifier = MultinomialNB()
-# classifier = svm.OneClassSVM() # Not working
-classifier = LogisticRegression(solver="liblinear", random_state=85)
-# classifier = MLPClassifier(solver='lbfgs', alpha=1e-5,
-#                            hidden_layer_sizes=(5, 2), random_state=1)
-# classifier = svm.NuSVC()
 
-X_augmented_test = email_pipeline.transform(X_test)
+print("Benchmarking")
+res = benchmark(test_classifiers, test_vectorizers, X, y)
 
-classifier.fit(X_augmented_train, y_train)
-print("Testing")
-y_pred = classifier.predict(X_augmented_test)
-print("Precision: {:.2f}%".format(100 * precision_score(y_test, y_pred)))
-print("Recall: {:.2f}%".format(100 * recall_score(y_test, y_pred)))
-print("Running Custom Test")
-custom_test_data = load_folder_of_emails("data/custom/ham")
-x_cust_test = email_pipeline.transform(custom_test_data)
-
-print(classifier.predict(x_cust_test))
+for r in res:
+    print(r)
