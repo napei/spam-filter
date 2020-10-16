@@ -47,6 +47,7 @@ from itertools import chain, islice
 import re
 import time
 import pprint
+import gc
 
 import nltk
 nltk.download('punkt')
@@ -177,38 +178,10 @@ if len(spam_emails) != len(processed_spam):
 
 # Concatenate X and y and label
 X = np.array(processed_ham + processed_spam, dtype=object)
-y = np.array(["ham"] * len(processed_ham) + ["spam"] * len(processed_spam))
-
-# X_train, X_test, y_train, y_test = train_test_split(
-#     X, y, test_size=0.2)
-
-# vectorizer = CountVectorizer()
-
-# X_train_vec = vectorizer.fit_transform(X_train)
-# X_test_vec = vectorizer.transform(X_test)
-
-# classifier = LogisticRegression(
-#     solver="liblinear", random_state=85)
-
-# print("Training Model")
-# classifier.fit(X_train_vec, y_train)
-
-# score = classifier.score(X_test_vec, y_test)
-# print("{:.2f}%".format(100*score))
-# # y_pred = classifier.predict(X_test_vec)
-# # print("Precision: {:.2f}%".format(100 * precision_score(y_test, y_pred)))
-# # print("Recall: {:.2f}%".format(100 * recall_score(y_test, y_pred)))
-# print("Running Custom Test")
-# custom_test_data = load_folder_of_emails("data/custom/spam")
-# x_cust_test = process_emails.transform(custom_test_data)
-# x_vect_cust_test = vectorizer.transform(x_cust_test)
-# #
-# print(classifier.predict(x_vect_cust_test))
-
+y = np.array([0] * len(processed_ham) + [1] * len(processed_spam))
 
 test_classifiers = [
-    # MultinomialNB(),
-    LogisticRegression(),
+    LogisticRegression(solver="liblinear"),
     BernoulliNB(),
     RandomForestClassifier(n_estimators=100, n_jobs=-1),
     AdaBoostClassifier(),
@@ -235,7 +208,7 @@ test_vectorizers = [
 
 
 def benchmark(cs, vs, X, y):
-    results = ["classifier,vectorizer,p_score,r_score"]
+    results = ["classifier,vectorizer,train_time,test_time,p_score,r_score"]
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2)
     for c in tqdm(cs):
@@ -244,20 +217,45 @@ def benchmark(cs, vs, X, y):
             X_train_vec = v.fit_transform(X_train)
             X_test_vec = v.transform(X_test)
 
+            start_train_time = time.time()
             c.fit(X_train_vec, y_train)
+            end_train_time = time.time()
+
             # Test classifier
+            start_test_time = time.time()
             y_test_predicted = c.predict(X_test_vec)
             p_score = precision_score(y_test, y_test_predicted)
             r_score = recall_score(y_test, y_test_predicted)
-            # score = c.score(X_test_vec, y_test)
+            end_test_time = time.time()
 
             results.append(
-                ",".join([c.__class__.__name__, v.__class__.__name__, "{:.5f}".format(p_score), "{:.5f}".format(r_score)]))
+                ",".join([c.__class__.__name__, v.__class__.__name__, "{}".format(end_train_time-start_train_time), "{}".format(end_test_time-start_test_time), "{:.5f}".format(p_score), "{:.5f}".format(r_score)]))
+            gc.collect()
     return results
 
+# Benchmark lots of classifiers
+# print("Benchmarking")
+# res = benchmark(test_classifiers, test_vectorizers, X, y)
 
-print("Benchmarking")
-res = benchmark(test_classifiers, test_vectorizers, X, y)
+# for r in res:
+#     print(r)
 
-for r in res:
-    print(r)
+
+# Benchmarking determined that PassiveAggressiveClassifier with TfidfVectorizer is the best
+# Run test of unknown sample
+classifier = PassiveAggressiveClassifier()
+vectorizer = TfidfVectorizer()
+
+# Train classifier
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2)
+
+X_train_vec = vectorizer.fit_transform(X_train)
+
+classifier.fit(X_train_vec, y_train)
+
+# Load custom data
+custom_test_data = load_folder_of_emails("data/custom/spam")
+x_cust_test = process_emails.transform(custom_test_data)
+x_vect_cust_test = vectorizer.transform(x_cust_test)
+print(classifier.predict(x_vect_cust_test))
