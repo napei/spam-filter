@@ -229,7 +229,10 @@ def benchmark(cs, vs, X, y):
             end_test_time = time.time()
 
             results.append(
-                ",".join([c.__class__.__name__, v.__class__.__name__, "{}".format(end_train_time-start_train_time), "{}".format(end_test_time-start_test_time), "{:.5f}".format(p_score), "{:.5f}".format(r_score)]))
+                ",".join([c.__class__.__name__, v.__class__.__name__,
+                          "{}".format(end_train_time-start_train_time),
+                          "{}".format(end_test_time-start_test_time),
+                          "{:.5f}".format(p_score), "{:.5f}".format(r_score)]))
             gc.collect()
     return results
 
