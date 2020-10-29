@@ -1,0 +1,827 @@
+Delivered-To: nattyman0007@gmail.com
+Received: by 2002:a17:907:2179:0:0:0:0 with SMTP id rl25csp132834ejb;
+        Tue, 27 Oct 2020 23:01:39 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxckzSgMOqsgK/ZNfruGS0lg8AaItP8k3CNnqnx83SZWS2onb+AYWqSX977QPQVMQmWukd4
+X-Received: by 2002:a05:620a:12b9:: with SMTP id x25mr5945417qki.475.1603864899604;
+        Tue, 27 Oct 2020 23:01:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603864899; cv=none;
+        d=google.com; s=arc-20160816;
+        b=MjtQXF/154ioRZL1WCxJhEgAQyAb/5WnqdhiFofKu+fwc/oBN9GNH12zJqiL+R2tla
+         UgLnPO+rmPOez0N5N+taRzdu+OrzOjc/gLQhP818reBf3k4H+6rJAvufJIpKYlU9sr5Z
+         8NMH0ISOR5FWEMXsfzu1HClx2/+57VYZHjUVEUl4SPwCYY+ec6r+1Y3w/eMALcuzyjwg
+         n6IM6PYJ592ZlMu1Z2LBCvf3Jb7+HhgXpSQY1P17O9OAtobf29xwtGC3ioo0XwZ1Of70
+         seqHBI7ZXYx6krziNX3t2wakH0oJ6Edw1MqYlStxru0hUasg3hRslO/56fmSCWQXjtw0
+         tKCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:list-unsubscribe:feedback-id:sender
+         :content-transfer-encoding:mime-version:date:subject:from:to
+         :dkim-signature:dkim-signature;
+        bh=pUQaT0ruQ5xt7yabKQ3Ic7k1o35XeSePvaoUAAhMX94=;
+        b=ahniIGMMHqnWw4SNDJYbzIyWpibtfwj4k2T78g+29V0mx8IL67ZVJMWAmvcyMrbS28
+         Gx+VwO6DPfvKs7EVk0hyvdUJfSMGM4hYMKQuC/IBqoYGmLVR1JmqpoWru7/6QAUsQT+P
+         SuO4otIY54fXF9Ku1TO2Y7EDZnrW6aM0Ri9uZJHEgHCYoRinG8Rr96u2UtyEm3YnELXZ
+         HhL0OnJUZ7pAcCDQpTEpDQZVFf4Ab7tzNItFocwRlyVndhusAbV+lBZ2g9JeJXMc5msD
+         k789CqRAJjTy8Nv551Cubq0r6mBMCIW0M8NyI2nnhzyF+lGqOfBkRRHc5U2VVESqrGpe
+         xEiw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@d8c.emsend1.com header.s=dk header.b=nx1aZM+o;
+       dkim=pass header.i=@acems1.com header.s=dk header.b=RhD2qLhG;
+       spf=pass (google.com: domain of bounce-1049193-94-2598-nattyman0007=gmail.com@d8c.emsend1.com designates 52.128.42.33 as permitted sender) smtp.mailfrom="bounce-1049193-94-2598-nattyman0007=gmail.com@d8c.emsend1.com"
+Return-Path: <bounce-1049193-94-2598-nattyman0007=gmail.com@d8c.emsend1.com>
+Received: from d9c.emsend1.com (d9c.emsend1.com. [52.128.42.33])
+        by mx.google.com with ESMTPS id e5si425060qvv.137.2020.10.27.23.01.39
+        for <nattyman0007@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 Oct 2020 23:01:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-1049193-94-2598-nattyman0007=gmail.com@d8c.emsend1.com designates 52.128.42.33 as permitted sender) client-ip=52.128.42.33;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@d8c.emsend1.com header.s=dk header.b=nx1aZM+o;
+       dkim=pass header.i=@acems1.com header.s=dk header.b=RhD2qLhG;
+       spf=pass (google.com: domain of bounce-1049193-94-2598-nattyman0007=gmail.com@d8c.emsend1.com designates 52.128.42.33 as permitted sender) smtp.mailfrom="bounce-1049193-94-2598-nattyman0007=gmail.com@d8c.emsend1.com"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=dk; d=d8c.emsend1.com;
+ h=To:From:Subject:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+ Sender:List-Unsubscribe:Message-ID;
+ i=southbanksoftware.activehosted.com@d8c.emsend1.com;
+ bh=pUQaT0ruQ5xt7yabKQ3Ic7k1o35XeSePvaoUAAhMX94=;
+ b=nx1aZM+oAKwg+FeC3hpu4FqvJY6CMb5D8T9uQ8YYVd+CNxVGi1AGs3l11Zus1M5UWfmUXHdpIzD0
+   K0z12qOu3bV+N085lrMKPIBwMwVjPkViNtxXF5LppRuPCMS2OgUVzAMvp2JoLaXEyh2oAYUG8Cd6
+   FPkS/ccl0OtTSERUM2E=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=dk; d=acems1.com;
+ h=To:From:Subject:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+ Sender:List-Unsubscribe:Message-ID;
+ bh=pUQaT0ruQ5xt7yabKQ3Ic7k1o35XeSePvaoUAAhMX94=;
+ b=RhD2qLhGws1VkeBTQ/g77jIVXSw7dyttJHxmhsAAFucM8bFOaeggcVfpWS2B7lZJVy5dllX/jFGK
+   hu4US7NIR+ZdAbFBEzmN20Dn1Yr2FdbL0Nql0b5I0ZYhyX2xv3+wJtq3i+9mZzbBo3YKGEm2WL4Q
+   7wtYCT/6373Cg0fUfE0=
+Received: by d9c.emsend1.com id hj44k62lslkq for <nattyman0007@gmail.com>; Wed, 28 Oct 2020 06:01:34 +0000 (envelope-from <bounce-1049193-94-2598-nattyman0007=gmail.com@d8c.emsend1.com>)
+To: "Nathaniel Peiffer" <nattyman0007@gmail.com>
+From: "ProvenDB" <support@provendb.com>
+Subject: ProvenDB Newsletter: October 2020
+Date: Wed, 28 Oct 2020 01:00:25 -0500
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="_=_swift-154258495f9908f942eaf8.78232997_=_"
+Content-Transfer-Encoding: 7bit
+Sender: <southbanksoftware.activehosted.com@d8c.emsend1.com>
+X-Sender: <southbanksoftware.activehosted.com@d8c.emsend1.com>
+X-Report-Abuse: Please report abuse to abuse@activecampaign.com
+X-mid: bmF0dHltYW4wMDA3QGdtYWlsLmNvbSAsIGM5NCAsIG0xODk2ICwgczQ4NA
+Feedback-ID: 1049193:activecampaign
+X-250ok-CID: 1049193-94
+List-Unsubscribe: <mailto:unsubscribe-31e4b01338ae759d42155a0ec0f51aca-94-8a27df8790de12d62a6a972dba67563e@d8c.emsend1.com>,
+ <https://southbanksoftware.acemlnb.com/box.php?nl=5&c=94&m=1896&s=8a27df8790de12d62a6a972dba67563e&funcml=unsub2&luha=1>
+Message-ID: <20201028060134.11874.901161857.swift@southbanksoftware.activehosted.com>
+
+
+--_=_swift-154258495f9908f942eaf8.78232997_=_
+Content-Type: text/plain; charset=utf-8
+
+Welcome to the ProvenDB Newsletter
+
+October 2020 Issue
+
+Thank you for being a ProvenDB subscriber. Here is our October
+Newsletter to provide updates about the latest information and changes
+to our Blockchain-enabled database service.
+
+Anchoring relational data to the Blockchain with Proofable
+
+Wondering how to get Blockchain-level immutability for your data?
+Proofable is your answer. Proofable allows you to anchor any digital
+data - wherever it might be stored - to your choice of Blockchain. Read
+More
+.
+
+Build trust into image with Blockchain
+
+https://southbanksoftware.acemlnb.com/lt.php?s=8a27df8790de12d62a6a972dba67563e&i=94A1896A5A1791
+
+Guan, one of our Software Engineers, talks about image manipulation and
+falsification problems. He explains how they can be solved with our
+Proofable API to detect image tampering. Read More
+.
+
+Using the Compliance Vault REST API
+
+https://southbanksoftware.acemlnb.com/lt.php?s=8a27df8790de12d62a6a972dba67563e&i=94A1896A5A1791
+
+Compliance Vault is our tamper-resistant digital store for compliance
+data and documentation. You can upload documents to Compliance Vault
+through our Web interface or can be emailed into the system. Now, you
+can also use the REST API to integrate Compliance Vault document
+services into your existing application or automation workflow. Read
+More
+.
+
+Are you interested in learning more?
+
+Visit www.provendb.com , or email us at
+support@provendb.com  to explore options
+for deploying ProvenDB within your organization.
+
+https://southbanksoftware.acemlnb.com/lt.php?s=8a27df8790de12d62a6a972dba67563e&i=94A1896A5A1796 
+
+ 
+
+https://southbanksoftware.acemlnb.com/lt.php?s=8a27df8790de12d62a6a972dba67563e&i=94A1896A5A1797 
+
+ 
+
+https://southbanksoftware.acemlnb.com/lt.php?s=8a27df8790de12d62a6a972dba67563e&i=94A1896A5A1798 
+
+ 
+
+https://southbanksoftware.acemlnb.com/lt.php?s=8a27df8790de12d62a6a972dba67563e&i=94A1896A5A1799 
+
+Send to: nattyman0007@gmail.com
+
+Click here to Unsubscribe  or Update Email
+Subscription
+.
+
+Southbank Software, 3/20 Queen Street, Melbourne Victoria 3000, Australia
+--_=_swift-154258495f9908f942eaf8.78232997_=_
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html>=0A<head><!--[if !mso]><meta http-equiv=3D"X-UA-Compat=
+ible" content=3D"IE=3Dedge"><!--<![endif]--><meta http-equiv=3D"Content-Typ=
+e" content=3D"text/html; charset=3Dutf-8"><meta http-equiv=3D"Content-Langu=
+age" content=3D"en-us"><meta name=3D"format-detection" content=3D"telephone=
+=3Dno"><meta name=3D"format-detection" content=3D"date=3Dno"><meta name=3D"=
+format-detection" content=3D"address=3Dno"><meta name=3D"format-detection" =
+content=3D"email=3Dno"><style data-ac-keep=3D"true"> .ExternalClass { width=
+: 100%; background: inherit; background-color: inherit; } .ExternalClass p,=
+ .ExternalClass ul, .ExternalClass ol { Margin: 0; } .undoreset div p, .und=
+oreset p { margin-bottom: 20px; } div[class^=3D"aolmail_divbody"] { overflo=
+w: auto; } [owa] #ac-footer { padding: 20px 0px !important; background: inh=
+erit; background-color: inherit; } </style><style data-ac-keep=3D"true">=0A=
+@media only screen and (max-width: 600px) { /*-----------------------------=
+--------------------------------------------*\ Abandoned Cart widget \*----=
+--------------------------------------------------------------------*/ .td_=
+abandoned-cart img {display: block;padding-right: 0 !important;padding-bott=
+om: 0 !important;width: 100% !important;max-width: 100% !important;height: =
+auto !important;} body { padding: 0!important; font-size:1em!important; } *=
+ { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing:=
+ border-box; } *[class].divbody {-webkit-text-size-adjust:none !important; =
+width:auto !important;} *[class].td_picture img {width:auto !important;} *[=
+class].td_text { line-height: 110%; } *[class].td_button { width: auto; } /=
+* Collapse all block elements */ :not(.body) table { display: block!importa=
+nt; float:none!important; border-collapse:collapse !important; width:100% !=
+important; min-width:100% !important; clear:both!important; } :not(.body) t=
+head,=0A:not(.body) tbody, :not(.body) tr { display:block!important; float:=
+none!important; width:100% !important; } :not(.body) th, :not(.body) td, :n=
+ot(.body) p { display:block!important; float:none!important; width:100% !im=
+portant; clear:both!important; } /* Remove browser default styling for elem=
+ents */ ul, ol { margin-left: 20px; margin-bottom: 10px; margin-top: 10px; =
+-webkit-margin-before: 0; -webkit-margin-after: 0; -webkit-padding-start: 0=
+; } /* Set default height for spacer once collapse */ *[class].spacer { hei=
+ght: auto!important; } a[href^=3Ddate]{ color:inherit !important; text-deco=
+ration:none !important;} a[href^=3Dtelephone]{ color:inherit !important; te=
+xt-decoration:none !important;} a[href^=3Daddress]{ color:inherit !importan=
+t; text-decoration:none !important;} a[href^=3Demail]{ color:inherit !impor=
+tant; text-decoration:none !important;} /* Default table cell height */ td[=
+height=3D"12"]{height:12px!important;font-size:12px!important;line-height:1=
+2px!important;}=0Atd[height=3D"0"]{height:0px!important;font-size:0px!impor=
+tant;line-height:0px!important;} /*----------------------------------------=
+---------------------------------*\ Product Widget \*----------------------=
+---------------------------------------------------*/ .td_product > div { f=
+loat: none !important; width: 100% !important; margin-bottom: 20px !importa=
+nt; } .td_product > div img { width: 75% !important; } /* Default social ic=
+ons */ *[class].ac-social-icon-16 {width:16px !important; height:16px !impo=
+rtant;} *[class].ac-social-icon-24 {width:24px !important; height:24px !imp=
+ortant;} *[class].ac-social-icon-28 {width:28px !important; height:28px !im=
+portant;} *[class].__ac_social_icons { margin-right: 0px !important; } }=0A=
+</style><style data-ac-keep=3D"true"> @media only screen and (max-width: 32=
+0px) { #layout-row2127 img { width: 100% !important; height: auto !importan=
+t; max-width: 320px !important; } #layout-row2132 img { width: 100% !import=
+ant; height: auto !important; max-width: 320px !important; } #layout-row213=
+3 .break-line { width: 100% !important; margin: auto !important; } #layout-=
+row2135 img { width: 100% !important; height: auto !important; max-width: 3=
+20px !important; } #layout-row2136 .break-line { width: 100% !important; ma=
+rgin: auto !important; } #layout-row2144 .break-line { width: 100% !importa=
+nt; margin: auto !important; } #layout-row2145 img { width: 100% !important=
+; height: auto !important; max-width: 320px !important; } .td_rss .rss-item=
+ img.iphone_large_image { width: auto !important; } u + .body { display: ta=
+ble !important; width: 100vw !important; min-width: 100vw !important; } u +=
+ .body table { display: table !important; width: 100% !important; min-width=
+: 100%=0A!important; } u + .body td { display: block !important; width: 100=
+% !important; min-width: 100% !important; } u + .body img { display: inline=
+-block !important; margin: auto !important; width: auto !important; vertica=
+l-align: bottom !important; } u + .body center { display: block !important;=
+ margin: auto !important; width: 100% !important; min-width: 100% !importan=
+t; text-align: center !important; } u + .body table._ac_social_table, u + .=
+body table._ac_social_table td, u + .body table._ac_social_table div, u + .=
+body table._ac_social_table a { display: inline-block !important; margin: a=
+uto !important; width: auto !important; min-width: auto !important; text-al=
+ign: center !important; } u + .body table._ac_social_table img { display: i=
+nline-block !important; margin: auto !important; width: 32px !important; mi=
+n-width: 32px !important; max-width: 32px !important; }=0A}=0A@media only s=
+creen and (max-width: 375px) { #layout-row2127 img { width: 100% !important=
+; height: auto !important; max-width: 375px !important; } #layout-row2132 i=
+mg { width: 100% !important; height: auto !important; max-width: 375px !imp=
+ortant; } #layout-row2133 .break-line { width: 100% !important; margin: aut=
+o !important; } #layout-row2135 img { width: 100% !important; height: auto =
+!important; max-width: 375px !important; } #layout-row2136 .break-line { wi=
+dth: 100% !important; margin: auto !important; } #layout-row2144 .break-lin=
+e { width: 100% !important; margin: auto !important; } #layout-row2145 img =
+{ width: 100% !important; height: auto !important; max-width: 375px !import=
+ant; } .td_rss .rss-item img.iphone_large_image { width: auto !important; }=
+ u + .body { display: table !important; width: 100vw !important; min-width:=
+ 100vw !important; } u + .body table { display: table !important; width: 10=
+0% !important; min-width: 100% !important; } u + .body td {=0Adisplay: bloc=
+k !important; width: 100% !important; min-width: 100% !important; } u + .bo=
+dy img { display: inline-block !important; margin: auto !important; width: =
+auto !important; vertical-align: bottom !important; } u + .body center { di=
+splay: block !important; margin: auto !important; width: 100% !important; m=
+in-width: 100% !important; text-align: center !important; } u + .body table=
+._ac_social_table, u + .body table._ac_social_table td, u + .body table._ac=
+_social_table div, u + .body table._ac_social_table a { display: inline-blo=
+ck !important; margin: auto !important; width: auto !important; min-width: =
+auto !important; text-align: center !important; } u + .body table._ac_socia=
+l_table img { display: inline-block !important; margin: auto !important; wi=
+dth: 32px !important; min-width: 32px !important; max-width: 32px !importan=
+t; }=0A}=0A@media only screen and (max-width: 414px) { #layout-row2127 img =
+{ width: 100% !important; height: auto !important; max-width: 414px !import=
+ant; } #layout-row2132 img { width: 100% !important; height: auto !importan=
+t; max-width: 414px !important; } #layout-row2133 .break-line { width: 100%=
+ !important; margin: auto !important; } #layout-row2135 img { width: 100% !=
+important; height: auto !important; max-width: 414px !important; } #layout-=
+row2136 .break-line { width: 100% !important; margin: auto !important; } #l=
+ayout-row2144 .break-line { width: 100% !important; margin: auto !important=
+; } #layout-row2145 img { width: 100% !important; height: auto !important; =
+max-width: 414px !important; } .td_rss .rss-item img.iphone_large_image { w=
+idth: auto !important; } u + .body { display: table !important; width: 100v=
+w !important; min-width: 100vw !important; } u + .body table { display: tab=
+le !important; width: 100% !important; min-width: 100% !important; } u + .b=
+ody td {=0Adisplay: block !important; width: 100% !important; min-width: 10=
+0% !important; } u + .body img { display: inline-block !important; margin: =
+auto !important; width: auto !important; vertical-align: bottom !important;=
+ } u + .body center { display: block !important; margin: auto !important; w=
+idth: 100% !important; min-width: 100% !important; text-align: center !impo=
+rtant; } u + .body table._ac_social_table, u + .body table._ac_social_table=
+ td, u + .body table._ac_social_table div, u + .body table._ac_social_table=
+ a { display: inline-block !important; margin: auto !important; width: auto=
+ !important; min-width: auto !important; text-align: center !important; } u=
+ + .body table._ac_social_table img { display: inline-block !important; mar=
+gin: auto !important; width: 32px !important; min-width: 32px !important; m=
+ax-width: 32px !important; }=0A}=0A@media only screen and (max-width: 667px=
+) { #layout-row2127 img { width: 100% !important; height: auto !important; =
+max-width: 667px !important; } #layout-row2132 img { width: 100% !important=
+; height: auto !important; max-width: 667px !important; } #layout-row2133 .=
+break-line { width: 100% !important; margin: auto !important; } #layout-row=
+2135 img { width: 100% !important; height: auto !important; max-width: 667p=
+x !important; } #layout-row2136 .break-line { width: 100% !important; margi=
+n: auto !important; } #layout-row2144 .break-line { width: 100% !important;=
+ margin: auto !important; } #layout-row2145 img { width: 100% !important; h=
+eight: auto !important; max-width: 667px !important; } .td_rss .rss-item im=
+g.iphone_large_image { width: auto !important; } u + .body { display: table=
+ !important; width: 100vw !important; min-width: 100vw !important; } u + .b=
+ody table { display: table !important; width: 100% !important; min-width: 1=
+00% !important; } u + .body td {=0Adisplay: block !important; width: 100% !=
+important; min-width: 100% !important; } u + .body img { display: inline-bl=
+ock !important; margin: auto !important; width: auto !important; vertical-a=
+lign: bottom !important; } u + .body center { display: block !important; ma=
+rgin: auto !important; width: 100% !important; min-width: 100% !important; =
+text-align: center !important; } u + .body table._ac_social_table, u + .bod=
+y table._ac_social_table td, u + .body table._ac_social_table div, u + .bod=
+y table._ac_social_table a { display: inline-block !important; margin: auto=
+ !important; width: auto !important; min-width: auto !important; text-align=
+: center !important; } u + .body table._ac_social_table img { display: inli=
+ne-block !important; margin: auto !important; width: 32px !important; min-w=
+idth: 32px !important; max-width: 32px !important; }=0A} </style><!--[if !m=
+so]><!-- webfonts --><link href=3D"https://fonts.googleapis.com/css?family=
+=3DRoboto" rel=3D"stylesheet"><!--<![endif]--><!--[if lt mso 12]> <link hre=
+f=3D"https://fonts.googleapis.com/css?family=3DRoboto" rel=3D"stylesheet"><=
+![endif]--></head><body id=3D"ac-designer" class=3D"body" style=3D"font-fam=
+ily: Arial; line-height: 1.1; margin: 0px; background-color: #f5f5f5; width=
+: 100%; text-align: center;">=09=09<div style=3D"display:none; padding:0; h=
+eight:1px; font-size:1px; background-color:inherit !important; color:inheri=
+t !important; line-height:1px; mso-hide:all;">=0A=09=09=09Welcome to the Pr=
+ovenDB Newsletter!=0A=09=09</div>=0A<div class=3D"divbody" style=3D"margin:=
+ 0px; outline: none; padding: 0px; color: #000000; font-family: arial; line=
+-height: 1.1; width: 100%; background-color: #f5f5f5; background: #f5f5f5; =
+text-align: center;"><table class=3D"template-table" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" width=3D"100%" align=3D"left" style=3D"font-size=
+: 14px; min-width: auto; mso-table-lspace: 0pt; mso-table-rspace: 0pt; back=
+ground-color: #f5f5f5; background: #f5f5f5;"><tr><td align=3D"center" valig=
+n=3D"top" width=3D"100%"><table class=3D"template-table" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" width=3D"625" bgcolor=3D"#f5f5f5" style=3D"f=
+ont-size: 14px; min-width: auto; mso-table-lspace: 0pt; mso-table-rspace: 0=
+pt; max-width: 625px;"><tr><td id=3D"layout_table_839dd2966aa50dff5a4cfdf9b=
+dc902d7812542c4" valign=3D"top" align=3D"center" width=3D"625" style=3D""><=
+table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"layout layo=
+ut-table root-table" width=3D"625" style=3D"font-size: 14px; min-width: 100=
+%; mso-table-lspace: 0pt;=0Amso-table-rspace: 0pt;"><tr style=3D""><td id=
+=3D"layout-row-margin2127" valign=3D"top" style=3D""><table width=3D"100%" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size: 14px; =
+min-width: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"><tr id=3D"l=
+ayout-row2127" class=3D"layout layout-row widget _widget_picture " align=3D=
+"left"><td id=3D"layout-row-padding2127" valign=3D"top"><table width=3D"100=
+%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size: 14p=
+x; min-width: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"><tr><td =
+class=3D"image-td" align=3D"left" valign=3D"top" width=3D"625"><img src=3D"=
+https://southbanksoftware.imgus11.com/public//7b5d7fa11f591e03ca50e0a19d0be=
+a76.png?r=3D419609528" alt=3D"" width=3D"625" style=3D"display: block; bord=
+er: none; outline: none; width: 625px; opacity: 1; max-width: 100%;"></td>=
+=0A</tr>=0A</table>=0A</td>=0A</tr>=0A</table>=0A</td>=0A</tr>=0A<tr style=
+=3D""><td id=3D"layout-row-margin2128" valign=3D"top" style=3D"padding: 0px=
+;"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"font-size: 14px; min-width: 100%; mso-table-lspace: 0pt; mso-table-=
+rspace: 0pt; border-collapse: initial !important;"><tr id=3D"layout-row2128=
+" class=3D"layout layout-row widget _widget_text style2128" style=3D"margin=
+: 0; padding: 0; background-color: #ffffff;"><td id=3D"layout-row-padding21=
+28" valign=3D"top" style=3D"background-color: #ffffff; padding: 50px 30px 2=
+0px 30px;"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"font-size: 14px; min-width: 100%; mso-table-lspace: 0pt; ms=
+o-table-rspace: 0pt;"><tr><td id=3D"text_div2092" class=3D"td_text td_block=
+" valign=3D"top" align=3D"left" width=3D"565" style=3D"line-height: 150%; m=
+argin: 0; outline: none; padding: 0; color: inherit; font-size: 12px; font-=
+weight: inherit; line-height: 1.5; text-decoration: inherit; font-family: A=
+rial; mso-line-height-rule: exactly;"> <div=0Astyle=3D"line-height: 150%; m=
+argin: 0; outline: none; padding: 0; text-align: center; line-height: 1.5; =
+mso-line-height-rule: exactly;" class=3D"" data-line-height=3D"1.5"><div st=
+yle=3D"margin: 0; outline: none; padding: 0; text-align: justify;" class=3D=
+""><div style=3D"margin: 0; outline: none; padding: 0; text-align: left;" c=
+lass=3D""><div style=3D"margin: 0; outline: none; padding: 0; text-align: l=
+eft; color: #808495; font-size: 25px;" class=3D""><div style=3D"margin: 0; =
+outline: none; padding: 0; text-align: center;"><span class=3D"" style=3D"c=
+olor: #35b3d4; font-size: inherit; font-weight: 700; line-height: inherit; =
+text-decoration: inherit; font-family: arial;">Welcome to</span><span class=
+=3D"" style=3D"color: #35b3d4; font-size: inherit; font-weight: 700; line-h=
+eight: inherit; text-decoration: inherit; font-family: arial;"> </span><spa=
+n class=3D"" style=3D"color: #35b3d4; font-size: inherit; font-weight: 700;=
+ line-height: inherit; text-decoration: inherit; font-family: arial;">the P=
+rovenDB=0ANewsletter</span></div>=0A<div style=3D"margin: 0; outline: none;=
+ padding: 0; color: #a6a7ad; font-size: 16px; text-align: center;"><span cl=
+ass=3D"" style=3D"color: #a6a7ad; font-size: inherit; font-weight: inherit;=
+ line-height: inherit; text-decoration: inherit;"><br>October </span><span =
+class=3D"" style=3D"color: #a6a7ad; font-size: inherit; font-weight: inheri=
+t; line-height: inherit; text-decoration: inherit;">2020</span><span class=
+=3D"" style=3D"color: #a6a7ad; font-size: inherit; font-weight: inherit; li=
+ne-height: inherit; text-decoration: inherit;"> Issue</span></div>=0A</div>=
+=0A</div>=0A</div>=0A</div>=0A<!--[if (gte mso 12)&(lte mso 15) ]>=0A<style=
+ data-ac-keep=3D"true" data-ac-inline=3D"false"> #text_div2092, #text_div20=
+92 div { line-height: 150% !important; };=0A</style>=0A<![endif]--></td>=0A=
+</tr>=0A</table>=0A</td>=0A</tr>=0A</table>=0A</td>=0A</tr>=0A<tr style=3D"=
+"><td id=3D"layout-row-margin2146" valign=3D"top" style=3D"padding: 0px;"><=
+table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"font-size: 14px; min-width: 100%; mso-table-lspace: 0pt; mso-table-rspa=
+ce: 0pt; border-collapse: initial !important;"><tr id=3D"layout-row2146" cl=
+ass=3D"layout layout-row widget _widget_text style2146" style=3D"margin: 0;=
+ padding: 0; background-color: #ffffff;"><td id=3D"layout-row-padding2146" =
+valign=3D"top" style=3D"background-color: #ffffff; padding: 0px 30px 25px 3=
+0px;"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" style=3D"font-size: 14px; min-width: 100%; mso-table-lspace: 0pt; mso-tab=
+le-rspace: 0pt;"><tr><td id=3D"text_div2110" class=3D"td_text td_block" val=
+ign=3D"top" align=3D"left" width=3D"565" style=3D"line-height: 150%; margin=
+: 0; outline: none; padding: 0; color: inherit; font-size: 12px; font-weigh=
+t: inherit; line-height: 1.5; text-decoration: inherit; font-family: Arial;=
+ mso-line-height-rule: exactly;"> <div=0Astyle=3D"line-height: 150%; margin=
+: 0; outline: none; padding: 0; line-height: 1.5; mso-line-height-rule: exa=
+ctly;" class=3D"" data-line-height=3D"1.5"><div class=3D"droparea" contente=
+ditable=3D"false" style=3D"margin: 0; outline: none; padding: 0;"></div>=0A=
+<div style=3D"margin: 0; outline: none; padding: 0; color: #808495; font-fa=
+mily: arial, helvetica, sans; font-size: 16px; font-weight: 400; text-align=
+: center;"><span style=3D"color: #808495; font-size: inherit; font-weight: =
+400; line-height: inherit; text-decoration: inherit; font-family: arial, he=
+lvetica, sans; text-align: inherit;">Thank you for being a ProvenDB subscri=
+ber. Here is our October Newsletter to provide updates about the latest inf=
+ormation and changes to our Blockchain-enabled database service.</span></di=
+v>=0A</div>=0A<!--[if (gte mso 12)&(lte mso 15) ]>=0A<style data-ac-keep=3D=
+"true" data-ac-inline=3D"false"> #text_div2110, #text_div2110 div { line-he=
+ight: 150% !important; };=0A</style>=0A<![endif]--></td>=0A</tr>=0A</table>=
+=0A</td>=0A</tr>=0A</table>=0A</td>=0A</tr>=0A<tr style=3D""><td id=3D"layo=
+ut-row-margin2132" valign=3D"top" style=3D"padding: 0;"><table width=3D"100=
+%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size: 14p=
+x; min-width: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-co=
+llapse: initial !important;"><tr id=3D"layout-row2132" class=3D"layout layo=
+ut-row widget _widget_picture style2132" align=3D"left" style=3D"background=
+-color: #ffffff;"><td id=3D"layout-row-padding2132" valign=3D"top" style=3D=
+"background-color: #ffffff; padding: 0px 30px 25px 30px;"><table width=3D"1=
+00%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size: 1=
+4px; min-width: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"><tr><t=
+d class=3D"image-td" align=3D"left" valign=3D"top" width=3D"565"><img src=
+=3D"https://southbanksoftware.imgus11.com/public//a0c54ea9ccf9c9ff4985f9b1a=
+03fbe47.png?r=3D127059918" alt=3D"" width=3D"565" style=3D"display: block; =
+border: none; outline: none; width: 565px; opacity: 1; max-width: 100%;"></=
+td>=0A</tr>=0A</table>=0A</td>=0A</tr>=0A</table>=0A</td>=0A</tr>=0A<tr sty=
+le=3D""><td id=3D"layout-row-margin2131" valign=3D"top" style=3D"padding: 0=
+px;"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"font-size: 14px; min-width: 100%; mso-table-lspace: 0pt; mso-tabl=
+e-rspace: 0pt; border-collapse: initial !important;"><tr id=3D"layout-row21=
+31" class=3D"layout layout-row widget _widget_text style2131" style=3D"marg=
+in: 0; padding: 0; background-color: #ffffff;"><td id=3D"layout-row-padding=
+2131" valign=3D"top" style=3D"background-color: #ffffff; padding: 0px 30px =
+50px 30px;"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"font-size: 14px; min-width: 100%; mso-table-lspace: 0pt; m=
+so-table-rspace: 0pt;"><tr><td id=3D"text_div2095" class=3D"td_text td_bloc=
+k" valign=3D"top" align=3D"left" width=3D"565" style=3D"line-height: 150%; =
+margin: 0; outline: none; padding: 0; color: inherit; font-size: 12px; font=
+-weight: inherit; line-height: 1.5; text-decoration: inherit; font-family: =
+Arial; mso-line-height-rule: exactly;"> <div=0Astyle=3D"line-height: 150%; =
+margin: 0; outline: none; padding: 0; line-height: 1.5; mso-line-height-rul=
+e: exactly;" class=3D"" data-line-height=3D"1.5"><div class=3D"droparea" co=
+ntenteditable=3D"false" style=3D"margin: 0; outline: none; padding: 0;"></d=
+iv>=0A<span style=3D"color: #35b3d4; font-size: 18px; font-weight: bold; li=
+ne-height: inherit; text-decoration: inherit; font-family: arial, helvetica=
+, sans; text-align: inherit;" class=3D"">Anchoring relational data to the B=
+lockchain with Proofable</span><span style=3D"color: inherit; font-size: 18=
+px; font-weight: inherit; line-height: inherit; text-decoration: inherit; t=
+ext-align: inherit;" class=3D""><br class=3D""><br class=3D""><span style=
+=3D"color: #808495; font-size: 16px; font-weight: 400; line-height: inherit=
+; text-decoration: inherit; font-style: normal; font-family: arial, helveti=
+ca, sans;" class=3D"">Wondering how to get Blockchain-level immutability fo=
+r your data? Proofable is your answer. Proofable allows you to anchor any d=
+igital data - wherever it might be stored - to your choice of Blockchain<sp=
+an style=3D"color: #808495; font-size: 16px; font-weight: 400; line-height:=
+ inherit; text-decoration: inherit; font-family: arial, helvetica, sans; fo=
+nt-style: normal;" class=3D"">.=0A<a href=3D"https://southbanksoftware.acem=
+lnb.com/lt.php?s=3D8a27df8790de12d62a6a972dba67563e&i=3D94A1896A5A1857" sty=
+le=3D"margin: 0; outline: none; padding: 0; color: #35b3d4; text-decoration=
+: underline;" class=3D"" target=3D"_blank"><span style=3D"color: #35b3d4; f=
+ont-size: inherit; font-weight: inherit; line-height: inherit; text-decorat=
+ion: inherit;">Read More</span></a>.</span></span></span></div>=0A<!--[if (=
+gte mso 12)&(lte mso 15) ]>=0A<style data-ac-keep=3D"true" data-ac-inline=
+=3D"false"> #text_div2095, #text_div2095 div { line-height: 150% !important=
+; };=0A</style>=0A<![endif]--></td>=0A</tr>=0A</table>=0A</td>=0A</tr>=0A</=
+table>=0A</td>=0A</tr>=0A<tr style=3D""><td id=3D"layout-row-margin2133" va=
+lign=3D"top" style=3D"padding: 0;"><table width=3D"100%" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" style=3D"font-size: 14px; min-width: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: initial !impo=
+rtant;"><tr id=3D"layout-row2133" class=3D"layout layout-row widget _widget=
+_break style2133" style=3D""><td id=3D"layout-row-padding2133" valign=3D"to=
+p" style=3D"line-height: 0; mso-line-height-rule: exactly; padding: 0;"><ta=
+ble width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"font-size: 14px; min-width: 100%; mso-table-lspace: 0pt; mso-table-rspa=
+ce: 0pt; border-collapse: collapse; line-height: 0; mso-line-height-rule: e=
+xactly;"><tr><td height=3D"1" style=3D"line-height: 0; mso-line-height-rule=
+: exactly;"></td>=0A</tr>=0A<tr><td align=3D"center" height=3D"30" width=3D=
+"625" style=3D"line-height: 0; mso-line-height-rule: exactly;"> <table alig=
+n=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" height=3D"30"=
+ width=3D"625" style=3D"font-size: 14px; min-width: auto!important; mso-tab=
+le-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; line-heig=
+ht: 0; mso-line-height-rule: exactly; width: 100%; max-width: 100%;"><tr><t=
+d class=3D"break-line" bgcolor=3D"#f5f5f5" height=3D"30" width=3D"625" styl=
+e=3D"line-height: 30px; mso-line-height-rule: exactly; height: 30px; width:=
+ 625px; background-color: #f5f5f5;"> </td>=0A </tr>=0A</table>=0A</td>=0A <=
+/tr>=0A<tr><td height=3D"1" style=3D"line-height: 0; mso-line-height-rule: =
+exactly;"></td>=0A</tr>=0A</table>=0A</td>=0A</tr>=0A</table>=0A</td>=0A</t=
+r>=0A<tr style=3D""><td id=3D"layout-row-margin2142" valign=3D"top" style=
+=3D"padding: 0px;"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" style=3D"font-size: 14px; min-width: 100%; mso-table-lspace:=
+ 0pt; mso-table-rspace: 0pt; border-collapse: initial !important;"><tr id=
+=3D"layout-row2142" class=3D"layout layout-row widget _widget_text style214=
+2" style=3D"margin: 0; padding: 0; background-color: #ffffff;"><td id=3D"la=
+yout-row-padding2142" valign=3D"top" style=3D"background-color: #ffffff; pa=
+dding: 50px 30px 0px 30px;"><table width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"font-size: 14px; min-width: 100%; mso-tab=
+le-lspace: 0pt; mso-table-rspace: 0pt;"><tr><td id=3D"text_div2106" class=
+=3D"td_text td_block" valign=3D"top" align=3D"left" width=3D"565" style=3D"=
+line-height: 150%; margin: 0; outline: none; padding: 0; color: inherit; fo=
+nt-size: 12px; font-weight: inherit; line-height: 1.5; text-decoration: inh=
+erit; font-family: Arial; mso-line-height-rule: exactly;"> <div=0Astyle=3D"=
+line-height: 150%; margin: 0; outline: none; padding: 0; line-height: 1.5; =
+mso-line-height-rule: exactly;" class=3D"" data-line-height=3D"1.5"><span s=
+tyle=3D"color: #808495; font-size: 16px; font-weight: 400; line-height: inh=
+erit; text-decoration: inherit; text-align: inherit; font-style: normal; fo=
+nt-family: arial, helvetica, sans;" class=3D""><span style=3D"color: #35b3d=
+4; font-size: 18px; font-weight: bold; line-height: inherit; text-decoratio=
+n: inherit; font-family: arial, helvetica, sans; font-style: normal;" class=
+=3D"">Build trust into image with Blockchain</span><br></span></div>=0A<!--=
+[if (gte mso 12)&(lte mso 15) ]>=0A<style data-ac-keep=3D"true" data-ac-inl=
+ine=3D"false"> #text_div2106, #text_div2106 div { line-height: 150% !import=
+ant; };=0A</style>=0A<![endif]--></td>=0A</tr>=0A</table>=0A</td>=0A</tr>=
+=0A</table>=0A</td>=0A</tr>=0A<tr style=3D""><td id=3D"layout-row-margin213=
+5" valign=3D"top" style=3D"padding: 0;"><table width=3D"100%" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size: 14px; min-width: 10=
+0%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: initial =
+!important;"><tr id=3D"layout-row2135" class=3D"layout layout-row widget _w=
+idget_picture style2135" align=3D"left" style=3D"background-color: #ffffff;=
+"><td id=3D"layout-row-padding2135" valign=3D"top" style=3D"background-colo=
+r: #ffffff; padding: 25px 30px 25px 30px;"><table width=3D"100%" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size: 14px; min-width:=
+ 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"><tr><td class=3D"imag=
+e-td" align=3D"left" valign=3D"top" width=3D"565"><a href=3D"https://southb=
+anksoftware.acemlnb.com/lt.php?s=3D8a27df8790de12d62a6a972dba67563e&i=3D94A=
+1896A5A1791" style=3D"margin: 0; outline: none; padding: 0; color: #045fb4;=
+ display: block; min-width: 100%;"><img=0Asrc=3D"https://southbanksoftware.=
+imgus11.com/public//8c9dc6c24487dc137f13e143414b4bf6.png?r=3D79846406" alt=
+=3D"" width=3D"565" style=3D"border: none; display: block; outline: none; w=
+idth: 565px; opacity: 1; max-width: 100%;"></a></td>=0A</tr>=0A</table>=0A<=
+/td>=0A</tr>=0A</table>=0A</td>=0A</tr>=0A<tr style=3D""><td id=3D"layout-r=
+ow-margin2141" valign=3D"top" style=3D"padding: 0px;"><table width=3D"100%"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size: 14px;=
+ min-width: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-coll=
+apse: initial !important;"><tr id=3D"layout-row2141" class=3D"layout layout=
+-row widget _widget_text style2141" style=3D"margin: 0; padding: 0; backgro=
+und-color: #ffffff;"><td id=3D"layout-row-padding2141" valign=3D"top" style=
+=3D"background-color: #ffffff; padding: 0px 30px 50px 30px;"><table width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-si=
+ze: 14px; min-width: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"><=
+tr><td id=3D"text_div2105" class=3D"td_text td_block" valign=3D"top" align=
+=3D"left" width=3D"565" style=3D"line-height: 150%; margin: 0; outline: non=
+e; padding: 0; color: inherit; font-size: 12px; font-weight: inherit; line-=
+height: 1.5; text-decoration: inherit; font-family: Arial; mso-line-height-=
+rule: exactly;"> <div=0Astyle=3D"line-height: 150%; margin: 0; outline: non=
+e; padding: 0; line-height: 1.5; mso-line-height-rule: exactly;" class=3D""=
+ data-line-height=3D"1.5"><span style=3D"color: #808495; font-size: 16px; f=
+ont-weight: 400; line-height: inherit; text-decoration: inherit; text-align=
+: inherit; font-style: normal; font-family: arial, helvetica, sans;" class=
+=3D""><span style=3D"color: inherit; font-size: 16px; font-weight: inherit;=
+ line-height: inherit; text-decoration: inherit; font-family: arial, helvet=
+ica, sans;" class=3D"">Guan, one of our Software Engineers, talks about ima=
+ge manipulation and falsification problems. He explains how they can be sol=
+ved with our Proofable API to detect image tampering</span>. <a href=3D"htt=
+ps://southbanksoftware.acemlnb.com/lt.php?s=3D8a27df8790de12d62a6a972dba675=
+63e&i=3D94A1896A5A1858" style=3D"margin: 0; outline: none; padding: 0; colo=
+r: #35b3d4; text-decoration: underline;" target=3D"_blank"><span style=3D"c=
+olor: #35b3d4; font-size: inherit; font-weight: inherit;=0Aline-height: inh=
+erit; text-decoration: inherit;">Read More</span></a>.</span></div>=0A<!--[=
+if (gte mso 12)&(lte mso 15) ]>=0A<style data-ac-keep=3D"true" data-ac-inli=
+ne=3D"false"> #text_div2105, #text_div2105 div { line-height: 150% !importa=
+nt; };=0A</style>=0A<![endif]--></td>=0A</tr>=0A</table>=0A</td>=0A</tr>=0A=
+</table>=0A</td>=0A</tr>=0A<tr style=3D""><td id=3D"layout-row-margin2136" =
+valign=3D"top" style=3D"padding: 0;"><table width=3D"100%" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"font-size: 14px; min-width: 100%;=
+ mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: initial !im=
+portant;"><tr id=3D"layout-row2136" class=3D"layout layout-row widget _widg=
+et_break style2136" style=3D""><td id=3D"layout-row-padding2136" valign=3D"=
+top" style=3D"line-height: 0; mso-line-height-rule: exactly; padding: 0;"><=
+table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"font-size: 14px; min-width: 100%; mso-table-lspace: 0pt; mso-table-rspa=
+ce: 0pt; border-collapse: collapse; line-height: 0; mso-line-height-rule: e=
+xactly;"><tr><td height=3D"1" style=3D"line-height: 0; mso-line-height-rule=
+: exactly;"></td>=0A</tr>=0A<tr><td align=3D"center" height=3D"30" width=3D=
+"625" style=3D"line-height: 0; mso-line-height-rule: exactly;"> <table alig=
+n=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" height=3D"30"=
+ width=3D"625" style=3D"font-size: 14px; min-width: auto!important; mso-tab=
+le-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; line-heig=
+ht: 0; mso-line-height-rule: exactly; width: 100%; max-width: 100%;"><tr><t=
+d class=3D"break-line" bgcolor=3D"#f5f5f5" height=3D"30" width=3D"625" styl=
+e=3D"line-height: 30px; mso-line-height-rule: exactly; height: 30px; width:=
+ 625px; background-color: #f5f5f5;"> </td>=0A </tr>=0A</table>=0A</td>=0A <=
+/tr>=0A<tr><td height=3D"1" style=3D"line-height: 0; mso-line-height-rule: =
+exactly;"></td>=0A</tr>=0A</table>=0A</td>=0A</tr>=0A</table>=0A</td>=0A</t=
+r>=0A<tr style=3D""><td id=3D"layout-row-margin2134" valign=3D"top" style=
+=3D"padding: 0px;"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" style=3D"font-size: 14px; min-width: 100%; mso-table-lspace:=
+ 0pt; mso-table-rspace: 0pt; border-collapse: initial !important;"><tr id=
+=3D"layout-row2134" class=3D"layout layout-row widget _widget_text style213=
+4" style=3D"margin: 0; padding: 0; background-color: #ffffff;"><td id=3D"la=
+yout-row-padding2134" valign=3D"top" style=3D"background-color: #ffffff; pa=
+dding: 50px 30px 0px 30px;"><table width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"font-size: 14px; min-width: 100%; mso-tab=
+le-lspace: 0pt; mso-table-rspace: 0pt;"><tr><td id=3D"text_div2098" class=
+=3D"td_text td_block" valign=3D"top" align=3D"left" width=3D"565" style=3D"=
+line-height: 150%; margin: 0; outline: none; padding: 0; color: inherit; fo=
+nt-size: 12px; font-weight: inherit; line-height: 1.5; text-decoration: inh=
+erit; font-family: Arial; mso-line-height-rule: exactly;"> <div=0Astyle=3D"=
+line-height: 150%; margin: 0; outline: none; padding: 0; line-height: 1.5; =
+mso-line-height-rule: exactly;" class=3D"" data-line-height=3D"1.5"><span s=
+tyle=3D"color: #808495; font-size: 16px; font-weight: 400; line-height: inh=
+erit; text-decoration: inherit; text-align: inherit; font-style: normal; fo=
+nt-family: arial, helvetica, sans;" class=3D""><span style=3D"color: #35b3d=
+4; font-size: 18px; font-weight: bold; line-height: inherit; text-decoratio=
+n: inherit; font-family: arial, helvetica, sans; font-style: normal;" class=
+=3D"">Using the Compliance Vault REST API</span><br></span></div>=0A<!--[if=
+ (gte mso 12)&(lte mso 15) ]>=0A<style data-ac-keep=3D"true" data-ac-inline=
+=3D"false"> #text_div2098, #text_div2098 div { line-height: 150% !important=
+; };=0A</style>=0A<![endif]--></td>=0A</tr>=0A</table>=0A</td>=0A</tr>=0A</=
+table>=0A</td>=0A</tr>=0A<tr style=3D""><td id=3D"layout-row-margin2145" va=
+lign=3D"top" style=3D"padding: 0;"><table width=3D"100%" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" style=3D"font-size: 14px; min-width: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: initial !impo=
+rtant;"><tr id=3D"layout-row2145" class=3D"layout layout-row widget _widget=
+_picture style2145" align=3D"left" style=3D"background-color: #ffffff;"><td=
+ id=3D"layout-row-padding2145" valign=3D"top" style=3D"background-color: #f=
+fffff; padding: 25px 30px 25px 30px;"><table width=3D"100%" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"font-size: 14px; min-width: 100%=
+; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"><tr><td class=3D"image-td"=
+ align=3D"left" valign=3D"top" width=3D"565"><a href=3D"https://southbankso=
+ftware.acemlnb.com/lt.php?s=3D8a27df8790de12d62a6a972dba67563e&i=3D94A1896A=
+5A1791" style=3D"margin: 0; outline: none; padding: 0; color: #045fb4; disp=
+lay: block; min-width: 100%;"><img=0Asrc=3D"https://southbanksoftware.imgus=
+11.com/public//c110d4fb440c84f77149ed440615b446.png?r=3D346643386" alt=3D""=
+ width=3D"565" style=3D"border: none; display: block; outline: none; width:=
+ 565px; opacity: 1; max-width: 100%;"></a></td>=0A</tr>=0A</table>=0A</td>=
+=0A</tr>=0A</table>=0A</td>=0A</tr>=0A<tr style=3D""><td id=3D"layout-row-m=
+argin2143" valign=3D"top" style=3D"padding: 0px;"><table width=3D"100%" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size: 14px; min=
+-width: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse=
+: initial !important;"><tr id=3D"layout-row2143" class=3D"layout layout-row=
+ widget _widget_text style2143" style=3D"margin: 0; padding: 0; background-=
+color: #ffffff;"><td id=3D"layout-row-padding2143" valign=3D"top" style=3D"=
+background-color: #ffffff; padding: 0px 30px 50px 30px;"><table width=3D"10=
+0%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size: 14=
+px; min-width: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"><tr><td=
+ id=3D"text_div2107" class=3D"td_text td_block" valign=3D"top" align=3D"lef=
+t" width=3D"565" style=3D"line-height: 150%; margin: 0; outline: none; padd=
+ing: 0; color: inherit; font-size: 12px; font-weight: inherit; line-height:=
+ 1.5; text-decoration: inherit; font-family: Arial; mso-line-height-rule: e=
+xactly;"> <div=0Astyle=3D"line-height: 150%; margin: 0; outline: none; padd=
+ing: 0; line-height: 1.5; mso-line-height-rule: exactly;" class=3D"" data-l=
+ine-height=3D"1.5"><span style=3D"color: #808495; font-size: 16px; font-wei=
+ght: 400; line-height: inherit; text-decoration: inherit; text-align: inher=
+it; font-style: normal; font-family: arial, helvetica, sans;" class=3D""><s=
+pan style=3D"color: inherit; font-size: 16px; font-weight: inherit; line-he=
+ight: inherit; text-decoration: inherit; font-family: arial, helvetica, san=
+s;" class=3D"">Compliance Vault is our tamper-resistant digital store for c=
+ompliance data and documentation. You can upload documents to Compliance Va=
+ult through our Web interface or can be emailed into the system. Now, you c=
+an also use the REST API to integrate Compliance Vault document services in=
+to your existing application or automation workflow</span>. <a href=3D"http=
+s://southbanksoftware.acemlnb.com/lt.php?s=3D8a27df8790de12d62a6a972dba6756=
+3e&i=3D94A1896A5A2053" style=3D"margin: 0;=0Aoutline: none; padding: 0; col=
+or: #35b3d4; text-decoration: underline;" target=3D"_blank"><span style=3D"=
+color: #35b3d4; font-size: inherit; font-weight: inherit; line-height: inhe=
+rit; text-decoration: inherit;">Read More</span></a>.</span></div>=0A<!--[i=
+f (gte mso 12)&(lte mso 15) ]>=0A<style data-ac-keep=3D"true" data-ac-inlin=
+e=3D"false"> #text_div2107, #text_div2107 div { line-height: 150% !importan=
+t; };=0A</style>=0A<![endif]--></td>=0A</tr>=0A</table>=0A</td>=0A</tr>=0A<=
+/table>=0A</td>=0A</tr>=0A<tr style=3D""><td id=3D"layout-row-margin2144" v=
+align=3D"top" style=3D"padding: 0;"><table width=3D"100%" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" style=3D"font-size: 14px; min-width: 100%; =
+mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: initial !imp=
+ortant;"><tr id=3D"layout-row2144" class=3D"layout layout-row widget _widge=
+t_break style2144" style=3D""><td id=3D"layout-row-padding2144" valign=3D"t=
+op" style=3D"line-height: 0; mso-line-height-rule: exactly; padding: 0;"><t=
+able width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"font-size: 14px; min-width: 100%; mso-table-lspace: 0pt; mso-table-rspa=
+ce: 0pt; border-collapse: collapse; line-height: 0; mso-line-height-rule: e=
+xactly;"><tr><td height=3D"1" style=3D"line-height: 0; mso-line-height-rule=
+: exactly;"></td>=0A</tr>=0A<tr><td align=3D"center" height=3D"30" width=3D=
+"625" style=3D"line-height: 0; mso-line-height-rule: exactly;"> <table alig=
+n=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" height=3D"30"=
+ width=3D"625" style=3D"font-size: 14px; min-width: auto!important; mso-tab=
+le-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; line-heig=
+ht: 0; mso-line-height-rule: exactly; width: 100%; max-width: 100%;"><tr><t=
+d class=3D"break-line" bgcolor=3D"#f5f5f5" height=3D"30" width=3D"625" styl=
+e=3D"line-height: 30px; mso-line-height-rule: exactly; height: 30px; width:=
+ 625px; background-color: #f5f5f5;"> </td>=0A </tr>=0A</table>=0A</td>=0A <=
+/tr>=0A<tr><td height=3D"1" style=3D"line-height: 0; mso-line-height-rule: =
+exactly;"></td>=0A</tr>=0A</table>=0A</td>=0A</tr>=0A</table>=0A</td>=0A</t=
+r>=0A<tr style=3D""><td id=3D"layout-row-margin2129" valign=3D"top" style=
+=3D"padding: 0px;"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" style=3D"font-size: 14px; min-width: 100%; mso-table-lspace:=
+ 0pt; mso-table-rspace: 0pt; border-collapse: initial !important;"><tr id=
+=3D"layout-row2129" class=3D"layout layout-row widget _widget_text style212=
+9" style=3D"margin: 0; padding: 0; background-color: #ffffff;"><td id=3D"la=
+yout-row-padding2129" valign=3D"top" style=3D"background-color: #ffffff; pa=
+dding: 25px 30px 25px 30px;"><table width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"font-size: 14px; min-width: 100%; mso-tab=
+le-lspace: 0pt; mso-table-rspace: 0pt;"><tr><td id=3D"text_div2093" class=
+=3D"td_text td_block" valign=3D"top" align=3D"left" width=3D"565" style=3D"=
+line-height: 150%; margin: 0; outline: none; padding: 0; color: inherit; fo=
+nt-size: 12px; font-weight: inherit; line-height: 1.5; text-decoration: inh=
+erit; font-family: Arial; mso-line-height-rule: exactly;"> <div=0Astyle=3D"=
+line-height: 150%; margin: 0; outline: none; padding: 0; line-height: 1.5; =
+mso-line-height-rule: exactly;" class=3D"" data-line-height=3D"1.5"><div cl=
+ass=3D"droparea" contenteditable=3D"false" style=3D"margin: 0; outline: non=
+e; padding: 0;"></div>=0A <div style=3D"margin: 0; outline: none; padding: =
+0;" class=3D""> <div style=3D"margin: 0; outline: none; padding: 0;" class=
+=3D""> <div style=3D"margin: 0; outline: none; padding: 0; text-align: left=
+;" class=3D""><div style=3D"margin: 0; outline: none; padding: 0; text-alig=
+n: left; font-size: 12px;"><span style=3D"color: #808495; font-size: inheri=
+t; font-weight: bold; line-height: inherit; text-decoration: inherit; font-=
+family: Helvetica, Arial, sans-serif;" class=3D"">Are you interested in lea=
+rning more?</span></div>=0A<div style=3D"margin: 0; outline: none; padding:=
+ 0;"><br style=3D"color: #808495;"></div>=0A<div style=3D'margin: 0; outlin=
+e: none; padding: 0; text-align: left; color: #808495; font-size: 12px; fon=
+t-family: Roboto, "San Francisco", Helvetica, Arial, sans-serif;'><span sty=
+le=3D'color: #808495; font-size: inherit; font-weight: inherit; line-height=
+: inherit; text-decoration: inherit; font-family: Roboto, "San Francisco", =
+Helvetica, Arial, sans-serif;'>Visit </span><a href=3D"https://southbanksof=
+tware.acemlnb.com/lt.php?s=3D8a27df8790de12d62a6a972dba67563e&i=3D94A1896A5=
+A1795" class=3D"" target=3D"_blank" style=3D'margin: 0; outline: none; padd=
+ing: 0; color: #35b3d4; text-decoration: underline; font-family: Roboto, "S=
+an Francisco", Helvetica, Arial, sans-serif;'><span style=3D"color: #35b3d4=
+; font-size: inherit; font-weight: inherit; line-height: inherit; text-deco=
+ration: inherit;" class=3D"">www.provendb.com</span></a><span style=3D'colo=
+r: #808495; font-size: inherit; font-weight: inherit; line-height: inherit;=
+ text-decoration: inherit; font-family: Roboto, "San Francisco",=0AHelvetic=
+a, Arial, sans-serif;'>, or email us at </span><a href=3D"mailto:support@pr=
+ovendb.com" class=3D"" target=3D"_blank" style=3D'margin: 0; outline: none;=
+ padding: 0; color: #35b3d4; text-decoration: underline; font-family: Robot=
+o, "San Francisco", Helvetica, Arial, sans-serif;'><span style=3D"color: #3=
+5b3d4; font-size: inherit; font-weight: inherit; line-height: inherit; text=
+-decoration: inherit;" class=3D"">support@provendb.com</span></a><span styl=
+e=3D'color: #808495; font-size: inherit; font-weight: inherit; line-height:=
+ inherit; text-decoration: inherit; font-family: Roboto, "San Francisco", H=
+elvetica, Arial, sans-serif;'> to explore options for </span><span style=3D=
+'color: #808495; font-size: inherit; font-weight: inherit; line-height: inh=
+erit; text-decoration: inherit; font-family: Roboto, "San Francisco", Helve=
+tica, Arial, sans-serif;'>deploying ProvenDB within your organization.</spa=
+n></div>=0A</div>=0A </div>=0A </div>=0A </div>=0A<!--[if (gte mso 12)&(lte=
+ mso 15) ]>=0A<style data-ac-keep=3D"true" data-ac-inline=3D"false"> #text_=
+div2093, #text_div2093 div { line-height: 150% !important; };=0A</style>=0A=
+<![endif]--></td>=0A</tr>=0A</table>=0A</td>=0A</tr>=0A</table>=0A</td>=0A<=
+/tr>=0A<tr style=3D""><td id=3D"layout-row-margin2147" valign=3D"top" style=
+=3D"padding: 5px;"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" style=3D"font-size: 14px; min-width: 100%; mso-table-lspace:=
+ 0pt; mso-table-rspace: 0pt; border-collapse: initial !important;"><tr id=
+=3D"layout-row2147" class=3D"layout layout-row widget _widget_social style2=
+147" style=3D""><td id=3D"layout-row-padding2147" valign=3D"top" style=3D"p=
+adding: 50px 5px 5px 5px;"><table width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"font-size: 14px; min-width: 100%; mso-tab=
+le-lspace: 0pt; mso-table-rspace: 0pt;"><tr><td><table width=3D"100%" cells=
+pacing=3D"0" cellpadding=3D"0" style=3D"font-size: 14px; min-width: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;"><tr><td width=3D"625" align=
+=3D"left"> <center style=3D"margin: 0; outline: none; padding: 0; font-size=
+: 0px;"> <table class=3D"_ac_social_table" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"center" style=3D"font-size: 0; min-width: auto!important;=0Ams=
+o-table-lspace: 0pt; mso-table-rspace: 0pt; margin: auto!important; display=
+: inline-block!important; text-align: center!important;"><tr><td align=3D"c=
+enter" valign=3D"middle" width=3D"34" style=3D"display:inline-block!importa=
+nt;font-size:0;width:34px!important;"><div class=3D"__ac_social_icons" styl=
+e=3D"margin: 0; outline: none; padding: 0;"><a href=3D"https://southbanksof=
+tware.acemlnb.com/lt.php?s=3D8a27df8790de12d62a6a972dba67563e&i=3D94A1896A5=
+A1796" id=3D"facebook" class=3D"__ac_social_icon_link" style=3D"margin: 0; =
+outline: none; padding: 0; color: #045fb4;"><img src=3D"https://southbankso=
+ftware.img-us6.com/_social_/flat-color-round-facebook.png" border=3D"0" wid=
+th=3D"34" style=3D"border: none;"></a></div>=0A</td>=0A<td width=3D"10" sty=
+le=3D"display:inline-block!important;font-size:0;width:10px!important;">=
+=C2=A0</td>=0A<td align=3D"center" valign=3D"middle" width=3D"34" style=3D"=
+display:inline-block!important;font-size:0;width:34px!important;"><div clas=
+s=3D"__ac_social_icons" style=3D"margin: 0; outline: none; padding: 0;"><a =
+href=3D"https://southbanksoftware.acemlnb.com/lt.php?s=3D8a27df8790de12d62a=
+6a972dba67563e&i=3D94A1896A5A1797" id=3D"twitter" class=3D"__ac_social_icon=
+_link" style=3D"margin: 0; outline: none; padding: 0; color: #045fb4;"><img=
+ src=3D"https://southbanksoftware.img-us6.com/_social_/flat-color-round-twi=
+tter.png" border=3D"0" width=3D"34" style=3D"border: none;"></a></div>=0A</=
+td>=0A<td width=3D"10" style=3D"display:inline-block!important;font-size:0;=
+width:10px!important;">=C2=A0</td>=0A<td align=3D"center" valign=3D"middle"=
+ width=3D"34" style=3D"display:inline-block!important;font-size:0;width:34p=
+x!important;"><div class=3D"__ac_social_icons" style=3D"margin: 0; outline:=
+ none; padding: 0;"><a href=3D"https://southbanksoftware.acemlnb.com/lt.php=
+?s=3D8a27df8790de12d62a6a972dba67563e&i=3D94A1896A5A1798" id=3D"linkedin" c=
+lass=3D"__ac_social_icon_link" style=3D"margin: 0; outline: none; padding: =
+0; color: #045fb4;"><img src=3D"https://southbanksoftware.img-us6.com/_soci=
+al_/flat-color-round-linkedin.png" border=3D"0" width=3D"34" style=3D"borde=
+r: none;"></a></div>=0A</td>=0A<td width=3D"10" style=3D"display:inline-blo=
+ck!important;font-size:0;width:10px!important;">=C2=A0</td>=0A<td align=3D"=
+center" valign=3D"middle" width=3D"34" style=3D"display:inline-block!import=
+ant;font-size:0;width:34px!important;"><div class=3D"__ac_social_icons" sty=
+le=3D"margin: 0; outline: none; padding: 0;"><a href=3D"https://southbankso=
+ftware.acemlnb.com/lt.php?s=3D8a27df8790de12d62a6a972dba67563e&i=3D94A1896A=
+5A1799" id=3D"youtube" class=3D"__ac_social_icon_link" style=3D"margin: 0; =
+outline: none; padding: 0; color: #045fb4;"><img src=3D"https://southbankso=
+ftware.img-us6.com/_social_/flat-color-round-youtube.png" border=3D"0" widt=
+h=3D"34" style=3D"border: none;"></a></div>=0A</td>=0A</tr>=0A</table>=0A</=
+center> </td>=0A </tr>=0A</table>=0A</td>=0A</tr>=0A</table>=0A</td>=0A</tr=
+>=0A</table>=0A</td>=0A</tr>=0A<tr style=3D""><td id=3D"layout-row-margin21=
+48" valign=3D"top" style=3D"padding: 5px;"><table width=3D"100%" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size: 14px; min-width:=
+ 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: initi=
+al !important;"><tr id=3D"layout-row2148" class=3D"layout layout-row widget=
+ _widget_text style2148" style=3D"margin: 0; padding: 0;"><td id=3D"layout-=
+row-padding2148" valign=3D"top" style=3D"padding: 20px 5px 50px 5px;"><tabl=
+e width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"=
+font-size: 14px; min-width: 100%; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt;"><tr><td id=3D"text_div2112" class=3D"td_text td_block" valign=3D"top"=
+ align=3D"left" width=3D"605" style=3D"margin: 0; outline: none; padding: 0=
+; color: inherit; font-size: 12px; font-weight: inherit; line-height: 1; te=
+xt-decoration: inherit; font-family: Arial;"> <div style=3D"margin: 0; outl=
+ine: none; padding: 0;"><div style=3D"margin: 0; outline: none; padding: 0;=
+ color: #35b3d4;=0Atext-align: center;" class=3D""><span style=3D"color: #3=
+5b3d4; font-size: inherit; font-weight: inherit; line-height: inherit; text=
+-decoration: inherit;" class=3D""><span style=3D"color: #808495; font-size:=
+ inherit; font-weight: inherit; line-height: inherit; text-decoration: inhe=
+rit;" class=3D""><span style=3D"color: #35b3d4; font-size: 12px; font-weigh=
+t: 400; line-height: inherit; text-decoration: inherit; font-family: arial;=
+ font-style: normal;"><span style=3D"color: #808495; font-size: inherit; fo=
+nt-weight: inherit; line-height: inherit; text-decoration: inherit;" class=
+=3D"">Send to:</span> nattyman0007@gmail.com<br></span><br><br>Click here t=
+o</span> </span><span style=3D"color: #35b3d4; font-size: inherit; font-wei=
+ght: inherit; line-height: inherit; text-decoration: inherit; text-align: i=
+nherit;" class=3D""><a href=3D"https://southbanksoftware.acemlnb.com/proc.p=
+hp?nl=3D5&c=3D94&m=3D1896&s=3D8a27df8790de12d62a6a972dba67563e&act=3Dunsub"=
+ style=3D"margin: 0; outline: none; padding: 0; color: #35b3d4;=0Atext-deco=
+ration: underline;" class=3D""><span style=3D"color: #35b3d4; font-size: in=
+herit; font-weight: inherit; line-height: inherit; text-decoration: inherit=
+;">Unsubscribe</span></a> <span style=3D"color: #808495; font-size: 12px; f=
+ont-weight: 400; line-height: inherit; text-decoration: inherit; font-famil=
+y: arial; font-style: normal;" class=3D"">or </span><a href=3D"https://sout=
+hbanksoftware.acemlnb.com/lt.php?s=3D8a27df8790de12d62a6a972dba67563e&i=3D9=
+4A1896A5A1804" class=3D"" target=3D"_blank" style=3D"margin: 0; outline: no=
+ne; padding: 0; color: #35b3d4; text-decoration: underline;"><span class=3D=
+"" style=3D"color: #35b3d4; font-size: inherit; font-weight: inherit; line-=
+height: inherit; text-decoration: inherit;">Update Email Subscription</span=
+></a><span style=3D"color: #808495; font-size: inherit; font-weight: inheri=
+t; line-height: inherit; text-decoration: inherit;" class=3D"">.<br></span>=
+</span></div>=0A<div style=3D"margin: 0; outline: none; padding: 0; text-al=
+ign: center;" class=3D""><br class=3D"" style=3D"color: #35b3d4;"></div>=0A=
+<div style=3D"margin: 0; outline: none; padding: 0; color: #808495; text-al=
+ign: center;" class=3D""><span style=3D"color: #808495; font-size: inherit;=
+ font-weight: inherit; line-height: inherit; text-decoration: inherit; text=
+-align: inherit;" class=3D""><br>Southbank Software, 3/20 Queen Street, Mel=
+bourne Victoria 3000, Australia<br></span></div>=0A</div>=0A</td>=0A</tr>=
+=0A</table>=0A</td>=0A</tr>=0A</table>=0A</td>=0A</tr>=0A</table>=0A</td>=
+=0A</tr>=0A</table>=0A</td>=0A</tr>=0A</table>=0A</div>=0A<img src=3D"https=
+://southbanksoftware.acemlnb.com/lt.php?nl=3D5&c=3D94&m=3D1896&s=3D8a27df87=
+90de12d62a6a972dba67563e&l=3Dopen" border=3D"0" width=3D"1" height=3D"1" st=
+yle=3D"display:block;width:1px!important;min-width:1px!important;max-width:=
+1px!important;height:1px!important;border:0;overflow:hidden;" /><br clear=
+=3D"all" /></body>=0A</html>
+--_=_swift-154258495f9908f942eaf8.78232997_=_--
+

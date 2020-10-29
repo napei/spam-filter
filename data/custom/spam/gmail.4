@@ -1,0 +1,191 @@
+Delivered-To: nattyman0007@gmail.com
+Received: by 2002:a17:906:6d12:0:0:0:0 with SMTP id m18csp4569665ejr;
+        Mon, 12 Oct 2020 12:05:18 -0700 (PDT)
+X-Received: by 2002:a25:8749:: with SMTP id e9mr14921416ybn.356.1602529518486;
+        Mon, 12 Oct 2020 12:05:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602529518; cv=none;
+        d=google.com; s=arc-20160816;
+        b=uOwJ2ZbVodhET4uC95805/0fm5rJxEU6eQlaKSaOiJ9773+awyCIcvdSWC3wfCjc1C
+         EaWn2vsLKdTRGGL7O5zWtR/YguTVJPckhNz5Kn/QGGoiinzFpgYanfNZVhFuTfp6Dgfp
+         2zhGJG8VqrABSk01QR73N+BNsa70ieKglY/Tk6HDc1jx8MkIRAbNR1g4jRY2moDUQ2zE
+         s+TFRCNvEDCUnyKgU4yo9PTbZM7oh8FKIQva+v0dOB/LSSbYn+Q1JFc876VR6HNPeyEv
+         qQeqH+BpAkAkIEG+XNgFp3W95sxp1GPjysKJaclk+2LYRnYiEzxnZNFH13eil1hw095/
+         OK8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:from:subject:date:message-id:mime-version:dkim-signature;
+        bh=2mlM94MmOR2oPyhYdkKM/n8F41LtwKhz3EBzC/3SE2Q=;
+        b=PqkeWTm8waGFaPa35syktu6n6y4FG3GCJeSUe3qcm8Tvuaak/lkMoolCYHi1IOM2h/
+         upgA4T04T/04P85hqqwoSm8CPfUNklvUoMahMdwyeaKRaM3Rsm0orfQ7s9GWbtwcTneS
+         C/V5cFebOGK3pmwjDWqHv8Jpl7H5sUetvGVAnzcpKQ3PItsr6xV3TJTMFH+Mi3ttEAz5
+         MlDGAHFas6h3RXA9xEN8pk3D8Mu38qQQwL1oXGqyBxCcy1MBkZlnOCrLvQgbe185e0mL
+         pJpB7WNY+P680z96OOuXB85yqmDP72OOzvXQApeUkiMoHsJYZstr+VM4/uSS8rTs2b71
+         Dohw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=c0VND0DP;
+       spf=pass (google.com: domain of 37aiexxykafq1ad8e-d0y04bfe-9ad0b7k2aa270.ya8@trix.bounces.google.com designates 209.85.220.77 as permitted sender) smtp.mailfrom=37aiEXxYKAFQ1AD8E-D0y04BFE-9AD0B7K2AA270.yA8@trix.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Return-Path: <37aiEXxYKAFQ1AD8E-D0y04BFE-9AD0B7K2AA270.yA8@trix.bounces.google.com>
+Received: from mail-sor-f77.google.com (mail-sor-f77.google.com. [209.85.220.77])
+        by mx.google.com with SMTPS id a4sor4406589ybh.43.2020.10.12.12.05.18
+        for <nattyman0007@gmail.com>
+        (Google Transport Security);
+        Mon, 12 Oct 2020 12:05:18 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 37aiexxykafq1ad8e-d0y04bfe-9ad0b7k2aa270.ya8@trix.bounces.google.com designates 209.85.220.77 as permitted sender) client-ip=209.85.220.77;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=c0VND0DP;
+       spf=pass (google.com: domain of 37aiexxykafq1ad8e-d0y04bfe-9ad0b7k2aa270.ya8@trix.bounces.google.com designates 209.85.220.77 as permitted sender) smtp.mailfrom=37aiEXxYKAFQ1AD8E-D0y04BFE-9AD0B7K2AA270.yA8@trix.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20161025;
+        h=mime-version:message-id:date:subject:from:to;
+        bh=2mlM94MmOR2oPyhYdkKM/n8F41LtwKhz3EBzC/3SE2Q=;
+        b=c0VND0DPZyupTijkJla7GHL3aeGiqqHJ7avCPcfCPHSmKRl+mZVDGwLPoyNEIiiYwh
+         kUhYmToOuUjniNzqDOlbHSG27HweY8U8hFG4vXkMtATVT/HEFH7oV9Kl7E5rZFgDlfts
+         DTelzI56yQr61g808plfHCmcApHG5UBmqpfEzHmwmZ77mZcib4eesNgQyJjUvoh+VAg/
+         XB6wtyLXcvNd9FdrlkTdIqYy9HA3OxUhAEOfu9HprkwaotEVDWm/j/A4LCzguLOv1kLB
+         hjFBUXmzPw3I43uao0DShmdAVwHYZCNKmZhOgBnewTaRDwXt/e6OI+r7NzlPaQF8z93b
+         mvHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:message-id:date:subject:from:to;
+        bh=2mlM94MmOR2oPyhYdkKM/n8F41LtwKhz3EBzC/3SE2Q=;
+        b=Ea693G2TnCA5a29lpN6F0bPIoDsz968Cz1bQQAaZyIqrXY91xH5SiMeDDqI7M/bUfJ
+         ncUykrovA9s/Q2qBjk+oNkCIsRIOCmsxkOBG43anxXIP1ixFRi/15oaW9s+0sBDPU/ij
+         +qaSaVSdIeaLbxkSIKvC0/q0NuVrfYcaS0Y9M0Zezd5hAHEJjpTMTVDRhMheRbB3CXL5
+         VrJ9nYx8nouDiKgc8rmk/AxsQsT/+sohqrJS8bCD8sYnZpn7pLhDIE72qoOhtuMzeBvz
+         dCgVoUobkgl/7pvN9F+hGT8cGi9FGYQcpWMJ8lRD75DST3aR9g2+NKqCynfiEg5q1gEQ
+         N8ZQ==
+X-Gm-Message-State: AOAM531Trii2M7qU2bYAJ7hVoeYuPrVe/zIDymmVd7p5c3Fc2AvfBN+4
+	XDDg0PrkOIG4rxCbcxUdiojYmCmgAzW7
+X-Google-Smtp-Source: ABdhPJzFCRh+ykM4mxYajlebSk9t8SOnvxEOP2WVJHj2xnv2p43QttHf2BOvK630K6NaOYsXnYsIgV+a0DSKbqS03/FM5w==
+MIME-Version: 1.0
+X-Received: by 2002:a25:3a45:: with SMTP id h66mr32728097yba.509.1602529517860;
+ Mon, 12 Oct 2020 12:05:17 -0700 (PDT)
+Message-ID: <000000000000a77a5305b17dfab6@google.com>
+Date: Mon, 12 Oct 2020 19:05:17 +0000
+Subject: =?UTF-8?Q?=E2=AD=90=EF=B8=8F_The_legendary_blockchain_project_gives_0=2E001_?=
+	=?UTF-8?Q?BTC_to_everyone_when_registering?=
+From: =?UTF-8?B?R29vZ2xlINCk0L7RgNC80Ys=?= <forms-receipts-noreply@google.com>
+To: nattyman0007@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000a77a4205b17dfab3"
+
+--000000000000a77a4205b17dfab3
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+R29vZ2xlINCk0L7RgNC80YsNCg0KDQrQkdC70LDQs9C+0LTQsNGA0LjQvCDQt9CwINC30LDQv9C+
+0LvQvdC10L3QuNC1INGE0L7RgNC80Ysg4q2Q77iPIFRoZSBsZWdlbmRhcnkgYmxvY2tjaGFpbiBw
+cm9qZWN0IGdpdmVzICANCjAuMDAxIEJUQyB0byBldmVyeW9uZSB3aGVuIHJlZ2lzdGVyaW5nIQ0K
+0JLQsNGIINC+0YLQstC10YI6DQoNCg0K4q2Q77iPIFRoZSBsZWdlbmRhcnkgYmxvY2tjaGFpbiBw
+cm9qZWN0IGdpdmVzIDAuMDAxIEJUQyB0byBldmVyeW9uZSB3aGVuICANCnJlZ2lzdGVyaW5nDQoN
+CvCfk50gVGhlIGxlZ2VuZGFyeSBibG9ja2NoYWluIHByb2plY3QgZ2l2ZXMgMC4wMDEgQlRDIHRv
+IGV2ZXJ5b25lIHdoZW4gIA0KcmVnaXN0ZXJpbmcgV2VsY29tZSB0byB0aGUgd29ybGQgb2Ygc2hv
+cnQgdGVybSBiaXRjb2luIGludmVzdG1lbnRzLiDwn5KwICANClRvZGF5ICJUdXJibyBNTU0iIGlz
+IG51bWJlciAxIGluIHRoZSBsaXN0IG9mIGludmVzdG1lbnQgYmxvY2tjaGFpbiAgDQpwcm9qZWN0
+cyEgVGhlIGlubm92YXRpdmUgcHJvZ3JhbSBwcm92aWRlcyBhbiBvcHBvcnR1bml0eSB0byBwYXJ0
+aWNpcGF0ZSBpbiAgDQpzaG9ydC10ZXJtIGludmVzdG1lbnQgaW4gdGhlIGNyeXB0b2N1cnJlbmN5
+IG1hcmtldC4g8J+Ut+KchSBFdmVyeSAyICANCmRheXMgIlR1cmJvIE1NTSIgYWRkcyArMTAlIHRv
+IHlvdXIgYml0Y29pbiBiYWxhbmNlIHRvIHlvdXIgd2FsbGV0LiBUaGUgIA0KcHJvZ3JhbSBpcyBh
+dmFpbGFibGUgaW1tZWRpYXRlbHkgYWZ0ZXIgcmVnaXN0cmF0aW9uIG9uIHRoZSBvZmZpY2lhbCAg
+DQp3ZWJzaXRlLiDwn5OdIEdldCBhIGJvbnVzIHdoZW4gcmVnaXN0ZXJpbmcgaW4gdGhlIGFtb3Vu
+dCBvZiAwLjAwMSBCVEMgYW5kICANCmJlY29tZSBhIGZ1bGwgbWVtYmVyIG9mIHRoZSBUdXJibyBN
+TU0gcHJvamVjdC4g8J+SsCBSZWdpc3RlciBoZXJlOiAgDQpodHRwOi8vdHVyYm9tbW0uZnVuLz91
+cDVRWnZ3R2hvNg0KDQoNCtCQ0LTRgNC10YEg0Y3Qu9C10LrRgtGA0L7QvdC90L7QuSDQv9C+0YfR
+gtGLICoNCg0KDQpuYXR0eW1hbjAwMDdAZ21haWwuY29tDQoNCg0K0JLQvtC/0YDQvtGBINCx0LXQ
+tyDQt9Cw0LPQvtC70L7QstC60LANCg0KDQrQktCw0YDQuNCw0L3RgiAxDQoNCg0K0KHQvtC30LTQ
+sNGC0Ywg0YTQvtGA0LzRgyBHb29nbGUNCg0KDQo=
+--000000000000a77a4205b17dfab3
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><style>@import url(https://fonts.googleapis.com/css?family=3DGo=
+ogle+Sans:400,500|Roboto:300,400,400i,500,700&subset=3Dlatin,vietnamese,lat=
+in-ext,cyrillic,greek,cyrillic-ext,greek-ext);</style><style>[class=3D"x_bo=
+dy-content-wrapper"] * {white-space: normal !important;}</style></head><bod=
+y dir=3D"ltr" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,s=
+ans-serif;font-size: 14px; font-weight: 400; line-height: 20px;text-align: =
+start; word-wrap: break-word; margin: 0; padding: 0; height: 100%; width: 1=
+00%;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"back=
+ground-color:rgb(103,58,183);" width=3D"100%" role=3D"presentation"><tbody>=
+<tr height=3D"64px"><td style=3D"padding: 0 24px;"><img alt=3D"Google =D0=
+=A4=D0=BE=D1=80=D0=BC=D1=8B" height=3D"26px" style=3D"display: inline-block=
+; margin: 0; vertical-align: middle;" width=3D"143px" src=3D"https://www.gs=
+tatic.com/docs/forms/google_forms_logo_lockup_white_2x.png"></td></tr></tbo=
+dy></table><div class=3D"body-content-wrapper" style=3D"padding: 12px; back=
+ground-color: rgb(237,231,246);"><div style=3D"margin: 0 auto; max-width: 6=
+40px; min-width: 154px;"><div style=3D"border: 1px solid #dadce0; padding: =
+20px 12px;background-color: #fff; border-radius: 8px; margin-bottom: 12px;p=
+adding: 20px;"><h1 style=3D"color: #202124;font-family: &#39;Google Sans&#3=
+9;,Roboto,Helvetica,Arial,sans-serif;font-size: 20px; font-weight: 400; lin=
+e-height: 28px;margin: 0 0 12px;">=D0=91=D0=BB=D0=B0=D0=B3=D0=BE=D0=B4=D0=
+=B0=D1=80=D0=B8=D0=BC =D0=B7=D0=B0 =D0=B7=D0=B0=D0=BF=D0=BE=D0=BB=D0=BD=D0=
+=B5=D0=BD=D0=B8=D0=B5 =D1=84=D0=BE=D1=80=D0=BC=D1=8B <a href=3D"https://doc=
+s.google.com/forms/d/e/1FAIpQLSeiXF206Di3hp_3jSoFsRcgrZk80SS7piEKdj4BIBpX3F=
+v-sw/viewform?usp=3Dmail_form_link" target=3D"_blank" style=3D"white-space:=
+ pre-wrap;">=E2=AD=90=EF=B8=8F The legendary blockchain project gives 0.001=
+ BTC to everyone when registering</a>!</h1>=D0=92=D0=B0=D1=88 =D0=BE=D1=82=
+=D0=B2=D0=B5=D1=82:</div><div style=3D"border-bottom: 1px solid #dadce0; bo=
+rder-left: 1px solid #dadce0; border-right: 1px solid #dadce0; border-top: =
+8px solid rgb(103,58,183); padding: 20px;background-color: #fff; border-rad=
+ius: 8px; margin-bottom: 12px;"><h1 dir=3D"ltr" style=3D"font-family: &#39;=
+Google Sans&#39;,Roboto,Helvetica,Arial,sans-serif;font-size: 32px; font-we=
+ight: 400; line-height: 42px;white-space: pre-wrap;margin: 0 0 12px;">=E2=
+=AD=90=EF=B8=8F The legendary blockchain project gives 0.001 BTC to everyon=
+e when registering</h1><div style=3D"white-space: pre-wrap;margin-bottom: 1=
+2px;">=F0=9F=93=9D The legendary blockchain project gives 0.001 BTC to ever=
+yone when registering
+
+Welcome to the world of short term bitcoin investments.=20
+
+=F0=9F=92=B0 Today &quot;Turbo MMM&quot; is number 1 in the list of investm=
+ent blockchain projects!
+The innovative program provides an opportunity to participate in short-term=
+ investment in the cryptocurrency market.=20
+
+=F0=9F=94=B7=E2=9C=85 Every 2 days &quot;Turbo MMM&quot; adds +10% to your =
+bitcoin balance to your wallet.
+The program is available immediately after registration on the official web=
+site. =20
+
+=F0=9F=93=9D Get a bonus when registering in the amount of 0.001 BTC and be=
+come a full member of the Turbo MMM project.
+
+
+=F0=9F=92=B0 Register here:    http://turbommm.fun/?up5QZvwGho6</div></div>=
+<form action=3D'' method=3D'GET'><div style=3D"border: 1px solid #dadce0; p=
+adding: 20px 12px;background-color: #fff; border-radius: 8px; margin-bottom=
+: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"aut=
+o" style=3D"color: #202124;font-family: &#39;Google Sans&#39;,Roboto,Helvet=
+ica,Arial,sans-serif;font-size: 16px; font-weight: 400; line-height: 24px;w=
+hite-space: pre-wrap;margin: 0 0 16px;">=D0=90=D0=B4=D1=80=D0=B5=D1=81 =D1=
+=8D=D0=BB=D0=B5=D0=BA=D1=82=D1=80=D0=BE=D0=BD=D0=BD=D0=BE=D0=B9 =D0=BF=D0=
+=BE=D1=87=D1=82=D1=8B<span style=3D"color: #d93025;" aria-label=3D"=D0=A1=
+=D0=B4=D0=B5=D0=BB=D0=B0=D1=82=D1=8C =D1=8D=D1=82=D0=BE=D1=82 =D0=B2=D0=BE=
+=D0=BF=D1=80=D0=BE=D1=81 =D0=BE=D0=B1=D1=8F=D0=B7=D0=B0=D1=82=D0=B5=D0=BB=
+=D1=8C=D0=BD=D1=8B=D0=BC"> *</span></h2></div><div style=3D"padding: 0 12px=
+;"><div style=3D"width: 100%;"><div dir=3D"auto" style=3D"white-space: pre-=
+wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-hei=
+ght: 20px;display: inline-block; max-width: 100%; min-width: 50%;">nattyman=
+0007@gmail.com</div></div></div></div><div style=3D"border: 1px solid #dadc=
+e0; padding: 20px 12px;background-color: #fff; border-radius: 8px; margin-b=
+ottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=
+=3D"auto" style=3D"color: #202124;font-family: &#39;Google Sans&#39;,Roboto=
+,Helvetica,Arial,sans-serif;font-size: 16px; font-weight: 400; line-height:=
+ 24px;white-space: pre-wrap;margin: 0 0 16px;">=D0=92=D0=BE=D0=BF=D1=80=D0=
+=BE=D1=81 =D0=B1=D0=B5=D0=B7 =D0=B7=D0=B0=D0=B3=D0=BE=D0=BB=D0=BE=D0=B2=D0=
+=BA=D0=B0</h2></div><div style=3D"padding: 0 12px;"><div style=3D"margin-to=
+p: 16px;"><table style=3D"color: #202124;font-family: Roboto,Helvetica,Aria=
+l,sans-serif;font-size: 14px; font-weight: 400; line-height: 20px;color: #7=
+0757a;margin-top: 8px; table-layout: fixed;"><tr><td><div role=3D"radio" ar=
+ia-checked=3D"false" aria-label=3D"=D0=92=D0=B0=D1=80=D0=B8=D0=B0=D0=BD=D1=
+=82 1" style=3D"border: solid 2px #9aa0a6; height: 16px; width: 16px; borde=
+r-radius: 50%;"></div></td><td style=3D"min-width: 8px;"></td><td style=3D"=
+word-break: break-word;">=D0=92=D0=B0=D1=80=D0=B8=D0=B0=D0=BD=D1=82 1</td><=
+/tr></table></div></div></div></form></div><table align=3D"center" cellpadd=
+ing=3D"0" cellspacing=3D"0" style=3D"max-width: 672px; min-width: 154px;" w=
+idth=3D"100%" role=3D"presentation"><tbody><tr height=3D"24px"><td></td></t=
+r><tr><td><a href=3D"https://docs.google.com/forms?usp=3Dmail_form_link" st=
+yle=3D"color: #424242; font-size: 13px;">=D0=A1=D0=BE=D0=B7=D0=B4=D0=B0=D1=
+=82=D1=8C =D1=84=D0=BE=D1=80=D0=BC=D1=83 Google</a></td></tr></tbody></tabl=
+e></div></body></html>
+--000000000000a77a4205b17dfab3--

@@ -4,16 +4,13 @@ Adapted from : https://www.kaggle.com/veleon/spam-classification/execution
 
 @author: Nathaniel Peiffer
 """
-from numpy import ndarray
-from logging import error
-from re import VERBOSE
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.linear_model import PassiveAggressiveClassifier, RidgeClassifier, RidgeClassifierCV, SGDClassifier
 from sklearn.dummy import DummyClassifier
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import BaggingClassifier, ExtraTreesClassifier, GradientBoostingClassifier, AdaBoostClassifier, RandomForestClassifier, StackingClassifier
+from sklearn.ensemble import BaggingClassifier, ExtraTreesClassifier, GradientBoostingClassifier, AdaBoostClassifier, RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import BernoulliNB, MultinomialNB
 from sklearn.svm import SVC, LinearSVC
@@ -23,7 +20,6 @@ from nltk.tokenize import word_tokenize
 from sklearn.metrics import precision_score, recall_score, f1_score
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.pipeline import Pipeline
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -33,7 +29,6 @@ import numpy as np
 import os
 
 from email import message_from_binary_file
-import email.policy
 from bs4 import BeautifulSoup
 import urlextract
 from tqdm import tqdm
@@ -93,14 +88,6 @@ def email_to_plain(e: Message):
                 return content
             else:
                 return html_to_plain(p)
-
-# - Strip email headers
-# - Convert to lowercase
-# - Remove punctuation
-# - Replace urls with "URL"
-# - Replace numbers with "NUMBER"
-# - Perform Stemming (trim word endings with library)
-
 
 class EmailToWords(BaseEstimator, TransformerMixin):
     def __init__(self, includeSubject=True, stripNumbers=True):
@@ -244,7 +231,9 @@ def benchmark(cs: list, vs: list, X, y):
                 ",".join([c.__class__.__name__, v[3],
                           "{}".format(end_train_time-start_train_time),
                           "{}".format(end_test_time-start_test_time),
-                          "{:.5f}".format(p_score), "{:.5f}".format(r_score), "{:.5f}".format(f_score), "{:.5f}".format(score), "{:.5f}".format(custom_f_score)]))
+                          "{:.5f}".format(p_score), "{:.5f}".format(r_score),
+                          "{:.5f}".format(f_score), "{:.5f}".format(score),
+                          "{:.5f}".format(custom_f_score)]))
             gc.collect()
     return results
 
@@ -261,23 +250,3 @@ f = open("data.csv", "w")
 f.writelines(s + '\n' for s in res)
 f.close()
 print("Runtime: " + str(time.time() - bench_start))
-
-# # Benchmarking determined that PassiveAggressiveClassifier with TfidfVectorizer is the best
-# # Run test of unknown sample
-# classifier = PassiveAggressiveClassifier()
-# vectorizer = TfidfVectorizer()
-
-# # Train classifier
-# X_train, X_test, y_train, y_test = train_test_split(
-#     X, y, test_size=0.2)
-
-# X_train_vec = vectorizer.fit_transform(X_train)
-
-# classifier.fit(X_train_vec, y_train)
-
-# # Load custom data
-# custom_test_data = load_folder_of_emails("data/custom/spam")
-# x_cust_test = process_emails.transform(custom_test_data)
-# x_vect_cust_test = vectorizer.transform(x_cust_test)
-
-# print(classifier.predict(x_vect_cust_test))

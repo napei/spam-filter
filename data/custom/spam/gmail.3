@@ -1,0 +1,182 @@
+Delivered-To: nattyman0007@gmail.com
+Received: by 2002:a17:906:6d12:0:0:0:0 with SMTP id m18csp1609892ejr;
+        Thu, 8 Oct 2020 12:09:55 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJy7+nHzP1N4R1yqjlKAaAD7A2YWQhmAXmOxbh53eUNi5xWXfHj6x9+/lQIzSwNHuOosL0Pk
+X-Received: by 2002:a1c:9dc4:: with SMTP id g187mr10669922wme.79.1602184195004;
+        Thu, 08 Oct 2020 12:09:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602184195; cv=none;
+        d=google.com; s=arc-20160816;
+        b=RXhZY5r4MneMOeudn3zld63QS3TgMyyLRMgXfVKHXtcLXusgSWuWdpGRDaUkXP0BV7
+         Mr/Vay3qO6RKt5uPKMsO21MQPNM/AMtWLaC1zBZqtsuEUkRdMVhUCI4J4W3V8BfZDH8l
+         LHLm5AoFD3zoqtDcwKrkRv67L2/EghTiyhxhHlqmJUbzI1Uj5pLdt2jU3YZJYrBK+Zy0
+         a1bcu0AfkMmVj6xJ3Nmrikdg4YUdlQWZT4J6j5lOayNcd+Py8E9H3hp4xkG8Ky3Stk+v
+         Juh1YAVzLMzLSWE8nr0n9sKNT8Xc1xAa+26FvjSJRfmCEhXSY2uZsMn+kxAK0CoRUJIi
+         r+qA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-id:list-unsubscribe:mime-version:subject:message-id:to
+         :reply-to:from:date:dkim-signature;
+        bh=b2mJVnml7/t10RkMGUHzEqkuRZhvY2czwMeN0jGm/ro=;
+        b=DerRGUf2C2VgNKqD0B3TXisDKtwnUoFyi0a+aJKk9GiBlJzCA+V8aMHkU3dkE4XZkB
+         NnBEquMocl4wKyZmQOZinMN1MFzNlCylRBvWX+U3ZxDxklPLyG2fg5BmuPp5GLpQ3SBS
+         K+HQCIB5TKU0zf31F/P1xcx9LlbQDChEFaPZpr+uWcjb2kKKXcz06vte0xAhYoCaW/u5
+         Z9ugOZvzjDcmvRJdPV1FtGorqZ0DKU7Kz6ZR97O8i7Gy+s5MJA2KKvFHIdlaRJC8b1KM
+         WVNIc3kwQxwdEhAFr7wvRLtFnbiZ8+IZjDyiwLLcjUIu3vn2RV1yFFjduq12owcEEbSx
+         ls0w==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@lion.portadasdeprensa.com header.s=emv header.b=Erbq9tyu;
+       spf=pass (google.com: domain of info@lion.portadasdeprensa.com designates 81.92.117.170 as permitted sender) smtp.mailfrom=info@lion.portadasdeprensa.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=lion.portadasdeprensa.com
+Return-Path: <info@lion.portadasdeprensa.com>
+Received: from scandium-onseze.emv8.com (scandium-onseze.emv8.com. [81.92.117.170])
+        by mx.google.com with ESMTPS id s3si5770412wrv.0.2020.10.08.12.09.54
+        for <nattyman0007@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 08 Oct 2020 12:09:54 -0700 (PDT)
+Received-SPF: pass (google.com: domain of info@lion.portadasdeprensa.com designates 81.92.117.170 as permitted sender) client-ip=81.92.117.170;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@lion.portadasdeprensa.com header.s=emv header.b=Erbq9tyu;
+       spf=pass (google.com: domain of info@lion.portadasdeprensa.com designates 81.92.117.170 as permitted sender) smtp.mailfrom=info@lion.portadasdeprensa.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=lion.portadasdeprensa.com
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=emv; d=lion.portadasdeprensa.com;
+ h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:List-Unsubscribe:List-Id; i=info@lion.portadasdeprensa.com;
+ bh=+AhXQNXz4byoD0eSm4TQnr4DHZI=;
+ b=Erbq9tyuInIcxf4oi3Ia8IZB+9uCluoq5ZUBFvHGeoHXmfii8zPqFieuy1YOYf+GKdr144oBkVuB
+   0U7Kv+bSVON90J2w7v/rP36Y+4andGBaxhP4FM0pWcg+xKch7g1CaDdhtcrYIbyfaM6L1nHkVnC2
+   9WFuY/o98sxD2QcoIu8=
+Received: by scandium-onseze.emv8.com id hfti0416758o for <nattyman0007@gmail.com>; Thu, 8 Oct 2020 21:02:27 +0200 (envelope-from <info@lion.portadasdeprensa.com>)
+Return-Path: info@lion.portadasdeprensa.com
+Date: Thu, 8 Oct 2020 21:02:27 +0200 (CEST)
+From: Health Insurance paid for a year <info@lion.portadasdeprensa.com>
+Reply-To: Health Insurance paid for a year <info@lion.portadasdeprensa.com>
+To:  <nattyman0007@gmail.com>
+Message-ID: <2.1.34.1101038162.5988341.13444388617@lion.portadasdeprensa.com>
+Subject: Health Deal Saves Users on Average $380.00 a year*
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary=598834113444388617
+X-EMV-Platform: p6ccc.campaigncommander.com$
+X-EMV-CampagneId: 5988341$
+X-EMV-MemberId: 13444388617$
+X-Feedback-ID: 1101038162:CC_34_5988341:0:sfocus
+List-Unsubscribe: <http://lion.portadasdeprensa.com/HD?b=PscVHjYSMV6hFb-dpShcddyPEPgVGJ1j9RNrkxeBvPnYSdqrurPVjrFhR9dCh_6m&c=iwPfiB0NNh9gJ19FazSttQ>, <mailto:unsubscribe@lion.portadasdeprensa.com?subject=unsubscribe-34-PscVHjYSMV6hFb-dpShcddyPEPgVGJ1j9RNrkxeBvPnYSdqrurPVjrFhR9dCh_6m/iwPfiB0NNh9gJ19FazSttQ>
+List-Id: <1101038162.34.1.1.list-id.lion.portadasdeprensa.com>
+
+--598834113444388617
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+
+[My health compare] ( http://lion.portadasdeprensa.com/HP?b=PscVHjYSMV6hFb-dpShcdSPER_RMurkd1BJ6YLbedRUUavjr26ZPNesLNcNCYXII&c=iwPfiB0NNh9gJ19FazSttQ )
+[Compare now] 
+
+[Start saving now] 
+
+Privacy Policy ( http://lion.portadasdeprensa.com/HP?b=PscVHjYSMV6hFb-dpShcdW3Pi6jKrhZaKBMo_7S_iQVh39DWDq3AxxuBjvLEP1Ie&c=iwPfiB0NNh9gJ19FazSttQ ) | Terms and Condition ( http://lion.portadasdeprensa.com/HP?b=PscVHjYSMV6hFb-dpShcdS6Nj8w86CvwahN2zdvRs5KSgtqgV-RS3gkGmea_qw6t&c=iwPfiB0NNh9gJ19FazSttQ )
+Copyright © 2010-2020 My Health Compare
+
+[You subscribed the site]If you do not wish to receive further emails click here ( http://lion.portadasdeprensa.com/HD?b=PscVHjYSMV6hFb-dpShcdav4EhwLAtXtj9H881Onhand6d7YIrDe26vXDxiwMBHk&c=iwPfiB0NNh9gJ19FazSttQ ) to unsubscribe. Thank you.
+--598834113444388617
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+      Health Deal
+    </title>
+    <style type="text/css">
+    /*<![CDATA[*/
+    @media only screen and (max-device-width: 600px) {
+    table[class="mainTable"] {
+    width: 95% !important;
+    }
+    img[class="img"] {
+    width: 100% !important;
+    height: auto !important;
+    }
+    }@-ms-viewport { width:device-width;} #outlook a { padding: 0; } body { width: 100% !important; -webkit-text-size-adjust: none; -ms-text-size-adjust: none; margin: 0; padding: 0; } .ReadMsgBody { width: 100%; } .ExternalClass { width: 100%; display: block !important; } .ExternalClass * { line-height: 100%; } #backgroundTable { margin: 0; padding: 0; width: 100% !important; } img { outline: none; -ms-interpolation-mode: bicubic; } a img { border: none; } @media only screen and (max-device-width: 414px) { .imagefooter { width: 100% !important; height: auto !important; } }
+    /*]]>*/
+    </style>
+  <!--[if gte mso 9]><xml> <o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]--></head>
+  <body style="width: 100% !important;-webkit-text-size-adjust: none;-ms-text-size-adjust: none;margin: 0;padding: 0;">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" id="backgroundTable" style="margin: 0;padding: 0;width: 100% !important">
+      <tr>
+        <td align="center">
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0" class="headerblockMain">
+            <tr>
+              <td height="36" align="center" bgcolor="#FFFFFF" style="font-family:Arial, Helvetica, sans-serif; color:#888; font-size:11px; padding-bottom: 10px;">
+                If you do not see images, click <a href="http://lion.portadasdeprensa.com/HM?b=PscVHjYSMV6hFb-dpShcdfwwT_wmQNli52j82JJoO-MEHPHRs0eOKb-80Z9TbUId&c=iwPfiB0NNh9gJ19FazSttQ" target="_blank" style="font-family:Arial, Helvetica, sans-serif; color:#888; font-size:11px;">here</a> to see the online version
+              </td>
+            </tr>
+          </table>
+          <table bgcolor="#F2F2F2" cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
+            <tr>
+              <td>
+                <br />
+                <table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#FFFFFF" width="600" class="mainTable">
+                  <tr>
+                    <td align="center">
+                      <a style="font-family: Arial, 'sans-serif'; font-size: 30px; color: #000000;" href="http://lion.portadasdeprensa.com/HP?b=PscVHjYSMV6hFb-dpShcdettM35uomZnr9mGV7kM-ki9Jb5S3uP0r6nPezJyzFFq&c=iwPfiB0NNh9gJ19FazSttQ" target="_blank"><img class="img" src="http://img.portadasdeprensa.com/97923f8b6942ce07242663ac95df1d66/01/1_5f7d9576abe55.jpeg" alt="My health compare" width="600" height="499" style="display:block; border:none;" /></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                      <a style="font-family: Arial, 'sans-serif'; font-size: 30px; color: #000000;" href="http://lion.portadasdeprensa.com/HP?b=PscVHjYSMV6hFb-dpShcde1bi_rOOQLzbKOQB6ZyLxzpkJ6p1U4Iv33J7Qxk-Sdi&c=iwPfiB0NNh9gJ19FazSttQ" target="_blank"><img class="img" src="http://img.portadasdeprensa.com/97923f8b6942ce07242663ac95df1d66/01/2_5f7d9578922d7.jpeg" alt="Compare now" width="600" height="170" style="display:block; border:none;" /></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                      <img class="img" src="http://img.portadasdeprensa.com/97923f8b6942ce07242663ac95df1d66/01/3_5f7d957a309d7.jpeg" alt="" width="600" height="581" style="display:block; border:none;" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                      <a style="font-family: Arial, 'sans-serif'; font-size: 30px; color: #000000;" href="http://lion.portadasdeprensa.com/HP?b=PscVHjYSMV6hFb-dpShcdd8p0cMQ0ONWn7b1xPHkgfjZeytnfBF2whGwYCQjw3XT&c=iwPfiB0NNh9gJ19FazSttQ" target="_blank"><img class="img" src="http://img.portadasdeprensa.com/97923f8b6942ce07242663ac95df1d66/01/4_5f7d957c252a0.jpeg" alt="Start saving now" width="600" height="86" style="display:block; border:none;" /></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center">
+                      <img class="img" src="http://img.portadasdeprensa.com/97923f8b6942ce07242663ac95df1d66/01/5_5f7d957d709e7.jpeg" alt="" width="600" height="221" style="display:block; border:none;" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center" bgcolor="#7FC481" style="padding: 30px 10px; font-size: 12px; font-family: sans-serif; line-height:18px; color: #ffffff;">
+                      <a href="http://lion.portadasdeprensa.com/HP?b=PscVHjYSMV6hFb-dpShcdU3AgjJpOBGIuz8hg-84Y8ckHqzdBGp2gGKcxjUrb3bG&c=iwPfiB0NNh9gJ19FazSttQ" target="_blank" style="text-decoration: none; color: #ffffff;">Privacy Policy</a> | <a href="http://lion.portadasdeprensa.com/HP?b=PscVHjYSMV6hFb-dpShcdTRLC0c9kxNWEou9MobizoCzaCP6rhWKx1OD5UVrVb2z&c=iwPfiB0NNh9gJ19FazSttQ" target="_blank" style="text-decoration: none; color: #ffffff;">Terms and Condition</a><br />
+                      Copyright © 2010-2020 My Health Compare
+                    </td>
+                  </tr>
+                </table><br />
+                <br />
+                <br />
+                <br />
+              </td>
+            </tr>
+          </table>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="footerblockMain">
+            <tr>
+              <td align="center" style="font-family: Helvetica, sans-serif; font-size: 11px; color: #FFFFFF; display: none;">
+                <br />
+                <br />
+                <br />
+                
+              </td>
+            </tr>
+            <tr>
+              <td align="center" bgcolor="#FFFFFF" style="padding:15px; font-family:Arial, Helvetica, sans-serif; color:#888; font-size:11px;">
+                <center>
+                  <img mn:noimport="" src="http://img.portadasdeprensa.com/wpt/footer_au_1_5.jpg" width="462" height="25" alt="You subscribed the site" style="font-family:Arial, sans-serif;color:#888; font-size:11px; display:inline-block; border:none;" />
+                </center>If you do not wish to receive further emails <a href="http://lion.portadasdeprensa.com/HD?b=PscVHjYSMV6hFb-dpShcdav4EhwLAtXtj9H881Onhand6d7YIrDe26vXDxiwMBHk&c=iwPfiB0NNh9gJ19FazSttQ" target="_blank" style="font-family:Arial, Helvetica, sans-serif; color:#888; font-size:11px;">click here</a> to unsubscribe. Thank you.
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table><img src="http://tr.portadasdeprensa.com/open?bid=1&cid=149254&eid=751404&uid=15795033&gid=0&geo=AU&nid=61373&did=&dld=" mn:noimport="" alt="" width="0" height="0" border="0" />
+  <img src="http://lion.portadasdeprensa.com/HO?kSt-6G69-hxpxj896_-CoTo_C27apB2QIxfK5IWHhNDR7goBHspMIqa3C43d0l-t/iwPfiB0NNh9gJ19FazSttQ.gif" border="0" alt="" width="1" height="1" /></body>
+</html>
+--598834113444388617--

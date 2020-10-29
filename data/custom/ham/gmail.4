@@ -1,0 +1,984 @@
+Delivered-To: nattyman0007@gmail.com
+Received: by 2002:a17:907:2179:0:0:0:0 with SMTP id rl25csp86524ejb;
+        Wed, 28 Oct 2020 18:21:16 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwdB3VMncgSeAEi4sr1dABeEGea+47UOSgRXJi0sdi+mRXGhXZlKmcU8C3A7mQ1Y1IGoyJ5
+X-Received: by 2002:a5d:6149:: with SMTP id y9mr2372007wrt.352.1603934476030;
+        Wed, 28 Oct 2020 18:21:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603934476; cv=none;
+        d=google.com; s=arc-20160816;
+        b=mbBnnC4qqXlT/WkKfrGsdcV1oi120Z74fU1INY2CpBGDOFZ8yQ2nZbAHUqICJ1Wl9v
+         lj4ZZdIPvlJagbaBXXXPFm0McU4s41fnBU6jVzuayAFZ8SgLesOkmOcPAG/SlRolsPLG
+         AxQqI+phnMCAIKBm9CMl4EMPqiukUxARxqMM38AKO6BFxyRXcOo8x+rXHGOtV3C7WUO6
+         vA8hHFbwTmTpoFQrETU8bnDatGlSoryNlTcb9PloZ/yM7TIbrH8rWAn3qx7MvY2Jl3Ij
+         7Gwp1DJRJK+E+ELgn5OJ41D1bTdLZZrVG53T/l5al5soVC0bwr8N8BsQmsyaRXM9tWIC
+         FgZg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=precedence:list-unsubscribe:message-id:mime-version:reply-to:to
+         :date:subject:from:dkim-signature;
+        bh=iq7ODALD1mdPI1JWvU0NLIIGSVESu3LZhGuLswT/yhc=;
+        b=nCFTCbxKFIUcgH8glN52g6qHeSlTn2Fm8IdYQBfd9ZRrsaIQC+iFbSp/gEyyaUM9RH
+         yBgG58IFVY00QMXfrv7s1Rl78awP/yZafG5D3Ue17ax63AYHHPz5eBeDI+b3y822ytlC
+         +8MyfTNECW0XtDjwiZfTrlMq62TmqueOcXMCp6H+OPGMyIoQSUuEsMsNbtXEnQ1k49s8
+         +f8rkdPi6FjmGgaF7jImNdioP27egI/fBOuUqFTVz8rduasR3XozISfRAkf3krE8JcFB
+         JIgYt1HnahyEPKPuxrbenJwl8sQGe3DaoPRg9O9FTwyTx7Rus6g3YqSSi6fvweB3tagF
+         fF3A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@community.3ds.com header.s=dassaultsystemes header.b="fsf+/rcY";
+       spf=pass (google.com: domain of bounce@community.3ds.com designates 130.248.153.123 as permitted sender) smtp.mailfrom=bounce@community.3ds.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=3ds.com
+Return-Path: <bounce@community.3ds.com>
+Received: from r123.community.3ds.com (r123.community.3ds.com. [130.248.153.123])
+        by mx.google.com with ESMTPS id h8si1256929wrb.89.2020.10.28.18.21.15
+        for <nattyman0007@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 28 Oct 2020 18:21:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce@community.3ds.com designates 130.248.153.123 as permitted sender) client-ip=130.248.153.123;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@community.3ds.com header.s=dassaultsystemes header.b="fsf+/rcY";
+       spf=pass (google.com: domain of bounce@community.3ds.com designates 130.248.153.123 as permitted sender) smtp.mailfrom=bounce@community.3ds.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=3ds.com
+Return-Path: <bounce@community.3ds.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=community.3ds.com;
+	s=dassaultsystemes; t=1603934476;
+	bh=iq7ODALD1mdPI1JWvU0NLIIGSVESu3LZhGuLswT/yhc=;
+	h=From:Subject:Date:To:MIME-Version:Message-ID:List-Unsubscribe:
+	 Content-Type;
+	b=fsf+/rcY/fvcn1JtLRZNvAtZc+jvrYCL01aL0renUq1AtuvA7lwp6K4HCd/UCAuaO
+	 01Kwew59FntxBfwStLMiI60Z8neliOaGlvIFxAfBUF3n5NnzkUMX8Jwj2yKS49pVdV
+	 nJEUFTszvab/0d95HHx221kDwSYEIYgG/0lB2DstcH4Sw4WEDJarguF8YmoO07u/3g
+	 jA5LxmJra8oPh78iEwH4fPwQoGo7Ci/6g4QmR/YbzQEljVEK3WyhHyzyYq6Sq+sEkb
+	 Z8jO1V8P9Ou9+4hCwZrKL6Ek1WKwZ1vWM55uQ5584YvzwXLJNFGJEbkHihQh2AjbUc
+	 gW4lilm40pNKg==
+Received: from [99.80.182.147] ([99.80.182.147:63014] helo=r122.community.3ds.com)
+	by momentum10.lon7.cpt.adobe.net (envelope-from <bounce@community.3ds.com>)
+	(ecelerity 4.2.38.62370 r(:)) with ESMTP
+	id 77/BA-10759-C091A9F5; Wed, 28 Oct 2020 18:21:16 -0700
+From: "SOLIDWORKS" <solidworks@community.3ds.com>
+Subject: =?utf-8?B?UXVpY2sgR2xhbmNlIEludG8gU09MSURXT1JLUzogQnVpbGRpbg==?=
+ =?utf-8?B?ZyAmIENvbnN0cnVjdGlvbiBQcm9kdWN0cyBhbmQgU2VydmljZXM=?=
+Date: Thu, 29 Oct 2020 01:21:14 GMT
+To: <nattyman0007@gmail.com>
+Reply-To: "SOLIDWORKS" <Marketing.wecare-feedbacks@3ds.com>
+MIME-Version: 1.0
+X-mailer: nlserver, Build 6.7.0
+Message-ID: <NM60D37E5BB003AE544dassaul_mid_prod5@community.3ds.com>
+List-Unsubscribe: <mailto:bounce@community.3ds.com?subject=unsubscribe%3CNM60D37E5BB003AE544dassaul_mid_prod5@community.3ds.com%3E>
+Precedence: Bulk
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_415_DBB471FD.DBB471FD"
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_415_DBB471FD.DBB471FD
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Quick Glance Into SOLIDWORKS: Building & Construction Products and Services ----------------------------------------------------------------------------
+To view this message in HTML format, click here:
+http://t.community.3ds.com/r/?id=tf74b8a9,6d86364,5a596d6&utm_medium=email&utm_source=inh_db2&utm_campaign=_XOP6540_&utm_content=DM9761&RCid=%406f2s%2FcC7yl56M2oLVGamHA%3D%3D&p1=%40YDmewPiT9hLn7SEm02L5%2FhhEwyrWkWH9wmTOnRtrUjg%3D
+or paste this link in a Web browser
+----------------------------------------------------------------------------   Quick Glance Into SOLIDWORKS: Building & Construction Products and Services WHAT? Learn how SOLIDWORKS can help Building & Construction product manufacturers and fabricators streamline their Engineering and Fabrication processes to stay competitive WHEN? 19 November 2020
+10:00AM - 10:30AM SGT
+1:00PM - 1:30PM AEDT Register Today Many industries have long understood the benefits of a fully engaged digital approach to everyday business. The advantages have been clearly established in greater productivity, collaboration, efficiency, accuracy and delivered customer satisfaction.
+
+As a Building and Construction product fabricator, manufacturer or contractor, your technology investments in Engineering and Fabrication processes can help you gain a competitive advantage as early as the proposal stage. 
+
+By integrating and optimizing your fabrication processes to meet new productivity objectives and align yourself to your customers’ new digital workflows, its enables you to showcase your expertise and understanding of pain points to your stakeholders. It positions you as a valued strategic advisor, rather than just another supplier or contractor. Those who overlook this will risk missing opportunities to reach and make an impression on stakeholders that are critical for winning contracts.
+
+To outpace the competition, you must stand out from the crowd with the digital means to: Support innovation, empower collaboration across your organization and enable data integration across your ecosystem Drive resilience to changing industry and social trends Enable quality engineering, competitive costing, on time, on budget delivery to maximize the chances of winning contracts. Learn how SOLIDWORKS solutions portfolio can help streamline your Engineering to Fabrication processes and stay competitive. 
+
+Also take this opportunity to attend our upcoming webinars: 26 November, 10:00AM - 10:30AM SGT
+
+
+Quick Glance Into SOLIDWORKS for Automation Machinery 3 December, 10:00AM - 10:30AM SGT
+
+
+Quick Glance Into SOLIDWORKS for Process Plants Dassault Syst&#232;mes SolidWorks Corporation
+175 Wyman Street, Waltham, MA 02451 USA
+generalinfo@solidworks.com
+This is a commercial email to promote the products and services of Dassault Syst&#232;mes SolidWorks Corporation. 
+We respect your right to privacy. See our privacy policy for more information 
+http://t.community.3ds.com/r/?id=tf74b8a9,6d86364,5a596d7&utm_medium=email&utm_source=inh_db2&utm_campaign=_XOP6540_&utm_content=DM9761&RCid=%406f2s%2FcC7yl56M2oLVGamHA%3D%3D
+
+© Copyright 2020 Dassault Syst&#232;mes SolidWorks Corporation. All rights reserved. Update your Communication Preferences
+http://t.community.3ds.com/r/?id=tf74b8a9,6d86364,5a596d8&utm_medium=email&utm_source=inh_db2&utm_campaign=_XOP6540_&utm_content=DM9761&RCid=%406f2s%2FcC7yl56M2oLVGamHA%3D%3D&p1=%406f2s%2FcC7yl56M2oLVGamHA%3D%3D&p2=%40IFaDbHTDPQDF0xssgZztSg%3D%3D
+
+------=_NextPart_415_DBB471FD.DBB471FD
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v =3D 
+"urn:schemas-microsoft-com:vml" xmlns:o =3D 
+"urn:schemas-microsoft-com:office:office"><HEAD><TITLE>Dassault Syst=C3=A8m=
+es</TITLE>
+<META charset=3D"utf-8" content=3D"text/html" 
+http-equiv=3D"Content-Type">
+<META content=3D"width=3Ddevice-width" name=3D"viewport">
+<STYLE type=3Dtext/css>
+@media only screen {
+html, body {
+  min-height: 100%;
+  background-color: #F6F6F6;
+  margin: 0;
+  padding: 0;
+}
+}
+
+@media only screen and (max-width:616px) {
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+=2Emain {
+  width: 100% !important;
+}
+=2EmRow {
+  display: table-row !important;
+}
+=2Ehide {
+  display: none !important;
+}
+=2EspacerMargin {
+  width: 16px !important;
+}
+=2EimgFull {
+  width: 100% !important;
+  height: auto !important;
+}
+=2Eimg32x32 {
+  width: 32px !important;
+  height: 32px !important;
+}
+=2Esph20 {
+  height: 20px !important;
+}
+=2Ebold {
+  font-weight: bold !important;
+}
+=2Etxt15-18 {
+  font-size: 15px !important;
+  line-height: 18px !important;
+}
+=2Etxt13-20 {
+  font-size: 13px !important;
+  line-height: 20px !important;
+}
+=2Epadbott5 {
+  padding-bottom: 5px !important;
+}
+=2Epadbott10 {
+  padding-bottom: 10px !important;
+}
+=2Epadbott15 {
+  padding-bottom: 15px !important;
+}
+=2Epadbott20 {
+  padding-bottom: 20px !important;
+}
+=2Epadtop15 {
+  padding-top: 15px !important;
+}
+=2Epadleft10 {
+  padding-left: 10px !important;
+}
+=2Epadleft16 {
+  padding-left: 16px !important;
+}
+=2Epadright10 {
+  padding-right: 10px !important;
+}
+=2EblueArrow {
+  width: 7px !important;
+  height: 10px !important;
+  padding-right: 10px !important;
+}
+=2EblueArrowText {
+  font-size: 13px !important;
+  line-height: 13px !important;
+  color: #239DE8 !important;
+}
+=2EcomText {
+  font-size: 15px !important;
+  line-height: 18px !important;
+  color: #239DE8 !important;
+  padding-left: 10px !important;
+}
+=2EtwoColsOneCol {
+  display: block !important;
+  width: 100% !important;
+}
+=2EalignLeft {
+  text-align: left !important;
+  margin-right: auto;
+}
+}
+</STYLE>
+
+<META name=3DGENERATOR content=3D"MSHTML 11.00.10570.1001"></HEAD>
+<BODY><SPAN class=3Dpreheader 
+style=3D"FONT-SIZE: 0px; OVERFLOW: hidden; MAX-WIDTH: 0px; COLOR: #f6f6f6; =
+DISPLAY: none !important; LINE-HEIGHT: 0px; MAX-HEIGHT: 0px; VISIBILITY: hi=
+dden; mso-hide: all; opacity: 0">Quick 
+Glance Into SOLIDWORKS: Building &amp; Construction Products and Services</=
+SPAN> 
+
+<TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D0>
+  <TBODY>
+  <TR>
+    <TD style=3D"BACKGROUND-COLOR: #f6f6f6" width=3D"100%" align=3Dcenter>
+      <TABLE cellSpacing=3D0 cellPadding=3D0 border=3D0>
+        <TBODY>
+        <TR>
+          <TD class=3Dmain style=3D"BACKGROUND-COLOR: #fff" width=3D600><!-=
+- MIRROR PAGE -->
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D=
+0>
+              <TBODY>
+              <TR>
+                <TD 
+                style=3D"FONT-SIZE: 11px; FONT-FAMILY: Arial; COLOR: #a6a6a=
+6; PADDING-BOTTOM: 10px; TEXT-ALIGN: center; LINE-HEIGHT: 15px; BACKGROUND-=
+COLOR: #f6f6f6" 
+                width=3D"100%"><FONT 
+                  style=3D"FONT-SIZE: 12px; FONT-FAMILY: courier new" 
+                  color=3D#008080 neolane=3D"internalForJS"><p align=3Dcent=
+er>
+  <font style=3D"font-family: Verdana, Arial; font-size: 10px">
+  If you are unable to view this message correctly,
+  <a href=3D"http://t.community.3ds.com/r/=3Fid=3Dhf74b8a9,6d86364,5a596cb&=
+utm_medium=3Demail&utm_source=3Dinh_db2&utm_campaign=3D_XOP6540_&utm_conten=
+t=3DDM9761&RCid=3D%406f2s%2FcC7yl56M2oLVGamHA%3D%3D&p1=3D%40YDmewPiT9hLn7SE=
+m02L5%2FhhEwyrWkWH9wmTOnRtrUjg%3D" _label=3D"Mirror Page" _type=3D"mirrorPa=
+ge">click here</a>
+  </font>
+</p></FONT></TD></TR></TBODY></TABLE><!-- END MIRROR PAGE --><!-- HEADER --=
+>
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D=
+0>
+              <TBODY>
+              <TR>
+                <TD style=3D"BACKGROUND-COLOR: #e31818" width=3D"100%">
+                  <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" bor=
+der=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD style=3D"BACKGROUND-COLOR: #e31818" width=3D"100%=
+"><IMG 
+                        style=3D"HEIGHT: 20px" border=3D0 
+                        src=3D"http://res.community.3ds.com/res/img/0E3A609=
+6212EFDFFD9BE6C2DBEA24B1E.png" 
+                        height=3D20></TD></TR></TBODY></TABLE>
+                  <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" bor=
+der=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD style=3D"BACKGROUND-COLOR: #e31818"><IMG 
+                        class=3DspacerMargin style=3D"WIDTH: 28px" border=
+=3D0 
+                        src=3D"http://res.community.3ds.com/res/img/0E3A609=
+6212EFDFFD9BE6C2DBEA24B1E.png" 
+                        width=3D28></TD>
+                      <TD style=3D"BACKGROUND-COLOR: #e31818" vAlign=3Dtop 
+                      width=3D"100%" align=3Dleft>
+                        <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100=
+%" 
+border=3D0>
+                          <TBODY>
+                          <TR><!-- Logo -->
+                            <TD class=3DtwoColsOneCol 
+                            style=3D"BACKGROUND-COLOR: #e31818" vAlign=3Dto=
+p 
+                            width=3D"30%" align=3Dleft>
+                              <TABLE cellSpacing=3D0 cellPadding=3D0 width=
+=3D"100%" 
+                              border=3D0>
+                                <TBODY>
+                                <TR>
+                                <TD 
+                                style=3D"VERTICAL-ALIGN: top; PADDING-BOTTO=
+M: 16px; BACKGROUND-COLOR: #e31818"><a href=3D"http://t.community.3ds.com/r=
+/=3Fid=3Dhf74b8a9,6d86364,5a596cc&utm_medium=3Demail&utm_source=3Dinh_db2&u=
+tm_campaign=3D_XOP6540_&utm_content=3DDM9761&RCid=3D%406f2s%2FcC7yl56M2oLVG=
+amHA%3D%3D" target=3D"_blank"><IMG 
+                                style=3D"HEIGHT: 32px !important; WIDTH: au=
+to" 
+                                border=3D0 alt=3D"" 
+                                src=3D"http://res.community.3ds.com/res/img=
+/420958D7A27ABAD142AE2298281F6C06.png" 
+                                height=3D32></A></TD></TR></TBODY></TABLE><=
+/TD><!-- Logo End -->
+                            <TD class=3DtwoColsOneCol 
+                            style=3D"BACKGROUND-COLOR: #e31818" vAlign=3Dto=
+p 
+                            width=3D"70%" align=3Dleft>
+                              <TABLE cellSpacing=3D0 cellPadding=3D0 width=
+=3D"100%" 
+                              border=3D0>
+                                <TBODY>
+                                <TR>
+                                <TD class=3DalignLeft 
+                                style=3D"FONT-SIZE: 15px; FONT-FAMILY: Aria=
+l; VERTICAL-ALIGN: top; FONT-WEIGHT: bold; COLOR: #fff; TEXT-ALIGN: right; =
+LINE-HEIGHT: 18px; BACKGROUND-COLOR: #e31818" 
+                                width=3D"100%">&nbsp;</TD></TR>
+                                <TR>
+                                <TD class=3DalignLeft 
+                                style=3D"FONT-SIZE: 13px; FONT-FAMILY: Aria=
+l; COLOR: #fff; PADDING-BOTTOM: 16px; TEXT-ALIGN: right; LINE-HEIGHT: 20px;=
+ BACKGROUND-COLOR: #e31818" 
+                                width=3D"100%"></TD></TR></TBODY></TABLE></=
+TD></TR></TBODY></TABLE></TD>
+                      <TD style=3D"BACKGROUND-COLOR: #e31818"><IMG 
+                        class=3DspacerMargin style=3D"WIDTH: 28px" border=
+=3D0 
+                        src=3D"http://res.community.3ds.com/res/img/0E3A609=
+6212EFDFFD9BE6C2DBEA24B1E.png" 
+                        width=3D28></TD></TR></TBODY></TABLE></TD></TR></TB=
+ODY></TABLE><!-- HEADER END -->
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D=
+0>
+              <TBODY>
+              <TR>
+                <TD width=3D"100%"><IMG style=3D"HEIGHT: 30px" border=3D0 
+                  src=3D"http://res.community.3ds.com/res/img/0E3A6096212EF=
+DFFD9BE6C2DBEA24B1E.png" 
+                  height=3D30></TD></TR></TBODY></TABLE><!-- TITLE ONLY -->
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D=
+0>
+              <TBODY>
+              <TR>
+                <TD class=3DspacerMargin><IMG class=3DspacerMargin 
+                  style=3D"WIDTH: 28px" border=3D0 
+                  src=3D"http://res.community.3ds.com/res/img/0E3A6096212EF=
+DFFD9BE6C2DBEA24B1E.png" 
+                  width=3D28></TD>
+                <TD 
+                style=3D"FONT-SIZE: 22px; FONT-FAMILY: Arial; VERTICAL-ALIG=
+N: top; FONT-WEIGHT: bold; COLOR: #000001; TEXT-ALIGN: left; LINE-HEIGHT: 2=
+6px" 
+                width=3D"100%">Quick Glance Into SOLIDWORKS: Building &amp;=
+ 
+                  Construction Products and Services</TD>
+                <TD class=3DspacerMargin><IMG class=3DspacerMargin 
+                  style=3D"WIDTH: 28px" border=3D0 
+                  src=3D"http://res.community.3ds.com/res/img/0E3A6096212EF=
+DFFD9BE6C2DBEA24B1E.png" 
+                  width=3D28></TD></TR></TBODY></TABLE><!-- END TITLE ONLY =
+--><!-- SPACER -->
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D=
+0>
+              <TBODY>
+              <TR>
+                <TD style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px" width=3D"100=
+%"><IMG 
+                  style=3D"HEIGHT: 30px" border=3D0 
+                  src=3D"http://res.community.3ds.com/res/img/0E3A6096212EF=
+DFFD9BE6C2DBEA24B1E.png" 
+                  height=3D30></TD></TR></TBODY></TABLE><!-- END SPACER -->=
+<!-- BANNER -->
+            <TABLE 
+            style=3D"mso-cellspacing: 0px; mso-padding-alt: 0px 0px 0px 0px=
+" 
+            cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D0>
+              <TBODY>
+              <TR>
+                <TD class=3DspacerMargin width=3D28><IMG class=3DspacerMarg=
+in 
+                  style=3D"WIDTH: 28px" border=3D0 
+                  src=3D"http://res.community.3ds.com/res/img/0E3A6096212EF=
+DFFD9BE6C2DBEA24B1E.png" 
+                  width=3D28></TD>
+                <TD width=3D"100%" align=3Dcenter><IMG border=3D0 
+                  src=3D"http://res.community.3ds.com/res/img/BD03D7FC01E53=
+9BAF8CB1F15CE0D1DD0.jpg"></TD>
+                <TD class=3DspacerMargin width=3D28><IMG class=3DspacerMarg=
+in 
+                  style=3D"WIDTH: 28px" border=3D0 
+                  src=3D"http://res.community.3ds.com/res/img/0E3A6096212EF=
+DFFD9BE6C2DBEA24B1E.png" 
+                  width=3D28></TD></TR></TBODY></TABLE><!-- END BANNER --><=
+!-- SPACER -->
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D=
+0>
+              <TBODY>
+              <TR>
+                <TD style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px" width=3D"100=
+%"><IMG 
+                  style=3D"HEIGHT: 30px" border=3D0 
+                  src=3D"http://res.community.3ds.com/res/img/0E3A6096212EF=
+DFFD9BE6C2DBEA24B1E.png" 
+                  height=3D30></TD></TR></TBODY></TABLE><!-- END SPACER -->=
+<!-- VERTICAL -->
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D=
+0>
+              <TBODY>
+              <TR>
+                <TD class=3DspacerMargin><IMG class=3DspacerMargin 
+                  style=3D"WIDTH: 28px" border=3D0 
+                  src=3D"http://res.community.3ds.com/res/img/0E3A6096212EF=
+DFFD9BE6C2DBEA24B1E.png" 
+                  width=3D28></TD>
+                <TD class=3D"twoColsOneCol padbott20" vAlign=3Dtop width=3D=
+"50%" 
+                align=3Dleft>
+                  <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" bor=
+der=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD>
+                        <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100=
+%" 
+border=3D0>
+                          <TBODY>
+                          <TR>
+                            <TD 
+                            style=3D"FONT-SIZE: 15px; FONT-FAMILY: Arial; V=
+ERTICAL-ALIGN: top; FONT-WEIGHT: bold; PADDING-BOTTOM: 5px; TEXT-ALIGN: lef=
+t; LINE-HEIGHT: 18px" 
+                            width=3D"100%"><FONT 
+color=3D#da291c>WHAT=3F</FONT></TD></TR>
+                          <TR>
+                            <TD 
+                            style=3D"FONT-SIZE: 13px; FONT-FAMILY: Arial; V=
+ERTICAL-ALIGN: top; PADDING-BOTTOM: 10px; TEXT-ALIGN: left; LINE-HEIGHT: 20=
+px" 
+                            width=3D"100%">Learn how SOLIDWORKS can help 
+                              Building &amp; Construction product manufactu=
+rers 
+                              and fabricators streamline their Engineering =
+and 
+                              Fabrication processes to stay 
+                          competitive</TD></TR></TBODY></TABLE></TD>
+                      <TD class=3DspacerMargin><IMG class=3DspacerMargin 
+                        style=3D"WIDTH: 28px" border=3D0 
+                        src=3D"http://res.community.3ds.com/res/img/0E3A609=
+6212EFDFFD9BE6C2DBEA24B1E.png" 
+                        width=3D28></TD></TR></TBODY></TABLE></TD>
+                <TD class=3DtwoColsOneCol vAlign=3Dtop width=3D"50%" align=
+=3Dleft>
+                  <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" bor=
+der=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD>
+                        <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100=
+%" 
+border=3D0>
+                          <TBODY>
+                          <TR>
+                            <TD class=3Dpadtop15 
+                            style=3D"FONT-SIZE: 15px; FONT-FAMILY: Arial; V=
+ERTICAL-ALIGN: top; FONT-WEIGHT: bold; PADDING-BOTTOM: 5px; TEXT-ALIGN: lef=
+t; LINE-HEIGHT: 18px" 
+                            width=3D"100%"><FONT 
+color=3D#da291c>WHEN=3F</FONT></TD></TR>
+                          <TR>
+                            <TD 
+                            style=3D"FONT-SIZE: 13px; FONT-FAMILY: Arial; V=
+ERTICAL-ALIGN: top; PADDING-BOTTOM: 10px; TEXT-ALIGN: left; LINE-HEIGHT: 20=
+px" 
+                            width=3D"100%"><B>19 November 2020<BR>10:00AM -=
+ 
+                              10:30AM SGT<BR>1:00PM - 1:30PM 
+                          AEDT</B></TD></TR></TBODY></TABLE></TD>
+                      <TD class=3DspacerMargin><IMG class=3DspacerMargin 
+                        style=3D"WIDTH: 28px" border=3D0 
+                        src=3D"http://res.community.3ds.com/res/img/0E3A609=
+6212EFDFFD9BE6C2DBEA24B1E.png" 
+                        width=3D28></TD></TR></TBODY></TABLE></TD></TR></TB=
+ODY></TABLE><!-- END VERTICAL --><!-- SPACER -->
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D=
+0>
+              <TBODY>
+              <TR>
+                <TD style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px" width=3D"100=
+%"><IMG 
+                  style=3D"HEIGHT: 30px" border=3D0 
+                  src=3D"http://res.community.3ds.com/res/img/0E3A6096212EF=
+DFFD9BE6C2DBEA24B1E.png" 
+                  height=3D30></TD></TR></TBODY></TABLE><!-- END SPACER -->=
+<!-- TEXT ONLY -->
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D=
+0>
+              <TBODY>
+              <TR>
+                <TD style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px"><IMG 
+                  class=3DspacerMargin style=3D"WIDTH: 28px" border=3D0 
+                  src=3D"http://res.community.3ds.com/res/img/0E3A6096212EF=
+DFFD9BE6C2DBEA24B1E.png" 
+                  width=3D28></TD>
+                <TD width=3D"100%">
+                  <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" bor=
+der=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD 
+                      style=3D"FONT-FAMILY: Arial; VERTICAL-ALIGN: top; TEX=
+T-ALIGN: justify; LINE-HEIGHT: 7px" 
+                      width=3D"100%">
+                        <CENTER>
+                        <TABLE height=3D"100%" width=3D205 valign=3D"middle=
+">
+                          <TBODY>
+                          <TR 
+                          style=3D"FONT-SIZE: 15px; FONT-FAMILY: Arial; VER=
+TICAL-ALIGN: middle; FONT-WEIGHT: bold; PADDING-BOTTOM: 5px; TEXT-ALIGN: le=
+ft; PADDING-TOP: 5px; PADDING-LEFT: 5px; LINE-HEIGHT: 18px; PADDING-RIGHT: =
+5px" 
+                          height=3D35 bgColor=3D#da291c>
+                            <TD align=3Dcenter><a style=3D"TEXT-DECORATION:=
+ none" href=3D"http://t.community.3ds.com/r/=3Fid=3Dhf74b8a9,6d86364,5a596c=
+d&utm_medium=3Demail&utm_source=3Dinh_db2&utm_campaign=3D_XOP6540_&utm_cont=
+ent=3DDM9761&RCid=3D%406f2s%2FcC7yl56M2oLVGamHA%3D%3D"><FONT 
+                              color=3Dwhite face=3DArial><B>Register 
+                              Today</B></FONT></A></TD></TR></TBODY></TABLE=
+></CENTER></TD></TR></TBODY></TABLE></TD>
+                <TD style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px"><IMG 
+                  class=3DspacerMargin style=3D"WIDTH: 28px" border=3D0 
+                  src=3D"http://res.community.3ds.com/res/img/0E3A6096212EF=
+DFFD9BE6C2DBEA24B1E.png" 
+                  width=3D28></TD></TR></TBODY></TABLE><!-- END TEXT ONLY -=
+-><!-- SPACER -->
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D=
+0>
+              <TBODY>
+              <TR>
+                <TD style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px" width=3D"100=
+%"><IMG 
+                  style=3D"HEIGHT: 30px" border=3D0 
+                  src=3D"http://res.community.3ds.com/res/img/0E3A6096212EF=
+DFFD9BE6C2DBEA24B1E.png" 
+                  height=3D30></TD></TR></TBODY></TABLE><!-- END SPACER -->=
+<!-- TEXT ONLY -->
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D=
+0>
+              <TBODY>
+              <TR>
+                <TD style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px"><IMG 
+                  class=3DspacerMargin style=3D"WIDTH: 28px" border=3D0 
+                  src=3D"http://res.community.3ds.com/res/img/0E3A6096212EF=
+DFFD9BE6C2DBEA24B1E.png" 
+                  width=3D28></TD>
+                <TD width=3D"100%">
+                  <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" bor=
+der=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD 
+                      style=3D"FONT-SIZE: 13px; FONT-FAMILY: Arial; VERTICA=
+L-ALIGN: top; TEXT-ALIGN: left; LINE-HEIGHT: 20px" 
+                      width=3D"100%">Many industries have long understood t=
+he 
+                        benefits of a fully engaged digital approach to eve=
+ryday 
+                        business. The advantages have been clearly establis=
+hed 
+                        in greater productivity, collaboration, efficiency,=
+ 
+                        accuracy and delivered customer satisfaction.<BR><B=
+R>As 
+                        a Building and Construction product fabricator, 
+                        manufacturer or contractor, your technology investm=
+ents 
+                        in Engineering and Fabrication processes can help y=
+ou 
+                        gain a competitive advantage as early as the propos=
+al 
+                        stage. <BR><BR>By integrating and optimizing your 
+                        fabrication processes to meet new productivity 
+                        objectives and align yourself to your customers=E2=
+=80=99 new 
+                        digital workflows, its enables you to showcase your=
+ 
+                        expertise and understanding of pain points to your 
+                        stakeholders. It positions you as a valued strategi=
+c 
+                        advisor, rather than just another supplier or 
+                        contractor. Those who overlook this will risk missi=
+ng 
+                        opportunities to reach and make an impression on 
+                        stakeholders that are critical for winning 
+                        contracts.<BR><BR>To outpace the competition, you m=
+ust 
+                        stand out from the crowd with the digital means to:=
+ 
+                        <UL>
+                          <LI>Support innovation, empower collaboration acr=
+oss 
+                          your organization and enable data integration acr=
+oss 
+                          your ecosystem 
+                          <LI>Drive resilience to changing industry and soc=
+ial 
+                          trends 
+                          <LI>Enable quality engineering, competitive costi=
+ng, 
+                          on time, on budget delivery to maximize the chanc=
+es of 
+                          winning contracts.</LI></UL>Learn how SOLIDWORKS 
+                        solutions portfolio can help streamline your Engine=
+ering 
+                        to Fabrication processes and stay competitive. 
+                      <BR><BR></TD></TR>
+                    <TR>
+                      <TD bgColor=3D#da291c height=3D6 colSpan=3D2></TD></T=
+R>
+                    <TR>
+                      <TD 
+                      style=3D"FONT-SIZE: 15px; FONT-FAMILY: Arial,sans-ser=
+if; COLOR: #fff; TEXT-ALIGN: left" 
+                      bgColor=3D#ffffff height=3D55 vAlign=3Dmiddle align=
+=3Dcenter>
+                        <DIV align=3Dcenter><STRONG style=3D"COLOR: #da291c=
+">Also 
+                        take this opportunity to attend our upcoming webina=
+rs: 
+                        </STRONG></DIV></TD></TR></TBODY></TABLE></TD>
+                <TD style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px"><IMG 
+                  class=3DspacerMargin style=3D"WIDTH: 28px" border=3D0 
+                  src=3D"http://res.community.3ds.com/res/img/0E3A6096212EF=
+DFFD9BE6C2DBEA24B1E.png" 
+                  width=3D28></TD></TR></TBODY></TABLE><!-- END TEXT ONLY -=
+-><!-- new responsive edit start-->
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D=
+0>
+              <TBODY>
+              <TR>
+                <TD style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px"><IMG 
+                  class=3DspacerMargin style=3D"WIDTH: 35px" border=3D0 
+                  src=3D"http://res.community.3ds.com/res/img/0E3A6096212EF=
+DFFD9BE6C2DBEA24B1E.png" 
+                  width=3D35></TD>
+                <TD vAlign=3Dtop width=3D"100%">
+                  <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" bor=
+der=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD 
+                      style=3D"FONT-SIZE: 12px; FONT-FAMILY: Arial,sans-ser=
+if; FONT-WEIGHT: bold; COLOR: #666666; TEXT-ALIGN: center">26 
+                        November, 10:00AM - 10:30AM SGT<BR><IMG border=3D0 
+                        src=3D"http://res.community.3ds.com/res/img/3884EFC=
+70D47B120B00E8BE16ED3D5BD.jpg"><BR><BR><a style=3D"FONT-SIZE: 12px; FONT-FA=
+MILY: Arial,sans-serif; FONT-WEIGHT: bold; COLOR: #da291c; PADDING-BOTTOM: =
+10px; TEXT-ALIGN: center; PADDING-TOP: 10px; PADDING-LEFT: 10px; PADDING-RI=
+GHT: 10px" href=3D"http://t.community.3ds.com/r/=3Fid=3Dhf74b8a9,6d86364,5a=
+596ce&utm_medium=3Demail&utm_source=3Dinh_db2&utm_campaign=3D_XOP6540_&utm_=
+content=3DDM9761&RCid=3D%406f2s%2FcC7yl56M2oLVGamHA%3D%3D">Quick 
+                        Glance Into SOLIDWORKS for Automation Machinery</A>=
+</TD>
+                      <TD 
+                      style=3D"FONT-SIZE: 12px; FONT-FAMILY: Arial,sans-ser=
+if; FONT-WEIGHT: bold; COLOR: #666666; TEXT-ALIGN: center">3 
+                        December, 10:00AM - 10:30AM SGT<BR><IMG border=3D0 
+                        src=3D"http://res.community.3ds.com/res/img/4C2B161=
+4B33F63D1FA37E6F121BE8BC4.jpg"><BR><BR><a style=3D"FONT-SIZE: 12px; FONT-FA=
+MILY: Arial,sans-serif; FONT-WEIGHT: bold; COLOR: #da291c; PADDING-BOTTOM: =
+10px; TEXT-ALIGN: center; PADDING-TOP: 10px; PADDING-LEFT: 10px; PADDING-RI=
+GHT: 10px" href=3D"http://t.community.3ds.com/r/=3Fid=3Dhf74b8a9,6d86364,5a=
+596cf&utm_medium=3Demail&utm_source=3Dinh_db2&utm_campaign=3D_XOP6540_&utm_=
+content=3DDM9761&RCid=3D%406f2s%2FcC7yl56M2oLVGamHA%3D%3D">Quick 
+                        Glance Into SOLIDWORKS for Process 
+                    Plants</A></TD></TR></TBODY></TABLE></TD>
+                <TD style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px"><IMG 
+                  class=3DspacerMargin style=3D"WIDTH: 28px" border=3D0 
+                  src=3D"http://res.community.3ds.com/res/img/0E3A6096212EF=
+DFFD9BE6C2DBEA24B1E.png" 
+                  width=3D28></TD></TR></TBODY></TABLE><!-- new responsive =
+edit end-->
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D=
+0>
+              <TBODY>
+              <TR>
+                <TD style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px"><IMG 
+                  class=3DspacerMargin style=3D"WIDTH: 28px" border=3D0 
+                  src=3D"http://res.community.3ds.com/res/img/0E3A6096212EF=
+DFFD9BE6C2DBEA24B1E.png" 
+                  width=3D28></TD>
+                <TD style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px"><IMG 
+                  class=3DspacerMargin style=3D"WIDTH: 28px" border=3D0 
+                  src=3D"http://res.community.3ds.com/res/img/0E3A6096212EF=
+DFFD9BE6C2DBEA24B1E.png" 
+                  width=3D28></TD></TR></TBODY></TABLE><!-- SPACER --><!-- =
+END SPACER --><!-- SPACER LISERET --><!-- END SPACER LISERET --><!-- SPEAKE=
+RS --><!-- END SPEAKERS --><!-- SPACER -->
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D=
+0>
+              <TBODY>
+              <TR>
+                <TD style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px" width=3D"100=
+%"><IMG 
+                  style=3D"HEIGHT: 30px" border=3D0 
+                  src=3D"http://res.community.3ds.com/res/img/0E3A6096212EF=
+DFFD9BE6C2DBEA24B1E.png" 
+                  height=3D30></TD></TR></TBODY></TABLE><!-- END SPACER -->=
+<!-- FOOTER -->
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D=
+0>
+              <TBODY>
+              <TR>
+                <TD style=3D"BACKGROUND-COLOR: #e31818" width=3D"100%">
+                  <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" bor=
+der=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD 
+                      style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px; BACKGROUND=
+-COLOR: #e31818" 
+                      width=3D"100%"><IMG style=3D"HEIGHT: 6px" border=3D0 
+                        src=3D"http://res.community.3ds.com/res/img/0E3A609=
+6212EFDFFD9BE6C2DBEA24B1E.png" 
+                        height=3D6></TD></TR></TBODY></TABLE>
+                  <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" bor=
+der=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD 
+                      style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px; BACKGROUND=
+-COLOR: #e31818"><IMG 
+                        class=3DspacerMargin style=3D"WIDTH: 28px" border=
+=3D0 
+                        src=3D"http://res.community.3ds.com/res/img/0E3A609=
+6212EFDFFD9BE6C2DBEA24B1E.png" 
+                        width=3D28></TD>
+                      <TD style=3D"BACKGROUND-COLOR: #e31818" vAlign=3Dtop 
+                      width=3D"100%" align=3Dleft>
+                        <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100=
+%" 
+border=3D0>
+                          <TBODY>
+                          <TR>
+                            <TD class=3Dhide 
+                            style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px; BACK=
+GROUND-COLOR: #e31818" 
+                            width=3D"100%"><IMG class=3DspacerMargin border=
+=3D0 
+                              src=3D"http://res.community.3ds.com/res/img/0=
+E3A6096212EFDFFD9BE6C2DBEA24B1E.png"></TD>
+                            <TD class=3D"twoColsOneCol alignLeft" 
+                            style=3D"FONT-SIZE: 0px; TEXT-ALIGN: right; LIN=
+E-HEIGHT: 0px; BACKGROUND-COLOR: #e31818" 
+                            vAlign=3Dtop width=3D"30%" align=3Dleft>
+                              <TABLE cellSpacing=3D0 cellPadding=3D0 border=
+=3D0>
+                                <TBODY>
+                                <TR>
+                                <TD style=3D"PADDING-RIGHT: 10px"><a href=
+=3D"http://t.community.3ds.com/r/=3Fid=3Dhf74b8a9,6d86364,5a596d0&utm_mediu=
+m=3Demail&utm_source=3Dinh_db2&utm_campaign=3D_XOP6540_&utm_content=3DDM976=
+1&RCid=3D%406f2s%2FcC7yl56M2oLVGamHA%3D%3D" target=3D"_blank"><IMG 
+                                style=3D"HEIGHT: 32px; WIDTH: 32px" border=
+=3D0 
+                                alt=3DFacebook 
+                                src=3D"http://res.community.3ds.com/res/img=
+/096345F7800A958ECB70ADBE944463AB.png" 
+                                width=3D32 height=3D32></A></TD>
+                                <TD style=3D"PADDING-RIGHT: 10px"><a href=
+=3D"http://t.community.3ds.com/r/=3Fid=3Dhf74b8a9,6d86364,5a596d1&utm_mediu=
+m=3Demail&utm_source=3Dinh_db2&utm_campaign=3D_XOP6540_&utm_content=3DDM976=
+1&RCid=3D%406f2s%2FcC7yl56M2oLVGamHA%3D%3D" target=3D"_blank"><IMG 
+                                style=3D"HEIGHT: 32px; WIDTH: 32px" border=
+=3D0 
+                                alt=3DTwitter 
+                                src=3D"http://res.community.3ds.com/res/img=
+/FC55935C6AB1B1195024FB16396E6B43.png" 
+                                width=3D32 height=3D32></A></TD>
+                                <TD style=3D"PADDING-RIGHT: 10px"><a href=
+=3D"http://t.community.3ds.com/r/=3Fid=3Dhf74b8a9,6d86364,5a596d2&utm_mediu=
+m=3Demail&utm_source=3Dinh_db2&utm_campaign=3D_XOP6540_&utm_content=3DDM976=
+1&RCid=3D%406f2s%2FcC7yl56M2oLVGamHA%3D%3D" target=3D"_blank"><IMG 
+                                style=3D"HEIGHT: 32px; WIDTH: 32px" border=
+=3D0 
+                                alt=3DYoutube 
+                                src=3D"http://res.community.3ds.com/res/img=
+/AB5D89455A2C83DF7533B1BDF053C5DB.png" 
+                                width=3D32 height=3D32></A></TD>
+                                <TD style=3D"PADDING-RIGHT: 10px"><a href=
+=3D"http://t.community.3ds.com/r/=3Fid=3Dhf74b8a9,6d86364,5a596d3&utm_mediu=
+m=3Demail&utm_source=3Dinh_db2&utm_campaign=3D_XOP6540_&utm_content=3DDM976=
+1&RCid=3D%406f2s%2FcC7yl56M2oLVGamHA%3D%3D" target=3D"_blank"><IMG 
+                                style=3D"HEIGHT: 32px; WIDTH: 32px" border=
+=3D0 
+                                alt=3DLinkedIn 
+                                src=3D"http://res.community.3ds.com/res/img=
+/07F0E5E77C4EC085A7A0253B78776D26.png" 
+                                width=3D32 
+                            height=3D32></A></TD></TR></TBODY></TABLE></TD>=
+</TR></TBODY></TABLE></TD>
+                      <TD 
+                      style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px; BACKGROUND=
+-COLOR: #e31818"><IMG 
+                        class=3DspacerMargin style=3D"WIDTH: 28px" border=
+=3D0 
+                        src=3D"http://res.community.3ds.com/res/img/0E3A609=
+6212EFDFFD9BE6C2DBEA24B1E.png" 
+                        width=3D28></TD></TR></TBODY></TABLE>
+                  <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" bor=
+der=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD 
+                      style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px; BACKGROUND=
+-COLOR: #e31818" 
+                      width=3D"100%"><IMG style=3D"HEIGHT: 6px" border=3D0 
+                        src=3D"http://res.community.3ds.com/res/img/0E3A609=
+6212EFDFFD9BE6C2DBEA24B1E.png" 
+                        height=3D6></TD></TR></TBODY></TABLE>
+                  <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" bor=
+der=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD 
+                      style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px; BACKGROUND=
+-COLOR: #f6f6f6" 
+                      width=3D"100%"><IMG style=3D"HEIGHT: 10px" border=3D0=
+ 
+                        src=3D"http://res.community.3ds.com/res/img/0E3A609=
+6212EFDFFD9BE6C2DBEA24B1E.png" 
+                        height=3D10></TD></TR></TBODY></TABLE>
+                  <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" bor=
+der=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD class=3DspacerMargin 
+                      style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px; BACKGROUND=
+-COLOR: #f6f6f6" 
+                      width=3D28><IMG class=3DspacerMargin style=3D"WIDTH: =
+28px" 
+                        border=3D0 
+                        src=3D"http://res.community.3ds.com/res/img/0E3A609=
+6212EFDFFD9BE6C2DBEA24B1E.png" 
+                        width=3D28></TD>
+                      <TD 
+                      style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px; BACKGROUND=
+-COLOR: #f6f6f6" 
+                      width=3D"100%" align=3Dleft><IMG 
+                        style=3D"HEIGHT: auto; WIDTH: 98px" border=3D0 
+                        src=3D"http://res.community.3ds.com/res/img/1584480=
+E18CC55759B54BE07AD6B6FFA.png" 
+                        width=3D98></TD>
+                      <TD 
+                      style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px; BACKGROUND=
+-COLOR: #f6f6f6"><IMG 
+                        class=3DspacerMargin style=3D"WIDTH: 28px" border=
+=3D0 
+                        src=3D"http://res.community.3ds.com/res/img/0E3A609=
+6212EFDFFD9BE6C2DBEA24B1E.png" 
+                        width=3D28></TD></TR></TBODY></TABLE></TD></TR></TB=
+ODY></TABLE><!-- END FOOTER --><!-- DISCLAIMER -->
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D=
+0>
+              <TBODY>
+              <TR>
+                <TD style=3D"BACKGROUND-COLOR: #f6f6f6" width=3D"100%">
+                  <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" bor=
+der=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD 
+                      style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px; BACKGROUND=
+-COLOR: #f6f6f6" 
+                      width=3D"100%"><IMG style=3D"HEIGHT: 12px" border=3D0=
+ 
+                        src=3D"http://res.community.3ds.com/res/img/0E3A609=
+6212EFDFFD9BE6C2DBEA24B1E.png" 
+                        height=3D12></TD></TR></TBODY></TABLE>
+                  <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" bor=
+der=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD 
+                      style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px; BACKGROUND=
+-COLOR: #f6f6f6"><IMG 
+                        class=3DspacerMargin style=3D"WIDTH: 28px" border=
+=3D0 
+                        src=3D"http://res.community.3ds.com/res/img/0E3A609=
+6212EFDFFD9BE6C2DBEA24B1E.png" 
+                        width=3D28></TD>
+                      <TD 
+                      style=3D"FONT-SIZE: 11px; FONT-FAMILY: Arial; COLOR: =
+#a6a6a6; TEXT-ALIGN: justify; LINE-HEIGHT: 15px; BACKGROUND-COLOR: #f6f6f6"=
+ 
+                      width=3D"100%"><FONT 
+                        style=3D"FONT-SIZE: 12px; FONT-FAMILY: courier new"=
+ 
+                        color=3D#008080 neolane=3D"internalForJS"><font sty=
+le=3D"font-size:9px;font-family:Arial,sans-serif;color:#999">
+<strong>Dassault Syst&#232;mes SolidWorks Corporation</strong><br>
+175 Wyman Street<br>
+Waltham&#44; MA 02451 USA<br>
+Email&#58;<a href=3D"mailto:generalinfo@solidworks.com" style=3D"font-famil=
+y:Arial,sans-serif;font-weight:bold;color:#999999">generalinfo@solidworks.c=
+om</a><br>
+<br>
+This is a commercial email to promote the products and services of Dassault=
+ Syst&#232;mes SolidWorks Corporation. We respect your right to privacy. Se=
+e our <a href=3D"http://t.community.3ds.com/r/=3Fid=3Dhf74b8a9,6d86364,5a59=
+6d4&utm_medium=3Demail&utm_source=3Dinh_db2&utm_campaign=3D_XOP6540_&utm_co=
+ntent=3DDM9761&RCid=3D%406f2s%2FcC7yl56M2oLVGamHA%3D%3D" style=3D"font-fami=
+ly:Arial,sans-serif;color:#999"><strong>privacy policy</strong></a> for mor=
+e information.<br>
+<br>
+=C2=A9 Copyright 2020 Dassault Syst&#232;mes SolidWorks Corporation. All ri=
+ghts reserved.</font></FONT></TD>
+                      <TD 
+                      style=3D"FONT-SIZE: 0px; LINE-HEIGHT: 0px; BACKGROUND=
+-COLOR: #f6f6f6"><IMG 
+                        class=3DspacerMargin style=3D"WIDTH: 28px" border=
+=3D0 
+                        src=3D"http://res.community.3ds.com/res/img/0E3A609=
+6212EFDFFD9BE6C2DBEA24B1E.png" 
+                        width=3D28></TD></TR></TBODY></TABLE></TD></TR></TB=
+ODY></TABLE><!-- END DISCLAIMER --><!-- UNSUBSCRIPTION -->
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D=
+0>
+              <TBODY>
+              <TR>
+                <TD style=3D"BACKGROUND-COLOR: #f6f6f6" width=3D"100%">
+                  <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" bor=
+der=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD 
+                      style=3D"FONT-SIZE: 10px; LINE-HEIGHT: 10px; BACKGROU=
+ND-COLOR: #f6f6f6" 
+                      width=3D"100%"><IMG style=3D"HEIGHT: 10px" border=3D0=
+ 
+                        src=3D"http://res.community.3ds.com/res/img/0E3A609=
+6212EFDFFD9BE6C2DBEA24B1E.png" 
+                        height=3D10></TD></TR></TBODY></TABLE>
+                  <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" bor=
+der=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD style=3D"BACKGROUND-COLOR: #f6f6f6"><IMG 
+                        class=3DspacerMargin style=3D"WIDTH: 28px" border=
+=3D0 
+                        src=3D"http://res.community.3ds.com/res/img/0E3A609=
+6212EFDFFD9BE6C2DBEA24B1E.png" 
+                        width=3D28></TD>
+                      <TD 
+                      style=3D"FONT-SIZE: 10px; FONT-FAMILY: Arial; COLOR: =
+#a6a6a6; TEXT-ALIGN: center; LINE-HEIGHT: 15px; BACKGROUND-COLOR: #f6f6f6" 
+                      width=3D"100%"><FONT 
+                        style=3D"FONT-SIZE: 12px; FONT-FAMILY: courier new"=
+ 
+                        color=3D#008080 neolane=3D"internalForJS"><a href=
+=3D"http://t.community.3ds.com/r/=3Fid=3Dhf74b8a9,6d86364,5a596d5&utm_mediu=
+m=3Demail&utm_source=3Dinh_db2&utm_campaign=3D_XOP6540_&utm_content=3DDM976=
+1&RCid=3D%406f2s%2FcC7yl56M2oLVGamHA%3D%3D&p1=3D%406f2s%2FcC7yl56M2oLVGamHA=
+%3D%3D&p2=3D%40mN9XXhQKcyfyR%2BGKFJu2bg%3D%3D" target=3D"_blank" _type=3D"o=
+ptout" _label=3D"Communication Preferences" style=3D"color:#A6A6A6">Update =
+your Communication Preferences</a></FONT></TD>
+                      <TD 
+                  style=3D"BACKGROUND-COLOR: #f6f6f6"></TD></TR></TBODY></T=
+ABLE></TD></TR></TBODY></TABLE><!-- UNSUBSCRIPTION --></TD></TR></TBODY></T=
+ABLE></TD></TR></TBODY></TABLE><img height=3D'0' width=3D'0' alt=3D'' src=
+=3D'http://t.community.3ds.com/r/=3Fid=3Dhf74b8a9,6d86364,1'/></BODY></HTML=
+>
+
+------=_NextPart_415_DBB471FD.DBB471FD--
+

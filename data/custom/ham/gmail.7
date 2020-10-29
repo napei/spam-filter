@@ -1,0 +1,149 @@
+Delivered-To: nattyman0007@gmail.com
+Received: by 2002:a17:906:6d12:0:0:0:0 with SMTP id m18csp874483ejr;
+        Wed, 14 Oct 2020 12:52:57 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwkb+m+z1ZLoIG+NZ35uZj3UwcRi086AdD+o+AzSIslkWuN67kZgOYjw16UFd7OqheeKJVZ
+X-Received: by 2002:a17:90a:c90d:: with SMTP id v13mr808733pjt.166.1602705176778;
+        Wed, 14 Oct 2020 12:52:56 -0700 (PDT)
+Return-Path: <announce-bounces@nmap.org>
+Received: from ack.nmap.org (ack.nmap.org. [2600:3c01:e000:3e6::6d4e:7061])
+        by mx.google.com with ESMTPS id x8si262899plv.59.2020.10.14.12.52.55
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 14 Oct 2020 12:52:56 -0700 (PDT)
+Received-SPF: pass (google.com: domain of announce-bounces@nmap.org designates 2600:3c01:e000:3e6::6d4e:7061 as permitted sender) client-ip=2600:3c01:e000:3e6::6d4e:7061;
+Authentication-Results: mx.google.com;
+       dkim=neutral (body hash did not verify) header.i=@nmap-org.20150623.gappssmtp.com header.s=20150623 header.b=dC5dTbf6;
+       arc=fail (body hash mismatch);
+       spf=pass (google.com: domain of announce-bounces@nmap.org designates 2600:3c01:e000:3e6::6d4e:7061 as permitted sender) smtp.mailfrom=announce-bounces@nmap.org
+Received: from ack.nmap.org (localhost [IPv6:::1])
+	by ack.nmap.org (Postfix) with ESMTP id 5218B6834;
+	Wed, 14 Oct 2020 12:31:09 -0700 (PDT)
+X-Original-To: announce@seclists.org
+Delivered-To: announce@seclists.org
+Received: from mail-qk1-x748.google.com (mail-qk1-x748.google.com
+ [IPv6:2607:f8b0:4864:20::748])
+ by ack.nmap.org (Postfix) with ESMTP id 1540A500F
+ for <announce@seclists.org>; Wed, 14 Oct 2020 12:29:29 -0700 (PDT)
+Received: by mail-qk1-x748.google.com with SMTP id w189so468233qkd.6
+ for <announce@seclists.org>; Wed, 14 Oct 2020 12:29:29 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:dkim-signature:mime-version:from:date:message-id
+ :subject:to;
+ bh=5Mzqzutw1bwvQjX4DyEsIgY2XvrgBuj+fDOXT9oXbW8=;
+ b=N1YuDi9gauLo7dDX7sWko2GvXvEtAA8Ogy+dkWC9xmClStXmezOkzslolTe74SZ08x
+ GmQKfl/JWPJOR35d2O7AiYJreYpFUXwgGTRZNVdl7weQqIyAD8am0JsVnwRCeAnCT8q6
+ dHHK1QtrTmPFAiSMFMUw1nTTHaFYvevGbNNA2LzYkXDweZFc2srCnD+WfzgsxmHkapQK
+ B68ULUqdSVUkoE2FULAfLIR4MWjuxCG5uPzMW6UJbNysIPninObVNf61Uq/RVGyb5Guu
+ sJozCrvV3psMXTLkiFbj52CGgyxFZTfLasAs+fYhDKiHCIHMCy+GF+Pc9Cewx6HD10G7
+ CiWg==
+X-Gm-Message-State: AOAM531bmVvk1VSinTD+PDaSq915O8TjkFl4FcIpudPOqh/GK+C+WUh3
+ VyVnTkl8pyoT4BwDSqMz4udTcs0qfPSWAQ0bATCfOb8yUzkDHPxVVCFzDN45F/3qykGgkky+coQ
+ 8NRLKTU7B4OC2HngEPWVWFzjcDQ==
+X-Received: by 2002:a0c:b21b:: with SMTP id x27mr888876qvd.12.1602703768376;
+ Wed, 14 Oct 2020 12:29:28 -0700 (PDT)
+X-Received: by 2002:a0c:b21b:: with SMTP id x27mr888834qvd.12.1602703767803;
+ Wed, 14 Oct 2020 12:29:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602703767; cv=none;
+ d=google.com; s=arc-20160816;
+ b=r4iwm9ZGmyVusdCsJ3L+0xBolqoA0dLSZ6S+tQkL5WnhOUSY8up+3VT0hyQ5LnRd2e
+ JZd64+oO9R59DQ1C0XMCt+D0bnlnXyW2/3WTqhi/Ecl+SD4ldG3vrN+aSTlSyNdVzEme
+ pkZSAh7AKYuXpNrlXArw8AlRbfWC93onnSeFSzzn0I4GOfCjMDsOXb7+2IVH/IDRXsFS
+ XHf36NYvFuSJ0MlI1/4gmK+/S5owTr/dhOcEOopqRBtHY/Bv2et//Iixey0yfET4sTIA
+ GGUxQivud3G6qQ4yMfDC5ihnZcJ7XQC6yFTCqPN+Bl8CKq0daoyKqquYv0k7ofeVA62A
+ LWTg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com;
+ s=arc-20160816; 
+ h=to:subject:message-id:date:from:mime-version:dkim-signature;
+ bh=5Mzqzutw1bwvQjX4DyEsIgY2XvrgBuj+fDOXT9oXbW8=;
+ b=wwA3VMA2H/ODG750W+1GFoYmhamfYK+78iFz5AIdV+OXR6jMoL2q21Dp+pYCA3Rgbv
+ fL/6e3FOztJoD4Xc8vj2Ss1tUhSJgV1XvmgK8FuQ6V7vtzz3zfLlfz9ayDZhHH8sPeLS
+ +2/HqrhspPFgfx3wDa13oov+Y14OlPpvaNb2FPGvwIWiwjMfoQXdAgEVFoxn1VfmXmvI
+ l0uKOLra9rzcIHQeOfOqLGMzj14J87xECdiVzofdYYju93HZA4bshDYar3WBeTPMS9Yd
+ spU4yVGX2Qq0C+xrqySa0BygDeXwZN7FubSAJUv5JHNLtjsyLE6sLpMVV1tvruKlExkR
+ 9ENw==
+ARC-Authentication-Results: i=1; mx.google.com;
+ dkim=pass header.i=@nmap-org.20150623.gappssmtp.com header.s=20150623
+ header.b=dC5dTbf6; 
+ spf=pass (google.com: domain of gordon@titan.net designates 209.85.220.41 as
+ permitted sender) smtp.mailfrom=gordon@titan.net
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com.
+ [209.85.220.41])
+ by mx.google.com with SMTPS id x19sor109160qki.149.2020.10.14.12.29.27
+ for <announce@nmap.org> (Google Transport Security);
+ Wed, 14 Oct 2020 12:29:27 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gordon@titan.net designates
+ 209.85.220.41 as permitted sender) client-ip=209.85.220.41; 
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=nmap-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:from:date:message-id:subject:to;
+ bh=5Mzqzutw1bwvQjX4DyEsIgY2XvrgBuj+fDOXT9oXbW8=;
+ b=dC5dTbf6hbMvbRvnYQ4KcV7YaVlHNBPlN4DIZJh9UX8KOugZF4XMe7vVtWvC2fGF/8
+ +N7JQkZRKWKYrOvwEG7GwQltu5WqxN2YiDovqVg93iJ2XNfFmcTKkWeIWBXFpnSXc/1f
+ nPd73JhYPIs+PY16cfS5jrYkhXV1iYRqcix3dqVUW0zxmKS06qYVuyp3a1WO5wH4nrWH
+ +KWDiZfk8vHGjcAeUk8VuLUXJzgZu1xZRsAC29dhpLTYT+rO1su3xwiIV5ku4eynjs6r
+ avWnmbnEfjpV1xb2Irgu0wHJmsREJYJ6cHeVQfNuj7yrUuvouEL372buRi04uSUiGUJt
+ 1Vyw==
+X-Received: by 2002:a37:a943:: with SMTP id s64mr599054qke.149.1602703766449; 
+ Wed, 14 Oct 2020 12:29:26 -0700 (PDT)
+MIME-Version: 1.0
+From: Gordon Fyodor Lyon <fyodor@nmap.org>
+Date: Wed, 14 Oct 2020 12:28:50 -0700
+Message-ID: <CAJjO9Mn=fv8X1U3gv0Mr3YKg+EruX3HL1cCg8nLZqR6RbS7Lig@mail.gmail.com>
+Subject: Nmap 7.91 Bugfix Release
+To: Nmap Project Announcements <announce@nmap.org>
+X-Mailman-Approved-At: Wed, 14 Oct 2020 12:30:41 -0700
+X-Content-Filtered-By: Mailman/MimeDel 2.1.20
+X-BeenThere: announce@nmap.org
+X-Mailman-Version: 2.1.20
+Precedence: list
+List-Id: Occasional Nmap related announcements <announce.nmap.org>
+List-Unsubscribe: <https://nmap.org/mailman/options/announce>,
+ <mailto:announce-request@nmap.org?subject=unsubscribe>
+List-Post: <mailto:announce@nmap.org>
+List-Help: <mailto:announce-request@nmap.org?subject=help>
+List-Subscribe: <https://nmap.org/mailman/listinfo/announce>,
+ <mailto:announce-request@nmap.org?subject=subscribe>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+Errors-To: announce-bounces@nmap.org
+Sender: "announce" <announce-bounces@nmap.org>
+
+SGVsbG8gZXZlcnlvbmUuICBJJ20gZ2xhZCBObWFwIDcuOTAgd2FzIHNvIHdlbGwgcmVjZWl2ZWQh
+ICBUaGVyZSB3ZXJlIHNvCm1hbnkgaW1wcm92ZW1lbnRzIHRoYXQgdGhlIG9mZmljaWFsIGFubm91
+bmNlbWVudCAoCmh0dHBzOi8vc2VjbGlzdHMub3JnL25tYXAtYW5ub3VuY2UvMjAyMC8xKSB3YXMg
+YSBiaXQgdW53aWVsZHkuICBTbyBEYW5pZWwKTWlsbGVyICh3aG8gbWFkZSBtb3N0IG9mIHRob3Nl
+IGNoYW5nZXMpIFR3ZWV0ZWQgaGlzIHRvcCBoaWdobGlnaHRzIGF0Cmh0dHBzOi8vdHdpdHRlci5j
+b20vYm9uc2FpdmlraW5nL3N0YXR1cy8xMzEzMjQ3MjUzMTk3MzkzOTIwCgpXaGlsZSB3ZSBkbyB3
+b3JrIGhhcmQgdG8gYXZvaWQgYnVncyBkdXJpbmcgZGV2ZWxvcG1lbnQgYW5kIHRvIGNhdGNoIHRo
+ZW0KcHJlLXJlbGVhc2UgdGhyb3VnaCBjb250aW51b3VzIGludGVncmF0aW9uIChDSSkgdGVzdGlu
+ZyBhbmQgUUEsIHNvbWUKaW5ldml0YWJseSBzbGlwIHRocm91Z2ggdGhlIGNyYWNrcy4gRXNwZWNp
+YWxseSB3aXRoIGEgcmVsZWFzZSBhcyBiaWcgYXMKNy45MC4gU28gd2UgaGF2ZSByZWxlYXNlZCBO
+bWFwIHZlcnNpb24gNy45MSB3aGljaCByZXNvbHZlcyBhbGwgb2YgdGhlCnNpZ25pZmljYW50IGlz
+c3VlcyB3ZSd2ZSBzZWVuIHJlcG9ydGVkIGZvciA3LjkwOgoKICAgLSBGaXhlZCB0aGUgInRpbWUg
+cmVzdWx0IGNhbm5vdCBiZSByZXByZXNlbnRlZCBpbiB0aGlzIGluc3RhbGxhdGlvbiIKICAgY3Jh
+c2gsIHdoaWNoIG9jY3VycmVkIGR1cmluZyBtYW55IHNjcmlwdCBzY2FucyAoaW5jbHVkaW5nIC1B
+KSBvbiBXaW5kb3dzIGlmCiAgIHRoZSB1c2VyIHdhcyBpbiBhIHRpbWUgem9uZSBhZnRlciBDb29y
+ZGluYXRlZCBVbml2ZXJzYWwgVGltZSAoZS5nLiBVVEMrWAogICB0aW1lem9uZXMpLiAgU2VlIGh0
+dHBzOi8vaXNzdWVzLm5tYXAub3JnLzIxMzYgW0Nsw6ltZW50IE5vdGluLCBubnBvc3RlciwKICAg
+YW5kIERhbmllbCBNaWxsZXJdCiAgIC0gRml4ZWQgYSBjcmFzaCBpbiB0aGUgWmVubWFwIEdVSSB3
+aGVuIHVzaW5nIHRoZSBwcm9maWxlIGVkaXRvci4gU2VlCiAgIGh0dHBzOi8vaXNzdWVzLm5tYXAu
+b3JnLzIxNDggW0RhbiBNaWxsZXJdCiAgIC0gU3dpdGNoZWQgdGhlIGRlZmF1bHQgV2luZG93cyBJ
+L08gZW5naW5lIGJhY2sgdG8gcG9sbCBkdWUgdG8gc29tZQogICBwcm9ibGVtcyB3aXRoIG91ciBJ
+T0NQIGVuZ2luZSB0aGF0IHdlIG5lZWQgdG8gd29yayBvdXQuIFNlZQogICBodHRwczovL2lzc3Vl
+cy5ubWFwLm9yZy8yMTM5IFtEYW4gTWlsbGVyXQogICAtIEZpeCBzZXJ2ZXIgcmVzcG9uc2UgcGFy
+c2luZyBpbiBNeVNRTCBsaWJyYXJ5IHRvIHByZXZlbnQgY2VydGFpbiBzY3JpcHQKICAgY3Jhc2hl
+cy4gU2VlIGh0dHBzOi8vaXNzdWVzLm5tYXAub3JnLzIxMjggW25ucG9zdGVyXQoKRGFuIGFsc28g
+bWFkZSBzb21lIGZpeGVzIHRvIHRoZSAobm93IG5vbi1kZWZhdWx0KSBXaW5kb3dzIElPQ1AgZW5n
+aW5lIGFuZApzaWxlbmNlZCBhbiBpcnJlbGV2YW50IHdhcm5pbmcgdGhhdCAieW91IGhhdmVuJ3Qg
+c3BlY2lmaWVkIGFueSBUQ1Agc2Nhbgp0eXBlIi4KCk5tYXAgNy45MSBzb3VyY2UgY29kZSBhbmQg
+YmluYXJ5IHBhY2thZ2VzIGZvciBMaW51eCwgV2luZG93cywgYW5kIE1hYyBhcmUKYXZhaWxhYmxl
+IGZvciBmcmVlIGRvd25sb2FkIGZyb20gdGhlIHVzdWFsIHNwb3Q6CgpodHRwczovL25tYXAub3Jn
+L2Rvd25sb2FkLmh0bWwKCldlJ3ZlIGFsc28gbWFkZSBXaW5kb3dzIE9FTSBidWlsZHMgZm9yIGNv
+bXBhbmllcyB0aGF0IGluY2x1ZGUgTm1hcCBpbiB0aGVpcgpwcm9kdWN0czogaHR0cHM6Ly9ubWFw
+Lm9yZy9vZW0vCgpFbmpveSB0aGUgbmV3IHJlbGVhc2UhIEFuZCBkb24ndCBmb3JnZXQgdG8gcmVw
+b3J0IGFueSBwcm9ibGVtcyB0byB0aGUgYnVnCnRyYWNrZXIgb3IgZGV2IGxpc3QgYXMgZGVzY3Jp
+YmVkIGF0IGh0dHBzOi8vbm1hcC5vcmcvYm9vay9tYW4tYnVncy5odG1sLgoKQ2hlZXJzLApHb3Jk
+b24gIkZ5b2RvciIgTHlvbgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpTZW50IHRocm91Z2ggdGhlIGFubm91bmNlIG1haWxpbmcgbGlzdApodHRwczovL25t
+YXAub3JnL21haWxtYW4vbGlzdGluZm8vYW5ub3VuY2UKQXJjaGl2ZWQgYXQgaHR0cDovL3NlY2xp
+c3RzLm9yZy9ubWFwLWhhY2tlcnMv

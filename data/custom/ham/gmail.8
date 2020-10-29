@@ -1,0 +1,1071 @@
+Delivered-To: nattyman0007@gmail.com
+Received: by 2002:a17:906:6d12:0:0:0:0 with SMTP id m18csp5080805ejr;
+        Tue, 13 Oct 2020 04:28:47 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJw6bJx+IbK2NqtnezpsVsIjgEg+KyzbP840eFCrZT0KligTyA7xEPH9lZk1kRufGRwu0bKx
+X-Received: by 2002:a50:ef12:: with SMTP id m18mr19750644eds.313.1602588527229;
+        Tue, 13 Oct 2020 04:28:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602588527; cv=none;
+        d=google.com; s=arc-20160816;
+        b=tLEcRPa2FrHCzpxSV+7jW59XXAVtOoirNb9l2xt+nerlYKXxga9X/0ch1y0Dgwi10y
+         DSD6iiMsivTSvnEcrBPmCuQbLDfPE1ASo3SAyhuUykuqwMJNQeX6VA2iEVAX/lSCqHmy
+         U01hWYr9egEkrt6YWKEPBg6NZcdBKflXHXspGGPnvZzMqOXNrAwet1hsHORRGOBkY9UQ
+         mNA2dJC3H7I/373D/lzOk9VgnFVftag45QkQ6kSVwyVggH/rXWC/AVJ8KjwovR+rxyGj
+         Z6cDEBXWpE609NwWnHah5Pir3WAg8DVT85JyBjWn7RxziyqC1u5ROpzOItM61GtvMkdk
+         J4wg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:subject:message-id:to:reply-to:mime-version:from
+         :date:dkim-signature:dkim-signature;
+        bh=3YjPxCMgS39+qhmX5vNUw2g1Z0aVYYQ8oKn+sP6T7PY=;
+        b=C4H8etM480uuAnY2rTAQ8SqeAwk37lA1o8ieBPROvCvyJeMyvH2xmUmEmDM0N+ez86
+         l9a76/wnwaGr2xRKrUfBP6SdskFa3Wm+wsKSFQHAqTNnE7JbatiEvcfDtCzM5BNQGK2m
+         YY0y58rqUu21CYIUPOK3GPerU9c7wEN9WKN0u59UXgPC/vjzyQHGSMaU5brbzZNtVWUh
+         RrAWW9O0IwzfSS+zP2irqmlbmdAThu15fHx4Abhcv0QazxfIaA6a679gZIfn0wljucbt
+         q1RGuYPBzk1rr+f29i9zrUu6OhbJVTHioH0fMrN8GSk1Cff6JsiXsbRtYDvu4BuloPPe
+         7svQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@ifttt.com header.s=s1 header.b=bGWB1yn+;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=zr8AT8Ka;
+       spf=pass (google.com: domain of bounces+4690452-979a-nattyman0007=gmail.com@emails.ifttt.com designates 167.89.16.81 as permitted sender) smtp.mailfrom="bounces+4690452-979a-nattyman0007=gmail.com@emails.ifttt.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=ifttt.com
+Return-Path: <bounces+4690452-979a-nattyman0007=gmail.com@emails.ifttt.com>
+Received: from o2.email.ifttt.com (o2.email.ifttt.com. [167.89.16.81])
+        by mx.google.com with ESMTPS id op3si9722255ejb.544.2020.10.13.04.28.46
+        for <nattyman0007@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 13 Oct 2020 04:28:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+4690452-979a-nattyman0007=gmail.com@emails.ifttt.com designates 167.89.16.81 as permitted sender) client-ip=167.89.16.81;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@ifttt.com header.s=s1 header.b=bGWB1yn+;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=zr8AT8Ka;
+       spf=pass (google.com: domain of bounces+4690452-979a-nattyman0007=gmail.com@emails.ifttt.com designates 167.89.16.81 as permitted sender) smtp.mailfrom="bounces+4690452-979a-nattyman0007=gmail.com@emails.ifttt.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=ifttt.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ifttt.com; 
+	h=content-type:from:mime-version:reply-to:to:subject:list-unsubscribe; 
+	s=s1; bh=3YjPxCMgS39+qhmX5vNUw2g1Z0aVYYQ8oKn+sP6T7PY=; b=bGWB1yn
+	+6ucs+I+Vr92EAYebCGHpEmc6dXmkRaBaOuvon6oM5+gbRTXaSW4UhYlJ1AtpTUC
+	qFz7KA2U8453ROlgFxJdxUs8OEXwqNuTqkcTqTJNZLZ12ShP+VUtZENN1MBja7bK
+	F25YiaG3dFiNtZ8c1YDnNtDDDRKnqRDECkwE=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=sendgrid.info; 
+	h=content-type:from:mime-version:reply-to:to:subject:list-unsubscribe:x-feedback-id; 
+	s=smtpapi; bh=3YjPxCMgS39+qhmX5vNUw2g1Z0aVYYQ8oKn+sP6T7PY=; b=zr
+	8AT8KaTdZ4jrExhkLJLwE+5zSS52Z1HHz8s2/KL9j62/pjmlYMsPC5v3jFh6XpxZ
+	7h8BdhUbOGC50UrU9aScXpRIwR6siwgvzCGx6SF8GjHaEhGmYS4zrRPtOYw3/qC+
+	LG83Z3z/k4VhZ2J4G71PZsRDZsjptQIZMFAVMFBrk=
+Received: by filter0305p1iad2.sendgrid.net with SMTP id filter0305p1iad2-25745-5F858F6D-10
+        2020-10-13 11:28:45.314549566 +0000 UTC m=+314529.008601404
+Received: from NDY5MDQ1Mg (unknown)
+	by ismtpd0092p1iad2.sendgrid.net (SG) with HTTP id hKr3W_wkRkC31ph8jVQlMA
+	Tue, 13 Oct 2020 11:28:45.318 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=99e316b65942e1432c33f23b445406a02a680f298424768a5da03cf0f608
+Date: Tue, 13 Oct 2020 11:28:45 +0000 (UTC)
+From: "IFTTT Alerts" <alerts@ifttt.com>
+Mime-Version: 1.0
+Reply-to: "No Reply" <no-reply@ifttt.com>
+To: nattyman0007@gmail.com
+Message-ID: <hKr3W_wkRkC31ph8jVQlMA@ismtpd0092p1iad2.sendgrid.net>
+Subject: Extended: Upgrade to Pro or archive by Oct 31
+X-Report-Abuse-To: badactor@customer.io
+X-Mailer: Customer.io (RKG-AwMAAXUhrwN2ma8r-eSmmar5pA==; +https://whatis.customeriomail.com)
+List-unsubscribe: <mailto:32.KJFUOLKBO5GUCQKYKVUHE52OGJWWCODSFVSVG3LNMFZDK4CBHU6Q====@unsubscribe2.customer.io>, <https://link.ifttt.com/unsubscribe/RKG-AwMAAXUhrwN2ma8r-eSmmar5pA==>
+X-SG-EID: Ebf5fRnF1E82H34ysvCzIfmo0t1Fmg4lrG4c2y/NvKTYbuJcjdYVNB2U9Rb+BmdrYmcMrTJLLbJmYt
+ WABKklRnhaVoT9TDaS7WL714ADmcmNJ3CjDvbIZrMU80vPQhYjX5anSUdwr7rdTGOjK8alAymjwb8P
+ lIEcMng23Idse+ei2064xaTVNrbpllzk0W/oaKsXIJs4ulvddPA5SsoplIpWtECWjwBfHUxqB/pjmp
+ Y=
+X-SG-ID: YDTqBOjidbCUo/ar1oAtZnyAjG32vSsnW+ELYmE334NUeKa9I0TK8vsOkp1uursROT7pxQkvxqGbEb
+ 3hR6TniA==
+X-Entity-ID: 28FPTI4yHYcHOCZ29pi7Bw==
+X-Feedback-ID: 4690452:gEXFRnIXwFp2vcrXAGhqYQLSSd2firEAR82P0O9whWc=:gEXFRnIXwFp2vcrXAGhqYQLSSd2firEAR82P0O9whWc=:SG
+
+--99e316b65942e1432c33f23b445406a02a680f298424768a5da03cf0f608
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Mime-Version: 1.0
+
+We want IFTTT Pro to be accessible to as many people as possible, so we are=
+ extending the set your price for Pro ( https://links.ifttt.com/ls/click?up=
+n=3DoyybEpu2Koi4rNmdK4UiXRdYl1-2BohYHMRcQskhAwh1WUKoJMKK9b-2BNYLOXQSN5zawuQ=
+A-2BBW84EWOR9-2Fi-2FaTRSkvI4Jz6YKpQSNXHaVpGdv1LioOcG6KT59NwePVtv2Y7XSZcFbAU=
+-2FU8ddyn3DgXe8HNpTpNJza1BhMy4vqFItR4-3DrzIM_2PoKmueCk4JcyTn4vUPMTT3sl6vYvN=
+1q2UrA-2F9v0bgSuX8l4pCnB6Y8cC39N2Yt0RPOQ1lsxleFN-2B93I-2FyvY5AIY83bMDcFiZgy=
+0SVUp9-2BuCl9JE-2BMQvY-2FQTdFrzqr8qcZV35j426QFpD668bma9boXICRp5OZ0cEuMe-2Bt=
+0JhF8TeSzr7RwHERHyd0YyhYojzMF1DzPU-2BkIotXyjqyKGZpHpvaIMYbok1tdYBQwOvxvEYSw=
+NAj0XgK1UukukD-2FC2FFaFOVpzorTMCqY0X7bprN7i4j3b4pb3yB278ydPZdE-3D ) offer t=
+hrough October 31.
+
+Starting November 1, new subscriptions to Pro will cost $3.99 per month.
+
+If you choose to remain on the free Standard plan, all but 3 of your create=
+d Applets ( https://links.ifttt.com/ls/click?upn=3DoyybEpu2Koi4rNmdK4UiXXSi=
+f18AKIQBgKhnnOdQGv9lGOFByXAiTMRgXdeIYU71qjNzpQRTplCtaA8stbrqFg-3D-3DLPzq_2P=
+oKmueCk4JcyTn4vUPMTT3sl6vYvN1q2UrA-2F9v0bgSuX8l4pCnB6Y8cC39N2Yt0RPOQ1lsxleF=
+N-2B93I-2FyvY5AIY83bMDcFiZgy0SVUp9-2BuCl9JE-2BMQvY-2FQTdFrzqr8qcZV35j426QFp=
+D668bma9bu-2BfuB3vfVwLiGRhMClDNfNS5kiaDY0g3nnWDH5gbpplukMLsiy-2BsCfqlWv2erj=
+CLkVT7QZRe-2F7-2FKv56AueudCzxvBt-2BlOpvIVq16odmH8NaLeKWIu3O833xq3FCbeOe30ng=
+VwYhmG0kvOXGOOBuOHg-3D ) will be archived at the end of the month.
+
+Upgrade to Pro ( https://links.ifttt.com/ls/click?upn=3DoyybEpu2Koi4rNmdK4U=
+iXRdYl1-2BohYHMRcQskhAwh1WUKoJMKK9b-2BNYLOXQSN5zawuQA-2BBW84EWOR9-2Fi-2FaTR=
+SkvI4Jz6YKpQSNXHaVpGdv1LioOcG6KT59NwePVtv2Y7XSZcFbAU-2FU8ddyn3DgXe8HNpTpNJz=
+a1BhMy4vqFItR4-3Dn5ze_2PoKmueCk4JcyTn4vUPMTT3sl6vYvN1q2UrA-2F9v0bgSuX8l4pCn=
+B6Y8cC39N2Yt0RPOQ1lsxleFN-2B93I-2FyvY5AIY83bMDcFiZgy0SVUp9-2BuCl9JE-2BMQvY-=
+2FQTdFrzqr8qcZV35j426QFpD668bma9bnoHjSJ5x90oeJXMJH57tYn0R7O8J6XlX-2BRHSyot1=
+ZTmAguEO8hdUswVkMEeVYmPhz8RlBtp-2FjPupPcbNrhqkOAxkD4L-2BebQtBotjCyay9XKP-2F=
+32yHDKvlol-2F8BYQ62M3PnpPe-2BCecv-2FAsR-2B2WTYqT8-3D )
+
+For more information, see What happens if I do not upgrade to Pro? ( https:=
+//links.ifttt.com/ls/click?upn=3DoyybEpu2Koi4rNmdK4UiXdVDN584SmkKn9zRLBEJ2L=
+TYO5f-2Bn8bL37lEusuhlvm0HPKNwZJPScsh5FkO2hg1rvoZdD5E9xCmIf1eOzryAemFbOHTYjk=
+VhhOhucdvRy-2FKo96HK1BdevvAJfxF-2BNXJ6wPRp59DoEaXeortNArfc3hpCgIuTpFAWQabHa=
+6gaJeJ-2F5bW-2FqlcmhPSLO4zRfv-2B85sxtQ7ljOFiVK7De7-2BjbhauI8tCATIi-2F9ewWz8=
+Ns9sAoGm8_2PoKmueCk4JcyTn4vUPMTT3sl6vYvN1q2UrA-2F9v0bgSuX8l4pCnB6Y8cC39N2Yt=
+0RPOQ1lsxleFN-2B93I-2FyvY5AIY83bMDcFiZgy0SVUp9-2BuCl9JE-2BMQvY-2FQTdFrzqr8q=
+cZV35j426QFpD668bma9bhhJZgyV3A6AGolyOa6qysFZFZEZAc94hY1EopSHUk-2B9ePLmBSBtc=
+-2BdKaRqrBbm-2Bd7mQx37VIOTO-2B4w2NdF0Z6GyOTsdeM5uxWnoAu4O-2FCGUTAeLpRw9IEyO=
+oTLh71MYdrgEqGbj9Je7yqxeZVRqpKA-3D )
+
+IFTTT ( https://links.ifttt.com/ls/click?upn=3DoyybEpu2Koi4rNmdK4UiXSV0eJ0c=
+h8hYB-2BagjRGQyhRw1MBkjYgwHQkwaLjjPN59YvCzFg9ANGMWTsbTzMJESCjpVuHjqrJw-2BZx=
+0ptiOhe-2FD8Zf85BBV0QtC2ybBoRWtGlNub8flQY-2Bq9wDDO3i5YUbgszgq0EnNjBhTwiRrEM=
+k-3DiXCg_2PoKmueCk4JcyTn4vUPMTT3sl6vYvN1q2UrA-2F9v0bgSuX8l4pCnB6Y8cC39N2Yt0=
+RPOQ1lsxleFN-2B93I-2FyvY5AIY83bMDcFiZgy0SVUp9-2BuCl9JE-2BMQvY-2FQTdFrzqr8qc=
+ZV35j426QFpD668bma9blmUhHBsAAf1Za2ue1AtnCFy6FIXrrQBGPknSX-2BSGBiCbTyoGdgK8x=
+FAqOwRfQDMmJHWyOKhxW6wrgJlWxHmqwVjQqaop-2F-2BVVseA4s3acvGK3ETHYW5DDHT7jfo03=
+7fZnXnJVggs4bWEmGeaCjI-2Beis-3D )
+
+Download IFTTT for iOS ( https://links.ifttt.com/ls/click?upn=3DoyybEpu2Koi=
+4rNmdK4UiXVlSmRg7xwawx4A0ylTUXR08yei0Z-2FAnea4lGBBdPQeOZoOMubPDHdh0oyTkNgHi=
+giLMqdKMI37UkAZRMIM0pHBbTp66MEEPte6CsFMWUjjwGxETtai9wTt3lCCQaT6Fgw-3D-3DcaF=
+P_2PoKmueCk4JcyTn4vUPMTT3sl6vYvN1q2UrA-2F9v0bgSuX8l4pCnB6Y8cC39N2Yt0RPOQ1ls=
+xleFN-2B93I-2FyvY5AIY83bMDcFiZgy0SVUp9-2BuCl9JE-2BMQvY-2FQTdFrzqr8qcZV35j42=
+6QFpD668bma9brSr75eAeL0zG-2BF-2BO6F2WLbjpSyOTtn8gQqDidhwCABZZFFFndMkzjLLWZ3=
+Lw-2Fa5Gl8JIzRoJe9c7nC4n4CK-2F4oVOg4IM6rl041PUXbV9IFOrWuRoYdM0857hRafoGQvL1=
+5Y2j2uGrv2dLqK5vwO9es-3D )
+
+Download IFTTT for Android ( https://links.ifttt.com/ls/click?upn=3DoyybEpu=
+2Koi4rNmdK4UiXY8cOVv0TDQ4pKYkf686k93lqz349FFflOCRwEBEBMlpBszVDelkxxavgV71Kr=
+aXiDJ1YNydU-2BpFRZty-2F23W7p8mP0N4QMguoauAUP5PVy2Nkq0Nard1Rbdik4eSxa79xZNnZ=
+8eX1uSknE-2BhfBAYUOM-3DzvyC_2PoKmueCk4JcyTn4vUPMTT3sl6vYvN1q2UrA-2F9v0bgSuX=
+8l4pCnB6Y8cC39N2Yt0RPOQ1lsxleFN-2B93I-2FyvY5AIY83bMDcFiZgy0SVUp9-2BuCl9JE-2=
+BMQvY-2FQTdFrzqr8qcZV35j426QFpD668bma9bumcpDxsc3IffMl0wQ9nP88PI4VcFOsCY50A9=
+2NjQEz1N-2FwZaK0PzQES2fRaaTeZIBSxL-2FX3neQgtKlhJM9ImoN9F0NisuBAvxVkTd8J0uO7=
+SQ9wEuldMdh4G4hLC2lQsuv6V5sIuLWiYnh5n78jW1s-3D )
+
+IFTTT =C2=B7 P=E2=80=8BO Box 59=E2=80=8B054=E2=80=8B7 =C2=B7 Sa=E2=80=8Bn F=
+ranc=E2=80=8Bisco, Calif=E2=80=8Bornia =C2=B7 941=E2=80=8B59
+
+Unsubscribe ( https://links.ifttt.com/ls/click?upn=3Dlqyj7-2BSGfgvDtzajQxaP=
+EGwfSrqyZpvpASc8-2FHzmAQBdUFUXtx-2FA8p6oi4n3EW12vyR0K3uh6R6YfCA8ZuYj6dhoNM-=
+2BWnlSrC4lwjSzeSMQ-3DcXFt_2PoKmueCk4JcyTn4vUPMTT3sl6vYvN1q2UrA-2F9v0bgSuX8l=
+4pCnB6Y8cC39N2Yt0RPOQ1lsxleFN-2B93I-2FyvY5AIY83bMDcFiZgy0SVUp9-2BuCl9JE-2BM=
+QvY-2FQTdFrzqr8qcZV35j426QFpD668bma9brgoPN-2BQk7K2KNLnBxxn5xufywcvOpcaAsbbL=
+MO2JVHfUMZeN8RY8M3-2BdzSAQksPAu26ewXZwuMCwqqPO3VuevDa2sDb7w0nnzPdQMXVF1Je7K=
+K7D9CZYWKyttj0TQzQ98NXBBnYSOGftToelpX9Rg0-3D ) from important alerts for yo=
+ur account
+
+or sign in to manage your email preferences ( https://links.ifttt.com/ls/cl=
+ick?upn=3DoyybEpu2Koi4rNmdK4UiXStTj-2Fxamkc3ZRqhxqOVIwMtMiZfVJUmqFzvCzqOmtf=
+npdg5W1aLdVb8h0HGyzVnksMitiwY4OGQYDrH-2BG5msNOJyNk50uAsxSlAdPG7aUvsmyOAdw2U=
+oQ5HHPcql-2Ffa6JcM-2BpNcPmXDMzmOvY-2BucbtyhYS7-2FLkFpzzoCVeIMSq78jFlfKREHnn=
+GiA21cqwASq0kI-2Bit5hsrPiJ0y9tfgPk-3DBx_E_2PoKmueCk4JcyTn4vUPMTT3sl6vYvN1q2=
+UrA-2F9v0bgSuX8l4pCnB6Y8cC39N2Yt0RPOQ1lsxleFN-2B93I-2FyvY5AIY83bMDcFiZgy0SV=
+Up9-2BuCl9JE-2BMQvY-2FQTdFrzqr8qcZV35j426QFpD668bma9bkl-2Fm7Jsxb4gnlpznAssE=
+hI1VniYUtnM71MCi0aqPL0YTYSFWsqpLTTrZEkAouZCOsheoRzSk-2B3T8EpukAuMbrh-2FXc2M=
+YOr6vZlzvbUyEcmz3f0sggx48CHLQ3Bfqnc8c6NsJG0-2B5bomkm-2F-2BmZVMd5w-3D ).=
+
+--99e316b65942e1432c33f23b445406a02a680f298424768a5da03cf0f608
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+Mime-Version: 1.0
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3.=
+org/1999/xhtml" xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schem=
+as-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office"><=
+head>
+	<!--[if gte mso 9]>
+	<xml>
+		<o:OfficeDocumentSettings>
+		<o:AllowPNG/>
+		<o:PixelsPerInch>96</o:PixelsPerInch>
+		</o:OfficeDocumentSettings>
+	</xml>
+	<![endif]-->
+	<meta http-equiv=3D"Content-type" content=3D"text/html; charset=3Dutf-8"/>
+	<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1=
+, maximum-scale=3D1"/>
+	<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge"/>
+	<meta name=3D"format-detection" content=3D"date=3Dno"/>
+	<meta name=3D"format-detection" content=3D"address=3Dno"/>
+	<meta name=3D"format-detection" content=3D"telephone=3Dno"/>
+	<meta name=3D"x-apple-disable-message-reformatting"/>
+
+  <title>Email Template</title>
+	<!--[if gte mso 9]>
+	<style type=3D"text/css" media=3D"all">
+		sup { font-size: 100% !important; }
+	</style>
+	<![endif]-->
+	<style type=3D"text/css">
+		/* Only classes accepted */
+		.p {
+			padding: 0 !important;
+			margin: 0 !important;
+		}
+
+		.body {
+			padding: 0 !important;
+			margin: 0 !important;
+			display: block !important;
+			min-width: 100% !important;
+			width: 100% !important;
+			background: #ffffff;
+			-webkit-text-size-adjust: none;
+		}
+
+		.m-td {
+			font-size: 0pt;
+			line-height: 0pt;
+			text-align: left;
+		}
+
+		.responsive-image {
+			font-size: 0pt;
+			line-height: 0pt;
+			text-align: left;
+		}
+
+		.spacer {
+			font-size: 0pt;
+			line-height: 0pt;
+			text-align: center;
+			width: 100%;
+			min-width: 100%;
+		}
+
+		.border {
+			font-size: 0pt;
+			line-height: 0pt;
+			text-align: center;
+			width: 100%;
+			min-width: 100%;
+		}
+
+		.column {
+			font-size: 0pt;
+			line-height: 0pt;
+			padding: 0;
+			margin: 0;
+			font-weight: 400;
+			Margin: 0;
+		}
+
+		.applet-column {
+			font-size: 0pt;
+			line-height: 0pt;
+			padding: 0;
+			margin: 0;
+			font-weight: 400;
+			vertical-align: top;
+			Margin: 0;
+		}
+
+		.column-bottom {
+			font-size: 0pt;
+			line-height: 0pt;
+			padding: 0;
+			margin: 0;
+			font-weight: 400;
+			vertical-align: bottom;
+			Margin: 0;
+		}
+
+		.column-dir {
+			font-size: 0pt;
+			line-height: 0pt;
+			padding: 0;
+			margin: 0;
+			font-weight: 400;
+			direction: ltr;
+			Margin: 0;
+		}
+
+		.column-dir-top {
+			font-size: 0pt;
+			line-height: 0pt;
+			padding: 0;
+			margin: 0;
+			font-weight: 400;
+			direction: ltr;
+			vertical-align: top;
+			Margin: 0;
+		}
+
+		.column-dir-bottom {
+			font-size: 0pt;
+			line-height: 0pt;
+			padding: 0;
+			margin: 0;
+			font-weight: 400;
+			direction: ltr;
+			vertical-align: bottom;
+			Margin: 0;
+		}
+
+		.td {
+			width: 100%;
+			min-width: 100%;
+			font-size: 0pt;
+			line-height: 0pt;
+			padding: 0;
+			margin: 0;
+			font-weight: 400;
+			margin: 0;
+		}
+
+		td {
+			max-width: 640px;
+		}
+		td.nps
+		{
+		  display:block;
+		  text-align: center;
+		  align: center;
+		  height: 40;
+		  width: 100%;
+
+		}
+
+		a.nps
+		{
+		border: 1px solid #000000;
+		border-radius: 3px;
+		background: #000000;
+		color: #ffffff;
+		font-weight: bold;
+		text-decoration: none;
+		line-height: 40px;
+		width: 90%;
+		min-width: 25px;
+		display:inline-block;
+		color: #ffffff;
+		mso-hide: all;
+		}
+
+		.img {
+			font-size: 0pt;
+			line-height: 0pt;
+			text-align: left;
+		}
+
+		.img-center {
+			font-size: 0pt;
+			line-height: 0pt;
+			text-align: center;
+		}
+
+		.img-right {
+			font-size: 0pt;
+			line-height: 0pt;
+			text-align: right;
+		}
+
+		.link {
+			color: #000000;
+			text-decoration: none;
+		}
+
+		.link-u {
+			color: #000000;
+			text-decoration: underline;
+		}
+
+		.link-footer {
+			color: #999999;
+			text-decoration: none;
+		}
+
+		.link-footer-u {
+			color: #999999;
+			text-decoration: underline;
+		}
+
+		.link-white {
+			color: #ffffff;
+			text-decoration: none;
+		}
+
+		.link-white-u {
+			color: #ffffff;
+			text-decoration: underline;
+		}
+
+		.text {
+			color: #000000;
+			font-family: 'AvenirNext', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Ari=
+al', 'sans-serif';
+			font-size: 24px;
+			line-height: 32px;
+			text-align: left;
+			font-weight: 400;
+
+		}
+
+		.text-semibold {
+			color: #000000;
+			font-family: 'AvenirNext', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Ari=
+al', 'sans-serif';
+			font-size: 24px;
+			line-height: 32px;
+			text-align: left;
+			font-weight: 600;
+			padding: 0 2px !important;
+		}
+
+		.text-bold {
+			color: #000000;
+			font-family: 'AvenirNext', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Ari=
+al', 'sans-serif';
+			font-size: 24px;
+			line-height: 32px;
+			text-align: left;
+			font-weight: bold;
+		}
+
+		.text-footer {
+			color: #999999;
+			font-family: 'AvenirNext', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Ari=
+al', 'sans-serif';
+			font-size: 12px;
+			line-height: 16px;
+			text-align: center;
+			font-weight: 400;
+		}
+
+		p.text, p.text-semibold, p.text-bold {
+		    padding: 0 2px !important;
+		}
+
+		.btn {
+			font-family: 'AvenirNext', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Ari=
+al', 'sans-serif';
+			-webkit-font-smoothing: antialiased;
+			display: block;
+			text-decoration: none;
+			background-color: #000000;
+			color: white;
+			text-align: center;
+			font-weight: 700;
+			height: 64px;
+			min-width: 250px;
+			line-height: 64px;
+			font-size: 28px;
+			border-radius: 50px;
+			padding: 0 30px;
+		}
+
+        .h1 {
+			color: #000000;
+		    font-family: 'AvenirNext', 'Avenir', 'Helvetica Neue', 'Helvetica', '=
+Arial', 'sans-serif';
+			font-size: 48px;
+			line-height: 48px;
+			text-align: left;
+			font-weight: bold;
+			padding-bottom: 16px !important;
+			padding-left: 2px !important;
+		}
+
+		.h2 {
+			color: #000000;
+			font-family: 'AvenirNext', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Ari=
+al', 'sans-serif';
+			font-size: 20px;
+			line-height: 26px;
+			text-align: left;
+			font-weight: bold;
+			padding-left: 2px !important;
+
+		}
+
+		.format-as-content {
+
+		}
+
+		.format-as-content img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		.column-empty {
+			font-size: 0pt;
+			line-height: 0pt;
+			padding: 0;
+			margin: 0;
+			font-weight: 400;
+			Margin: 0;
+		}
+
+		.applet-column {
+			font-size: 0pt;
+			line-height: 0pt;
+			padding: 0;
+			margin: 0;
+			font-weight: 400;
+			vertical-align: top;
+			Margin: 0;
+		}
+
+		.responsive-image {
+			font-size: 0pt;
+			line-height: 0pt;
+			text-align: left;
+		}
+
+		.link {
+			color: #000000;
+			text-decoration: underline;
+		}
+
+		/*table.hero td.hero-container { padding-bottom: 20px; }*/
+		table.hero td.applet {
+			padding-bottom: 18px;
+            padding-left: 16px;
+            padding-right: 16px;
+		}
+
+		table.hero.right td.applet.image {
+			text-align: right;
+		}
+
+		table.hero h1,
+		table.hero td.applet h1 {
+			font-family: 'AvenirNext', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Ari=
+al', 'sans-serif';
+			font-size: 24px;
+			text-align: center;
+			color: white;
+			padding-top: 0px;
+			padding-bottom: 24px;
+			padding-left: 0px;
+			padding-right: 0px;
+			text-decoration: none;
+			margin: 0;
+		}
+
+		table.right div.button {
+			text-align: right;
+		}
+
+		table.hero img.logo {
+			display: inline-block;
+			margin: 30px auto 25px auto;
+		}
+
+		table.hero a.button {
+			border-radius: 16px;
+			color: #ffffff;
+			display: inline-block;
+			font-family: 'AvenirNext', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Ari=
+al', 'sans-serif';
+			font-size: 12px;
+			font-weight: bold;
+			text-align: center;
+			text-decoration: none;
+			width: 100%;
+			-webkit-text-size-adjust: none;
+		}
+
+		table.hero.two-col a.button {
+			border-radius: 16px;
+			color: #ffffff;
+			display: inline-block;
+			font-family: 'AvenirNext', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Ari=
+al', 'sans-serif';
+			font-size: 12px;
+			font-weight: bold;
+			text-align: center;
+			text-decoration: none;
+			width: 290px;
+			-webkit-text-size-adjust: none;
+		}
+
+		table.hero.two-col img.banner {
+			width: 100%;
+		}
+
+		table.footer_links td {
+			font-size: 18px !important;
+		}
+	</style>
+
+	<style type=3D"text/css" media=3D"screen">
+		/* Linked Styles */
+		body {
+			padding: 0 !important;
+			margin: 0 !important;
+			display: block !important;
+			min-width: 100% !important;
+			width: 100% !important;
+			background: #ffffff;
+			-webkit-text-size-adjust: none
+		}
+
+		a {
+			color: #000000;
+			text-decoration: underline;
+		}
+
+		a:active {
+			opacity: .8 !important;
+		}
+
+		p {
+			padding: 0 !important;
+			margin: 0 !important
+		}
+
+		/* Apple Mail styles */
+		.Singleton p, .Singleton .p {
+			margin: 0 6px 0 12px !important;
+		}
+
+		@supports (-webkit-overflow-scrolling:touch) and (color:#ffff) {
+    	p, .p {
+      	margin: 0 6px 0 12px !important;
+      }
+    }
+
+		img {
+			-ms-interpolation-mode: bicubic;
+			/* Allow smoother rendering of resized image in Internet Explorer */
+		}
+
+		.mcnPreviewText {
+			display: none !important;
+		}
+
+
+		/* Mobile styles */
+		@media only screen and (max-device-width: 480px),
+		only screen and (max-width: 480px) {
+			.mobile-shell {
+				width: 100% !important;
+				min-width: 100% !important;
+			}
+
+			/* Fix Gmail iOS right margin issue */
+			u+.body .mobile-shell {
+				width: 100% !important;
+				width: 100vw !important;
+			}
+
+			.m-center {
+				text-align: center !important;
+			}
+
+			.center {
+				margin: 0 auto !important;
+			}
+
+			.td {
+				width: 100% !important;
+				min-width: 100% !important;
+			}
+
+			.m-br-15 {
+				height: 15px !important;
+			}
+
+			.m-td,
+			.mobile-hide {
+				display: none !important;
+				width: 0 !important;
+				height: 0 !important;
+				font-size: 0 !important;
+				line-height: 0 !important;
+				min-height: 0 !important;
+			}
+
+			.m-block {
+				display: block !important;
+			}
+
+			.responsive-image img {
+				width: 100% !important;
+				max-width: 100% !important;
+				height: auto !important;
+			}
+
+			.column {
+				float: left !important;
+				width: 100% !important;
+				display: block !important;
+			}
+
+			.p0-15 {
+				padding-left: 15px !important;
+				padding-right: 15px !important;
+			}
+
+			.p30-15-40 {
+				padding: 0 0 40px !important;
+			}
+
+			.applet-column,
+			.column-empty {
+				float: left !important;
+				width: 100% !important;
+				display: block !important;
+			}
+
+			.column-empty {
+				padding-bottom: 30px !important;
+			}
+
+			.mobile-hide {
+				display: none !important;
+				width: 0 !important;
+				height: 0 !important;
+				font-size: 0 !important;
+				line-height: 0 !important;
+				min-height: 0 !important;
+			}
+
+			table.hero.two-col td.applet.image {
+				text-align: center !important;
+			}
+
+			table.hero.two-col img.banner {
+				max-width: 100%;
+			}
+
+			table.hero.two-col.left td.hero-container {
+				padding-right: 0;
+			}
+
+			table.hero.two-col.right td.hero-container {
+				padding-left: 0;
+			}
+
+			table.hero.two-col {
+				width: 100% !important;
+				min-width: 100% !important;
+				text-align: center;
+			}
+
+			table.hero td.hero-container {
+				padding-bottom: 15px;
+			}
+
+			table.hero div.button a {
+				width: 100% !important;
+			}
+		}
+	</style>
+</head>
+
+<body class=3D"body" style=3D"display: block !important; min-width: 100% !i=
+mportant; width: 100% !important; background-color: #ffffff; -webkit-text-s=
+ize-adjust: none; margin: 0; padding: 0;" bgcolor=3D"#ffffff"><div style=3D=
+"display: none; max-height: 0px; overflow: hidden; mso-hide:all;">Set your =
+price offer has been extended through the rest of October. On November 1st,=
+ we&#39;ll switch over to a fixed price of $3.99 per month.</div><div style=
+=3D"display: none; max-height: 0px; overflow: hidden; mso-hide:all;">=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0</div>
+	<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" bgc=
+olor=3D"#ffffff">
+		<tbody><tr>
+			<td align=3D"left" valign=3D"top" style=3D"max-width: 640px;">
+				<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"mobile=
+-shell">
+					<tbody><tr>
+						<td class=3D"td" style=3D"width: 100%; min-width: 100%; font-size: 0p=
+t; line-height: 0pt; font-weight: 400; max-width: 640px; margin: 0; padding=
+: 0;">
+							<!-- Main -->
+							<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0">
+								<tbody><tr>
+									<td class=3D"p30-15-40" style=3D"border-bottom-width: 3px; border-=
+bottom-color: #f5f5f5; border-bottom-style: solid; max-width: 640px; paddin=
+g: 20px 0 112px;">
+										<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0">
+											<tbody><tr>
+												</tr></tbody></table><table width=3D"100%" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0">
+													<tbody><tr>
+														<td class=3D"text format-as-content" style=3D"max-width: 640p=
+x; color: #000000; font-family: &#39;AvenirNext&#39;, &#39;Avenir&#39;, &#3=
+9;Helvetica Neue&#39;, &#39;Helvetica&#39;, &#39;Arial&#39;, &#39;sans-seri=
+f&#39;; font-size: 24px; line-height: 32px; text-align: left; font-weight: =
+400;" align=3D"left">
+=09=09
+<!-- COPY -->
+
+<p style=3D"word-wrap: break-word; color: #000000; font-family: &#39;Avenir=
+Next&#39;, &#39;Avenir&#39;, &#39;Helvetica Neue&#39;, &#39;Helvetica&#39;,=
+ &#39;Arial&#39;, &#39;sans-serif&#39;; font-size: 24px; line-height: 32px;=
+ text-align: left; font-weight: 400; margin: 0; padding: 0 2px;" class=3D"t=
+ext" align=3D"left">
+=20=20=20=20
+    We want IFTTT Pro to be accessible to as many people as possible, so we=
+ are extending the <a class=3D"link" href=3D"https://links.ifttt.com/ls/cli=
+ck?upn=3DoyybEpu2Koi4rNmdK4UiXW-2FIkFIPyM3eDF-2FJdlLsvgRYkeyGxROu-2B7RBVJ25=
+Db9n1fjtTcDVWqUrDaNK5FLXBVVWzKCUUdUdiW5HmTmb5icwAO6y4QJQCd24fXxq03mLUNGHltp=
+uOkKHKtF3nSiDXPzz8zZQ4tHx0rQhWZ1m4CzGF4jayNIWrcmpKVYQ8o2F-2BQ5d-2FpEJiEC6ZQ=
+ZOTKSoZ689piAJyDW8FjNrNJRqSqjJUFjPGNjQHYRaDfCOcScrz4ziKQlzHeUtN0BLVLOx30SrO=
+wwPArdyoWVGPGVbXMQpIYsAuclR9W-2FH4NfQOk62mqRra9AxycFLnQzELbnyATt8z0Vn5-2Buq=
+V2wkNiBOPju0E2ddtCzT8q6IKOb2G9F4UxmdBGI-2FOlS3k8zfzRxxz4Te0m4fbeyFg3dF8Gxtn=
+72oZA1xnoRZcW-2FnwEFsyVGLSrUBpkEq4SLVuz5hWMllWqXlSpnuQ2dXqeGz17zY6vGKOL8C50=
+VJiNzCeTuiQRkjvEyp_2PoKmueCk4JcyTn4vUPMTT3sl6vYvN1q2UrA-2F9v0bgSuX8l4pCnB6Y=
+8cC39N2Yt0RPOQ1lsxleFN-2B93I-2FyvY5AIY83bMDcFiZgy0SVUp9-2BuCl9JE-2BMQvY-2FQ=
+TdFrzqr8qcZV35j426QFpD668bma9bnp67PP151MbhXPQRwx0Q6tcP3T0rzxz0o3kBhk4Nnobwr=
+aeMYTMfdRHberZBx9blQ1D1eNX-2Bz7Aybbqrfeu1s0s3VD6TDaN-2BDSgqmBuRzjOg1XeL9EGx=
+DePjYFJdeZ6LCkrMPjEu1UMq2TNHYcuOu4-3D" style=3D"color: #000000; text-decora=
+tion: underline;">set your price for Pro</a> offer through October 31.
+=20=20=20=20
+    <br/><br/>
+=20=20=20=20
+    Starting November 1, new subscriptions to Pro will cost $3.99 per month.
+=20=20=20=20
+    <br/><br/>
+=20=20=20=20
+    If you choose to remain on the free Standard plan, all but 3 of <a clas=
+s=3D"link" href=3D"https://links.ifttt.com/ls/click?upn=3DoyybEpu2Koi4rNmdK=
+4UiXW-2FIkFIPyM3eDF-2FJdlLsvgRYkeyGxROu-2B7RBVJ25Db9n1fjtTcDVWqUrDaNK5FLXBV=
+VWzKCUUdUdiW5HmTmb5icwAO6y4QJQCd24fXxq03mLUNGHltpuOkKHKtF3nSiDXPzz8zZQ4tHx0=
+rQhWZ1m4Cw1lbFuud5CwvnqTTttUAYEWfnqp84gaCKX42GeBwmAnC9rCSZwIa2Wvi1P4amYMMoe=
+tXsSrAPEFaXObBVYPUeQDB-2BxrKJ0hqH-2Bi-2F1ozaXn6xJzRvm0zOR0ubG9FtRiuVNRVZmxh=
+e8KEoabZBGumKVPz06Z8lLu-2BT3G0CNv-2F8d5g1oFQgKYgSSndhwGy6CqMxnNtk7w-2FDWdib=
+Q9dvxc9SuOY9Yl_2PoKmueCk4JcyTn4vUPMTT3sl6vYvN1q2UrA-2F9v0bgSuX8l4pCnB6Y8cC3=
+9N2Yt0RPOQ1lsxleFN-2B93I-2FyvY5AIY83bMDcFiZgy0SVUp9-2BuCl9JE-2BMQvY-2FQTdFr=
+zqr8qcZV35j426QFpD668bma9buxCpymWonLCmQiqX915Q8u-2Bl3T91cGvzqvBAsbdGfIFAgn5=
+dHqYG8yHrKTh-2BgUt-2BUSe-2FwZxl8GhUh3KnN0eDuCd2vF55jNQUq8CAUI6hedSc3vAuBjTM=
+tsjIKHzWeJE5f1Cb-2FEnjHuUFArHSmIHrjc-3D" style=3D"color: #000000; text-deco=
+ration: underline;">your created Applets</a> will be archived at the end of=
+ the month.
+=20=20=20=20
+    <br/><br/><br/>
+=20=20=20=20
+</p>
+=20=20=20=20
+
+<!-- BUTTON -->
+
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+    <tbody>
+        <tr>
+            <td style=3D"max-width: 640px;">
+                 <a href=3D"https://links.ifttt.com/ls/click?upn=3DoyybEpu2=
+Koi4rNmdK4UiXW-2FIkFIPyM3eDF-2FJdlLsvgRYkeyGxROu-2B7RBVJ25Db9n1fjtTcDVWqUrD=
+aNK5FLXBVVWzKCUUdUdiW5HmTmb5icwAO6y4QJQCd24fXxq03mLUNGHltpuOkKHKtF3nSiDXPzz=
+8zZQ4tHx0rQhWZ1m4CzGF4jayNIWrcmpKVYQ8o2F-2BQ5d-2FpEJiEC6ZQZOTKSoZ689piAJyDW=
+8FjNrNJRqSqjJUFjPGNjQHYRaDfCOcScrz4ziKQlzHeUtN0BLVLOx30SrOwwPArdyoWVGPGVbXM=
+QpIYsAuclR9W-2FH4NfQOk62mqRra9AxycFLnQzELbnyATt8z0Vn5-2BuqV2wkNiBOPju0E2ddt=
+CzT8q6IKOb2G9F4UxmdBGI-2FOlS3k8zfzRxxz2bHkHilQlvsqTbmEKYbtYoiO3zuCEKY0cG1KE=
+By7k02OCVaFOIF-2Bcz9gvsGh-2Bi1vMaD1fsOWDxQo3o0-2BJqwxikmnqEzuBf9uZ5a9vwt8Ls=
+EHItv_2PoKmueCk4JcyTn4vUPMTT3sl6vYvN1q2UrA-2F9v0bgSuX8l4pCnB6Y8cC39N2Yt0RPO=
+Q1lsxleFN-2B93I-2FyvY5AIY83bMDcFiZgy0SVUp9-2BuCl9JE-2BMQvY-2FQTdFrzqr8qcZV3=
+5j426QFpD668bma9bqlGL5Vv9l0z5SSbqT7D1wnbo-2FAcTqHrZqqSkHGvWBZFBvxpuyIrTeO90=
+92Jzft9AmJ7RZfsxcQkQnGXFTEcmEQpdp-2FQBb5xi0R-2B6Yv6DVvjHTs4hKU3BInicq55VmPV=
+VejCiucoxchQ1k3kIlC39tg-3D" style=3D"display: block; text-decoration: none;=
+ background-color: #000000; color: white; text-align: center; font-weight: =
+700; height: 64px; min-width: 260px; line-height: 64px; font-size: 28px; bo=
+rder-radius: 50px; padding: 0 30px;">Upgrade to Pro</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- COPY -->
+
+<p style=3D"word-wrap: break-word; color: #000000; font-family: &#39;Avenir=
+Next&#39;, &#39;Avenir&#39;, &#39;Helvetica Neue&#39;, &#39;Helvetica&#39;,=
+ &#39;Arial&#39;, &#39;sans-serif&#39;; font-size: 24px; line-height: 32px;=
+ text-align: left; font-weight: 400; margin: 0; padding: 0 2px;" class=3D"t=
+ext" align=3D"left">
+=20=20=20=20
+    <br/><br/>
+=20=20=20=20
+    For more information, see <a class=3D"link" href=3D"https://links.ifttt=
+.com/ls/click?upn=3DoyybEpu2Koi4rNmdK4UiXW-2FIkFIPyM3eDF-2FJdlLsvgRYkeyGxRO=
+u-2B7RBVJ25Db9n1fjtTcDVWqUrDaNK5FLXBVVWzKCUUdUdiW5HmTmb5icwAO6y4QJQCd24fXxq=
+03mLUNGHltpuOkKHKtF3nSiDXIm-2BX3-2BGkH-2BCk6e-2BHNpzik4Iyye6vRpmL7T8879ovUG=
+cyjpDSad-2BdVMjVNqs-2BjCRWuBEAV6OyOFyVbKv2CXtBhsdWRFlJWii7xzY1gpLQt7trt-2Bn=
+HJjG22KgQxfL1jxqhXk-2FroV5fxrgA7onXtuPfBj-2FeNbJGyhe-2FQ1y60Bg2rFPlSKXApJOu=
+66jVTSK09NqAaJUPRR3oW6bt-2FxPhpRtsaEWBRQgLslMqMUw2tyNgxsx0gzkbFHGoY8MdVPxmR=
+0K2s-2FPWbFNe3uPPevX-2BM-2FdpMjbxQcu3c2L7kQ2C-2FsIGklbW5xjkSpnzU67OpzIoKvp2=
+VfkLyQVjUI7oL1m1cBGwqZnknCfn9BBG-2BHzEF2j2mm-2FOm0plYFGQxexDBiHXdv3V1deC8-2=
+FXkdVfhnAb-2FHfUUOPmMuMkvMIHZ-2FlHsoRLxlbxfXhDLxPbfvjutfSvFY6UTpUZYHs2-2Fch=
+lLtZBH03i3RVISgW6-2BX36qj6l-2BA01QKSptbxY_2PoKmueCk4JcyTn4vUPMTT3sl6vYvN1q2=
+UrA-2F9v0bgSuX8l4pCnB6Y8cC39N2Yt0RPOQ1lsxleFN-2B93I-2FyvY5AIY83bMDcFiZgy0SV=
+Up9-2BuCl9JE-2BMQvY-2FQTdFrzqr8qcZV35j426QFpD668bma9bokYWe0zzN3rzoRSVDe-2FK=
+QRs-2Fd3nZgHzeR6cA9TpWJryRNxl13LIqvG7mjdW8n5YpDYnmXAU94ZySkH4g1cWF6j-2ByBdP=
+jt0TdGFNyaXRCcOnDpDXMUbcejHFQlw-2BSL98glW8Q2GRMNO4u5y-2FMktF5QM-3D" style=
+=3D"color: #000000; text-decoration: underline;">What happens if I do not u=
+pgrade to Pro?</a>
+=20=20=20=20
+</p>
+														</td>
+													</tr>
+												</tbody></table>
+											</td></tr>
+										</tbody></table>
+									</td>
+								</tr>
+								<tr>
+									<td style=3D"max-width: 640px; padding: 56px 0;">
+										<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0">
+											<tbody><tr>
+												<td class=3D"img-center logo" width=3D"128" style=3D"padding-bo=
+ttom: 56px; max-width: 640px; font-size: 0pt; line-height: 0pt; text-align:=
+ center;" align=3D"center">
+													<!-- Logo -->
+													<a href=3D"https://links.ifttt.com/ls/click?upn=3DoyybEpu2Koi4=
+rNmdK4UiXW-2FIkFIPyM3eDF-2FJdlLsvgRYkeyGxROu-2B7RBVJ25Db9n1fjtTcDVWqUrDaNK5=
+FLXBVVWzKCUUdUdiW5HmTmb5icwAO6y4QJQCd24fXxq03mLUNGHltpuOkKHKtF3nSiDXPzz8zZQ=
+4tHx0rQhWZ1m4CxqC-2B-2B7gHrRCssKPl4THENwAIKGuLELGyYf-2Bb-2B7KLhQDEfwmnpSzrU=
+977vK2oHSDwyqTGbk9G4GigHk-2BX8LDq-2Fay2u17cXHL23V7u5Fl-2BooAXiVgtWYPGKwJi9q=
+Zsv9gQk2zuutC1SQo93teqtPZDysVLmip-2FV-2F9ZhlIj363xnvzMHy5upBgEDUoWNSP3K5MlI=
+sPtYEH4lvpv1jfI-2BC-2BG47LjVpJiduw0Di-2FVRGkxLc2cpzIi5kUWLQ3LM5pbk0zqC-2FxE=
+uguWT2Kk8ji05wNSI-2BNyxI6X3iK2vusmwsoVvTCzKbwBtUcvksXY3ahS-2BW4i4oTvVnb5esr=
+yEeeGCExUovIjwjp3n7gD7PJMr5YC3pu-2BatCkbW61ooZcXw-2BZV8hyE-3DfcBi_2PoKmueCk=
+4JcyTn4vUPMTT3sl6vYvN1q2UrA-2F9v0bgSuX8l4pCnB6Y8cC39N2Yt0RPOQ1lsxleFN-2B93I=
+-2FyvY5AIY83bMDcFiZgy0SVUp9-2BuCl9JE-2BMQvY-2FQTdFrzqr8qcZV35j426QFpD668bma=
+9bmBbRyWb3MF-2BsF0QWfGNq75SODIzr64KLzvKD1kKHGLHYt-2F77rPlpRbj5gc6ugjxtXGKJ3=
+WOId6et7NxfpGb-2FeUIPTbhIDnBX4nIWAETViiLE4LhdKrm1fjgualCnI8vm0c7oGF9UcxDz5S=
+0SUBZ8Yw-3D" target=3D"_blank" style=3D"color: #000000; text-decoration: un=
+derline;"><img src=3D"https://userimg-bee.customeriomail.com/images/client-=
+env-57121/IFTTT%20Logo.png" width=3D"128" border=3D"0" alt=3D"IFTTT" title=
+=3D"IFTTT" style=3D"-ms-interpolation-mode: bicubic;"/></a>
+													<!-- END Logo -->
+												</td>
+											</tr>
+											<tr>
+												<td align=3D"center" style=3D"padding-bottom: 28px; max-width: =
+640px;">
+													<!-- Button -->
+													<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+														<tbody><tr>
+															<td class=3D"img" width=3D"140" style=3D"max-width: 640px; f=
+ont-size: 0pt; line-height: 0pt; text-align: left;" align=3D"left"><a href=
+=3D"https://links.ifttt.com/ls/click?upn=3DoyybEpu2Koi4rNmdK4UiXW-2FIkFIPyM=
+3eDF-2FJdlLsvgRYkeyGxROu-2B7RBVJ25Db9n1fjtTcDVWqUrDaNK5FLXBVVWzKCUUdUdiW5Hm=
+Tmb5icwAO6y4QJQCd24fXxq03mLUNGHltpuOkKHKtF3nSiDXMaqLOe3DRWyIs9ax5pS9PC1r4Di=
+qtO06fBW6Yn-2FkYAzgd01HSzam8wm4x-2Frg1WLdnhpse4g0BDJSpHELq7TrNM-2Fz-2ByVjgZ=
+b3Z7n2UB67WcIvflycEVkR5SIXHeKIPHYXkrpWPyosg7kUxprUC-2B1meplm8EGhtBZ5iR4UMpi=
+1-2FmKhAizpQvTKt90GOolxyJ-2FB3OfYr8qBpSSBNs9suTIBnqOFIVi4sEx0Iwcn4JruGTsdQE=
+ntf140f5-2FAJZ2Xhxa1EF6Lw-2F0Y-2BQqKzvEO538yz1P0H-2Bt4XTivrxTujdxqzFqtocZdm=
+TZGZ9kSqYqCg7NCmoGVStyboQ5chWZ3R5j7dc-3DIh2Y_2PoKmueCk4JcyTn4vUPMTT3sl6vYvN=
+1q2UrA-2F9v0bgSuX8l4pCnB6Y8cC39N2Yt0RPOQ1lsxleFN-2B93I-2FyvY5AIY83bMDcFiZgy=
+0SVUp9-2BuCl9JE-2BMQvY-2FQTdFrzqr8qcZV35j426QFpD668bma9bt3Iu5GMa5Pin4vCcO1p=
+RZ-2FR3MxlxNSjTrX8dHRAesgivLqa0dhFLBMxgku-2FpDzzAY7lLY9PGVwEev0dtkNiP3rdvw-=
+2FXnaikgor9KCU9t7b8CQk9cVQWuUp6mfxPGalAF-2BfdUeWe056M41F3-2B2HtOJI-3D" targ=
+et=3D"_blank" style=3D"color: #000000; text-decoration: underline;"><img sr=
+c=3D"https://userimg-bee.customeriomail.com/images/client-env-57121/apple_a=
+ppstore_download@1x.png?1" width=3D"140" height=3D"42" border=3D"0" alt=3D"=
+Download IFTTT for iOS" title=3D"Download IFTTT for iOS" style=3D"-ms-inter=
+polation-mode: bicubic;"/></a></td>
+															<td class=3D"img" width=3D"12" style=3D"max-width: 640px; fo=
+nt-size: 0pt; line-height: 0pt; text-align: left;" align=3D"left"></td>
+															<td class=3D"img" width=3D"140" style=3D"max-width: 640px; f=
+ont-size: 0pt; line-height: 0pt; text-align: left;" align=3D"left"><a href=
+=3D"https://links.ifttt.com/ls/click?upn=3DoyybEpu2Koi4rNmdK4UiXW-2FIkFIPyM=
+3eDF-2FJdlLsvgRYkeyGxROu-2B7RBVJ25Db9n1fjtTcDVWqUrDaNK5FLXBVVWzKCUUdUdiW5Hm=
+Tmb5icwAO6y4QJQCd24fXxq03mLUNGHltpuOkKHKtF3nSiDXMFAXbYN3v2Jf62LuRVgmiO6Aikv=
+qvFU-2FtF7obsaT6WbizoSOqL6cRq-2BwsBiUzu9N5QditQSm97d3bZziIBBRO8rPVEbU3ThsT5=
+uMgC4RPzBNv57Yv4FGWNnysow-2F1fo0vJSO-2BAJCsW5Lbj8BpYCl4IMvmTp7VNT7gOWttJQnp=
+QR1VTshsBY1PA-2BqPWMN9X-2FOBvNUUqUpLr2XgLjkqhhR-2F2-2BpDyjFAbLg-2FlAa7xv3SV=
+b3LuTw03SHLzsxfSBHKrh0mgIOokLUtwHN7wMlhC3yoZVQKqcdX08KAs8Ma83RimS05rfappx8k=
+05yRloPO487u4RBjEPavfoJ8jUQcSdTtpTL0oMeaZgSwcim3SF3hBMnqPW_2PoKmueCk4JcyTn4=
+vUPMTT3sl6vYvN1q2UrA-2F9v0bgSuX8l4pCnB6Y8cC39N2Yt0RPOQ1lsxleFN-2B93I-2FyvY5=
+AIY83bMDcFiZgy0SVUp9-2BuCl9JE-2BMQvY-2FQTdFrzqr8qcZV35j426QFpD668bma9bmFPvr=
+x2hsuukOli9jAGbpwIaXMobn5dioYktXL42sJn03yWDfcxMnt4-2BzbOtrWZSchtJZHilSWdbes=
+pnA-2FMCVgNIEtlc-2Bo7fvx4QZo9pdc2-2BCLD0wkxk0ux2GEK2MiLDIBK5ryNcQvT6Gyohwy9=
+H9k-3D" target=3D"_blank" style=3D"color: #000000; text-decoration: underli=
+ne;"><img src=3D"https://userimg-bee.customeriomail.com/images/client-env-5=
+7121/google_play_store_download@1x.png?1" width=3D"140" height=3D"42" borde=
+r=3D"0" alt=3D"Download IFTTT for Android" title=3D"Download IFTTT for Andr=
+oid" style=3D"-ms-interpolation-mode: bicubic;"/></a></td>
+														</tr>
+													</tbody></table>
+													<!-- END Button -->
+												</td>
+											</tr>
+											<tr>
+												<td class=3D"text-footer p0-15" style=3D"max-width: 640px; colo=
+r: #999999; font-family: &#39;AvenirNext&#39;, &#39;Avenir&#39;, &#39;Helve=
+tica Neue&#39;, &#39;Helvetica&#39;, &#39;Arial&#39;, &#39;sans-serif&#39;;=
+ font-size: 12px; line-height: 16px; text-align: center; font-weight: 400;"=
+ align=3D"center">
+													IFTTT =C2=B7 P=E2=80=8BO Box 59=E2=80=8B054=E2=80=8B7 =C2=B7 S=
+a=E2=80=8Bn Franc=E2=80=8Bisco, Calif=E2=80=8Bornia =C2=B7 941=E2=80=8B59
+													<br/>
+													<a href=3D"https://links.ifttt.com/ls/click?upn=3DoyybEpu2Koi4=
+rNmdK4UiXW-2FIkFIPyM3eDF-2FJdlLsvgRYkeyGxROu-2B7RBVJ25Db9n1fjtTcDVWqUrDaNK5=
+FLXBVVWzKCUUdUdiW5HmTmb5icwAO6y4QJQCd24fXxq03mLUNGHltpuOkKHKtF3nSiDXJnbrs6m=
+Sh-2Fxr9ce-2FClEPBO6hpSRNNLqLPQi8OOrraPtF-2B2FlGWYo2r1dVnNizugkyD-2Fmx8OTPJ=
+SfP8Y8CnO-2FDIEHB2O6PKo-2FaYONL41Zwqf8JjSfLSHqZX6GLilq9LS2G6TKwF6xygRMXeiuP=
+9ByxVH7-2FptqoCCGb7WHbU0efoCeUJqhp69kDz1kiW94uL-2FbK14reaWCq6Gz5M-2FTwLx7Z-=
+2FH-2Bs-2FxTE7dG8BHVqLOUBXlfbtkyP-2BCGv7TsYVAIbFfxB6HpAtGctWvmL81yjp51Po-3D=
+i3cP_2PoKmueCk4JcyTn4vUPMTT3sl6vYvN1q2UrA-2F9v0bgSuX8l4pCnB6Y8cC39N2Yt0RPOQ=
+1lsxleFN-2B93I-2FyvY5AIY83bMDcFiZgy0SVUp9-2BuCl9JE-2BMQvY-2FQTdFrzqr8qcZV35=
+j426QFpD668bma9bpkigEETCQCWrZx51SM3AFxsdtMqc-2FFAFh2bpzkKzLvs0YYtkhtbhTLtwQ=
+WIEeU1RyFfLqCWIPFJMDnLfR1iyF9kNBbK8ufGlqbaKC-2B-2B0k1-2FaJhM4yaUbRr8tlOwmz4=
+DqxbWWrJCdIrAMC8jei40lTk-3D" target=3D"_blank" class=3D"link-footer-u" styl=
+e=3D"color: #999999; text-decoration: underline;"><span class=3D"link-foote=
+r-u" style=3D"color: #999999; text-decoration: underline;">Unsubscribe</spa=
+n></a> from important alerts for your account <br/>
+                                                    or sign in to manage yo=
+ur <a href=3D"https://links.ifttt.com/ls/click?upn=3DoyybEpu2Koi4rNmdK4UiXW=
+-2FIkFIPyM3eDF-2FJdlLsvgRYkeyGxROu-2B7RBVJ25Db9n1fjtTcDVWqUrDaNK5FLXBVVWzKC=
+UUdUdiW5HmTmb5icwAO6y4QJQCd24fXxq03mLUNGHltpuOkKHKtF3nSiDXPzz8zZQ4tHx0rQhWZ=
+1m4Cx-2FCEa9Gu2ZNlq2RXkuOYwNKEdTGdIQyhwVjNzv8OO56ZJ-2BK0ITt5Tp3Y9KUaCxt6FoU=
+yIHsLHzFR-2BOwldyJccttJP8MnxOCqn4A1Uvpc6AdFi0nh8eVZPcJmquEQfzjPxfN3Q3kI-2FC=
+LWlOg-2Bw-2BBxjSTswNbEqK9SUO-2Fx8vqWm4PzkSFhfcRs7w-2B6q5Env2bxAFf9nbWShq1fC=
+Me5HaSbUDpYWLYZ4NoSJ4Kiu66T-2FGmUBZMWJH4mxwOvO0zdcDTDcKa6oXmwXw7h6XdMG5KhcS=
+nw0hnAgdSTQuXyVOsQ1V9voKPXBwqIirZQNdceZKDcUjXhsatEVf9NZedhQEkvrIPnyrtlsmn4j=
+XaJZcewKyrV5vsfSu0K6jME-2FFU-2FzXqxGO2eIX6yRTv90kN6vVlTqfGULUP0ZkFc9-2FZtPS=
+jsEEQ70iNIDmbDPXdDJ0DfdWzK4-3D9-TW_2PoKmueCk4JcyTn4vUPMTT3sl6vYvN1q2UrA-2F9=
+v0bgSuX8l4pCnB6Y8cC39N2Yt0RPOQ1lsxleFN-2B93I-2FyvY5AIY83bMDcFiZgy0SVUp9-2Bu=
+Cl9JE-2BMQvY-2FQTdFrzqr8qcZV35j426QFpD668bma9bvLJgFCe8rZ6loLL0xDvHk6UNBm8WL=
+UKxVSBpiXhhExnPn1BOREKDBArebEPD-2Fb1rCPZC14HkST8ometGCxjUddyKPt2gMTQ4Q6Sr1m=
+2K-2BNnjvUJW0u70AnKRL8-2BiYeMDgMnOXFgi1FmqnGj3nmJZg0-3D" target=3D"_blank" =
+class=3D"link-footer-u" style=3D"color: #999999; text-decoration: underline=
+;"><span class=3D"link-footer-u" style=3D"color: #999999; text-decoration: =
+underline;">email preferences</span></a>.
+												</td>
+											</tr>
+										</tbody></table>
+									</td>
+								</tr>
+							</tbody></table>
+							<!-- END Main -->
+						</td>
+					</tr>
+				</tbody></table>
+=09=09=09
+=09=09
+=09
+
+
+
+<img src=3D"https://link.ifttt.com/e/o/eyJlbWFpbF9pZCI6IlJLRy1Bd01BQVhVaHJ3=
+TjJtYThyLWVTbW1hcjVwQT09In0=3D" style=3D"height: 1px !important; max-height=
+: 1px !important; max-width: 1px !important; width: 1px !important"/>
+<img src=3D"https://links.ifttt.com/wf/open?upn=3Dje6pDAU4WV7-2FyfZbrjxPiwU=
+IeVidJOmoHZhgTBW8abZtAhiS-2F3P3x0226dVJe72c4cCrKjvitAdVdGtWYZ8bkerv9qmgo1pP=
+xtQMiCCooYKEER7CWmROWp4FCKxxqBe6uBuIA4kwNyvab8Fi4KCyCLq7k-2BIw8Qwj-2BFTUrSo=
+Y1S5z2GYH7QIXrWJnnig4st4ZGwZrP0nawRc9RRm8kanRyAXjsHhWXV7d-2BA8d1pbAnzU7RloW=
+G1GBPAipxkKU0pspx1qMWu0V4bs1mslRluAZKH3ah5TUYlUM31gtZJIzRhnN03rFX62iYf4oPxe=
+8YwRf" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !=
+important;width:1px !important;border-width:0 !important;margin-top:0 !impo=
+rtant;margin-bottom:0 !important;margin-right:0 !important;margin-left:0 !i=
+mportant;padding-top:0 !important;padding-bottom:0 !important;padding-right=
+:0 !important;padding-left:0 !important;"/>
+</body></html>
+
+--99e316b65942e1432c33f23b445406a02a680f298424768a5da03cf0f608--
