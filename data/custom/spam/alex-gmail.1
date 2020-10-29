@@ -1,0 +1,230 @@
+Delivered-To: alexspink75@gmail.com
+Received: by 2002:a17:90a:344:0:0:0:0 with SMTP id 4csp769746pjf;
+        Tue, 29 Sep 2020 10:15:28 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwsX6cEASITkm3pVg8Jdf/dOP88C7nYARvgEqWhBjdWjYOLmggdacmOiNkReCwAu0hH6FRT
+X-Received: by 2002:a17:90a:d304:: with SMTP id p4mr4961727pju.138.1601399728845;
+        Tue, 29 Sep 2020 10:15:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601399728; cv=none;
+        d=google.com; s=arc-20160816;
+        b=bps9pUq0KdH0Y+xGhpQD33MnvAu36jpigETBoqqoBsu1TUQXd/colrkX9frjyq4UbH
+         xq4hVomPZd0MtNFpy9f1K52ovczKseHx93g+z1ZXUqBmujDtQHm+HUPXVfMMWXFzg/AE
+         viSMxmTfShGWckNocEExAhCq08WDQg+pmMwpJjf6PdwtgmCSFIFHg1WrHT1a1Imoe4aw
+         54m1q/EVVQK4bSmaL7NNy5hmCGwk6WStRFkvlfUlIjldf5BetDnv3fO90apDB1RrNAVr
+         nPcSxuZI2XZV3DbDUXqDubFwo0cEtsqS8huZ7Wlh5TMbpgNOQ270lwuxYLuacx8t15SK
+         EuLA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:list-id:list-unsubscribe:precedence:mime-version:to
+         :reply-to:from:subject:date:message-id:domainkey-signature
+         :dkim-signature;
+        bh=LTFOp52n/Ws9dvFEeROXSQacXgcKWz3sM69P5qIKcAw=;
+        b=r1DjfdKRUQZNwVx4NUcEXO+/x2VyWnUhSBpiXu49QzNllcn8h7NpPRbrvSWP92qL3E
+         v77IxpgXy94+eGlmFVrt4AJP2zJiX4qpm/Fl56lAbPsV2qui0vTANrYIcDB5fmrYX0q7
+         Wjp5wghTp4kQpPLEiCUI++5aASjjiJy5Y149iQB4KpH7hta+3DEbY76zZGTkfb31apeC
+         XAvxOv/KydKq3PdcgZx4KIHUGCrSF3PCxUpwWQ46evhustm9peMyUbUgNFOoevLe7E37
+         AU+yCKRi1fmDWHmZOLSZg+260edwW3KTNRH7sagy668Qmo6x7VggxJSYK372b5/a6Ssz
+         lHcA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@residualnetincome.com header.s=mailer header.b=Vs20o1uN;
+       spf=pass (google.com: domain of newsletter@residualnetincome.com designates 66.219.108.108 as permitted sender) smtp.mailfrom=newsletter@residualnetincome.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=residualnetincome.com
+Return-Path: <newsletter@residualnetincome.com>
+Received: from mta8.residualnetincome.com (mta8.residualnetincome.com. [66.219.108.108])
+        by mx.google.com with ESMTPS id 9si2125081pll.420.2020.09.29.10.15.27
+        for <alexspink75@gmail.com>
+        (version=TLS1 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Tue, 29 Sep 2020 10:15:28 -0700 (PDT)
+Received-SPF: pass (google.com: domain of newsletter@residualnetincome.com designates 66.219.108.108 as permitted sender) client-ip=66.219.108.108;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@residualnetincome.com header.s=mailer header.b=Vs20o1uN;
+       spf=pass (google.com: domain of newsletter@residualnetincome.com designates 66.219.108.108 as permitted sender) smtp.mailfrom=newsletter@residualnetincome.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=residualnetincome.com
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=mailer; d=residualnetincome.com;
+ h=Message-ID:Date:Subject:From:Reply-To:To:MIME-Version:Content-Type:List-Unsubscribe:List-Id; i=newsletter@residualnetincome.com;
+ bh=HdeDgcd3kO1uhPBqzz5CDmnJIHM=;
+ b=Vs20o1uNWdsfeilxGheAbiiJlPylvs2DpRIPBdKQC7+L9VvvEzE4InUmytl41Zh3nnQPYMoXvLG+
+   psvD/PKU5SxCeHFuQQazuJPokEApuhtxYn6cX8kx/SdAlsfi7CI7h7oI0cMHx7VE/qu07qL0UUUn
+   QTB4mrk+spcyuV5M1Os=
+DomainKey-Signature: a=rsa-sha1; c=nofws; q=dns; s=mailer; d=residualnetincome.com;
+ b=dkbRQ58dJR5hVN9P18OxjYo44uZlamrAs+8mBzm48ux3lbSMIDxHgWe1Hezc1+b6Uzy0U+M5nTde
+   F8DZe8/o7EFYa1a4HH78mYWKWtoaK3e6pIa2sZpY7SRU52kwssEoi8Oxnx4Yc2hHBjNCEKnYokGJ
+   hqEeFaKj49WHOVz0v5U=;
+Return-Path: <newsletter@residualnetincome.com>
+Message-ID: <156110b9ef57f5c524ad47630ec53e3a@residualnetincome.com>
+Date: Tue, 29 Sep 2020 17:15:23 +0000
+Subject: Helen, Please Validate Your Account - alexspink75@gmail.com
+From: Jessica <newsletter@residualnetincome.com>
+Reply-To: Jessica <no-reply@residualnetincome.com>
+To: "alexspink75@gmail.com" <alexspink75@gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="_=_swift_v4_1601399723_06e07bb462608f81554667256646cdfb_=_"
+X-Sender: newsletter@residualnetincome.com
+X-Report-Abuse: Please report abuse for this campaign here:
+ https://clicks.trackingmafrd.com/index.php/campaigns/lv319magmve83/report-abuse/jc044jg7zcf6e/dx20843qabeb9
+X-Receiver: alexspink75@gmail.com
+X-Qdec-Tracking-Did: 1
+X-Qdec-Subscriber-Uid: dx20843qabeb9
+X-Qdec-Mailer: SwiftMailer - 5.4.x
+X-Qdec-EBS: https://clicks.trackingmafrd.com/index.php/lists/block-address
+X-Qdec-Delivery-Sid: 53
+X-Qdec-Customer-Uid: mr814dkm9ha79
+X-Qdec-Customer-Gid: 0
+X-Qdec-Campaign-Uid: lv319magmve83
+Precedence: bulk
+List-Unsubscribe: <https://clicks.trackingmafrd.com/index.php/lists/jc044jg7zcf6e/unsubscribe/dx20843qabeb9/lv319magmve83/unsubscribe-direct?source=email-client-unsubscribe-button>,
+ <mailto:reply@email-bitcoin.com?subject=Campaign-Uid:lv319magmve83 /
+ Subscriber-Uid:dx20843qabeb9 - Unsubscribe request&body=Please unsubscribe
+ me!>
+List-Id: jc044jg7zcf6e <00>
+Feedback-ID: lv319magmve83:dx20843qabeb9:jc044jg7zcf6e:mr814dkm9ha79
+
+
+--_=_swift_v4_1601399723_06e07bb462608f81554667256646cdfb_=_
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Unsubscribe / Change Profile
+Hi Helen
+I just wanted to reach out and re=
+mind you that=20
+our AI-powered app is still temporarily
+open for access.=
+
+I truly believe that this is one of the most powerful
+weapons to add t=
+o your arsenal right now
+=E2=80=94 _Especially, with all this madness goi=
+ng on._
+To secure your access, you will need to:
+Validate your account =
+right here
+https://clicks.trackingmafrd.com/index.php/campaigns/lv319magm=
+ve83/track-url/dx20843qabeb9/d6d4f2ebbb06f2f9a9b8c1d81744edfa66f3adc1
+If =
+you want your edge for the market trends, then
+it's crucial you stop what=
+ you're doing and...
+Get your edge right here
+https://clicks.trackingma=
+frd.com/index.php/campaigns/lv319magmve83/track-url/dx20843qabeb9/d6d4f2ebb=
+b06f2f9a9b8c1d81744edfa66f3adc1
+Just make sure to hurry because the link =
+will expire.
+=20
+Good luck,
+Jessica
+CryptoGenius 1177 Pacific Hwy, Sa=
+n Diego, CA, USA, 92101
+To update or remove your contact information plea=
+se Manage Your
+Subscription
+https://clicks.trackingmafrd.com/index.php/=
+campaigns/lv319magmve83/track-url/dx20843qabeb9/ea3c27cb3c9551825a18d57847c=
+ab8c5f386922d.
+
+--_=_swift_v4_1601399723_06e07bb462608f81554667256646cdfb_=_
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+<head><meta charset=3D"utf-8"/>
+=09<title></ti=
+tle>
+<style type=3D"text/css">span.preheader{display:none!important;mso-h=
+ide:all;}</style></head>
+<body><span class=3D"preheader" style=3D"display=
+:none!important;mso-hide:all;">Unsubscribe / Change Profile</span>
+<div s=
+tyle=3D"margin-left: 120px;">
+<p><span style=3D"font-size:16px;"><span st=
+yle=3D"font-family:Tahoma,Geneva,sans-serif;">Hi Helen</span></span></p>
+=
+
+<p><span style=3D"font-size:16px;"><span style=3D"font-family:Tahoma,Gen=
+eva,sans-serif;">I just wanted to reach out and remind you that <br />
+<s=
+trong>our AI-powered app is still temporarily<br />
+open for access.</str=
+ong></span></span></p>
+
+<p><span style=3D"font-size:16px;"><span style=
+=3D"font-family:Tahoma,Geneva,sans-serif;">I truly believe that this is one=
+ of the most powerful<br />
+weapons to add to your arsenal right now<br /=
+>
+<br />
+=E2=80=94 <em>Especially, with all this madness going on.</em>=
+</span></span></p>
+
+<p><span style=3D"font-size:16px;"><span style=3D"f=
+ont-family:Tahoma,Geneva,sans-serif;">To secure your access, you will need =
+to:<br />
+<br />
+<a href=3D"https://clicks.trackingmafrd.com/index.php/=
+campaigns/lv319magmve83/track-url/dx20843qabeb9/d6d4f2ebbb06f2f9a9b8c1d8174=
+4edfa66f3adc1"><strong>Validate your account right here</strong></a><br />=
+
+<br />
+If you want your edge for the market trends, then<br />
+it's =
+crucial you stop what you're doing and...<br />
+<br />
+<a href=3D"https=
+://clicks.trackingmafrd.com/index.php/campaigns/lv319magmve83/track-url/dx2=
+0843qabeb9/d6d4f2ebbb06f2f9a9b8c1d81744edfa66f3adc1"><strong>Get your edge =
+right here</strong></a><br />
+<br />
+Just make sure to hurry because th=
+e link will expire.</span></span><br />
+ </p>
+
+<p><span style=3D"font=
+-size:16px;"><span style=3D"font-family:Tahoma,Geneva,sans-serif;">Good luc=
+k,</span></span></p>
+
+<p><span style=3D"font-size:16px;"><span style=3D=
+"font-family:Tahoma,Geneva,sans-serif;">Jessica</span></span></p>
+<br />=
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+=
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br=
+ />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<span style=3D"=
+font-size:10px;"><span style=3D"font-family:Tahoma,Geneva,sans-serif;">Cryp=
+toGenius 1177 Pacific Hwy, San Diego, CA, USA, 92101<br />
+To update or r=
+emove your contact information please <a data-unsubtag=3D"_UNSUBSCRIBE_URL_=
+" href=3D"https://clicks.trackingmafrd.com/index.php/campaigns/lv319magmve8=
+3/track-url/dx20843qabeb9/ea3c27cb3c9551825a18d57847cab8c5f386922d">Manage =
+Your Subscription</a>.</span></span></div>
+<img width=3D"1" height=3D"1" =
+src=3D"https://clicks.trackingmafrd.com/index.php/campaigns/lv319magmve83/t=
+rack-opening/dx20843qabeb9" alt=3D"" />
+</body>
+</html>
+
+--_=_swift_v4_1601399723_06e07bb462608f81554667256646cdfb_=_--
+
