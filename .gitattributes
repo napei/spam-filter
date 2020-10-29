@@ -1,0 +1,2 @@
+# ignore data directory from clogging up my repo language usage statistics
+data/* linguist-generated
