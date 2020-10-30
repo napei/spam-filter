@@ -17,6 +17,7 @@ import nltk
 import numpy as np
 import urlextract
 from bs4 import BeautifulSoup
+from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.calibration import CalibratedClassifierCV
@@ -39,8 +40,6 @@ from sklearn.pipeline import Pipeline
 from sklearn.svm import SVC, LinearSVC
 from sklearn.tree import DecisionTreeClassifier
 from tqdm import tqdm
-
-from nltk.corpus import stopwords
 
 # Needed for nltk stemming and stopwords
 nltk.download('punkt')
