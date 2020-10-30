@@ -227,6 +227,8 @@ def benchmark(cs: list, vs: list, X, y, X_custom, y_custom) -> "list[str]":
         # freq = sorted(freq, key=lambda x: x[1], reverse=True)
         # print(vec.__class__.__name__ + " - " + str(freq[:10]))
 
+        # print(len(vec.vocabulary_.items()))
+
         local_vs.append((training_data, testing_data,
                          custom_data, vec.__class__.__name__))
     print("Begin benchmark")
