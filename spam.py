@@ -11,7 +11,7 @@ import re
 import time
 from email import message_from_binary_file
 from email.message import Message
-from string import punctuation
+from string import digits, punctuation
 
 import nltk
 import numpy as np
@@ -175,9 +175,9 @@ class EmailToWords(BaseEstimator, TransformerMixin):
 
             urls = self.url_extractor.find_urls(text)
             for url in urls:
-                text = text.replace(str(url), ' URL ')
-            text = re.sub(match_numbers, ' NUMBER ', text)
+                text = text.replace(str(url), '')
             text = text.translate(str.maketrans('', '', punctuation)).lower()
+            text = text.translate(str.maketrans('', '', digits)).lower()
             tokenized = word_tokenize(text, language="english")
             # Remove stopwords
             if self.stripStopWords:
@@ -221,9 +221,14 @@ def benchmark(cs: list, vs: list, X, y, X_custom, y_custom) -> "list[str]":
         testing_data = fitted.transform(X_test)
         custom_data = fitted.transform(X_custom)
 
+        # sum_words = training_data.sum(axis=0)
+        # freq = [(word, sum_words[0, idx])
+        #         for word, idx in vec.vocabulary_.items()]
+        # freq = sorted(freq, key=lambda x: x[1], reverse=True)
+        # print(vec.__class__.__name__ + " - " + str(freq[:10]))
+
         local_vs.append((training_data, testing_data,
                          custom_data, vec.__class__.__name__))
-
     print("Begin benchmark")
     for clf in tqdm(cs, desc="Classifiers"):
         for vec in tqdm(local_vs, desc="Vectorisers"):
@@ -323,25 +328,26 @@ test_classifiers = [
     KNeighborsClassifier()
 ]
 
-max_vocab_size = 1000
 # No max vocab size
-test_vectorizers = [
+test_vectorizers_no_max = [
+    TfidfVectorizer(),
+    CountVectorizer(),
+    HashingVectorizer(),
+]
+
+# Specify max vocab size
+max_vocab_size = 1000
+test_vectorizers_with_max = [
     TfidfVectorizer(max_features=max_vocab_size),
     HashingVectorizer(n_features=max_vocab_size),
     CountVectorizer(max_features=max_vocab_size),
 ]
 
-# Specify max vocab size
-# test_vectorizers = [
-#     TfidfVectorizer(max_features=1000),
-#     HashingVectorizer(n_features=1000),
-#     CountVectorizer(max_features=1000),
-# ]
-
 # Benchmark lots of classifiers
 print("Benchmarking")
 bench_start = time.time()
-res = benchmark(test_classifiers, test_vectorizers, X, y, X_custom, y_custom)
+res = benchmark(test_classifiers, test_vectorizers_no_max,
+                X, y, X_custom, y_custom)
 res.append("Runtime: " + str(time.time() - bench_start))
 print(res[-1])
 
