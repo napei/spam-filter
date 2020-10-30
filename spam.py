@@ -134,15 +134,23 @@ def email_to_plain(e: Message) -> str:
 
 class EmailToWords(BaseEstimator, TransformerMixin):
     """Transformer which converts a list of email messages into
-    a list of plaintext strings which are stemmed, and reduced to 
+    a list of plaintext strings which are stemmed, and reduced to
     unique words only
     """
 
-    def __init__(self, includeSubject=True, stripNumbers=True):
+    def __init__(self, includeSubject=True, stripNumbers=True, stripStopWords=True):
+        """Initialiser
+
+        Args:
+            includeSubject (bool, optional): Include the subject as well as the email body. Defaults to True.
+            stripNumbers (bool, optional): Strip numbers from text, replacing them with "NUMBER". Defaults to True.
+            stripStopWords (bool, optional): Strip stop words from the text. Defaults to True.
+        """
         self.url_extractor = urlextract.URLExtract()
         self.stemmer = nltk.PorterStemmer()
         self.includeSubject = includeSubject
         self.stripNumbers = stripNumbers
+        self.stripStopWords = stripStopWords
 
     def fit(self, X, y=None):
         return self
@@ -173,10 +181,11 @@ class EmailToWords(BaseEstimator, TransformerMixin):
             text = text.translate(str.maketrans('', '', punctuation)).lower()
             tokenized = word_tokenize(text, language="english")
             # Remove stopwords
-            tokenized_nostop = [
-                token for token in tokenized if not token in stops]
+            if self.stripStopWords:
+                tokenized = [
+                    token for token in tokenized if not token in stops]
             c.append(" ".join([self.stemmer.stem(word)
-                               for word in tokenized_nostop]))
+                               for word in tokenized]))
         return c
 
 
@@ -208,9 +217,10 @@ def benchmark(cs: list, vs: list, X, y, X_custom, y_custom) -> "list[str]":
     for vec in tqdm(vs, desc="vectorising to tuples"):
         tqdm.write("pre-vectorising with " + vec.__class__.__name__)
         # Vectorise data
-        training_data = vec.fit_transform(X_train)
-        testing_data = vec.transform(X_test)
-        custom_data = vec.transform(X_custom)
+        fitted = vec.fit(X)
+        training_data = fitted.transform(X_train)
+        testing_data = fitted.transform(X_test)
+        custom_data = fitted.transform(X_custom)
 
         local_vs.append((training_data, testing_data,
                          custom_data, vec.__class__.__name__))
@@ -315,9 +325,9 @@ test_classifiers = [
 ]
 
 test_vectorizers = [
-    TfidfVectorizer(),
-    HashingVectorizer(),
-    CountVectorizer(),
+    TfidfVectorizer(max_features=1000),
+    HashingVectorizer(n_features=1000),
+    CountVectorizer(max_features=1000),
 ]
 
 
