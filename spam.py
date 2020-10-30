@@ -40,8 +40,11 @@ from sklearn.svm import SVC, LinearSVC
 from sklearn.tree import DecisionTreeClassifier
 from tqdm import tqdm
 
-# Needed for nltk stemming
+from nltk.corpus import stopwords
+
+# Needed for nltk stemming and stopwords
 nltk.download('punkt')
+nltk.download('stopwords')
 
 # Directory names for data
 ham_dir = "data/spamassassin/ham"
@@ -151,7 +154,8 @@ class EmailToWords(BaseEstimator, TransformerMixin):
             list[str]: List of stemmed message strings
         """
         c: "list[str]" = []
-        regex = re.compile(r"[0-9]+")
+        match_numbers = re.compile(r"[0-9]+")
+        stops = set(stopwords.words("english"))
         e: Message
         for e in tqdm(X, desc='Transforming emails'):
             text = email_to_plain(e)
@@ -165,10 +169,14 @@ class EmailToWords(BaseEstimator, TransformerMixin):
             urls = self.url_extractor.find_urls(text)
             for url in urls:
                 text = text.replace(str(url), ' URL ')
-            text = re.sub(regex, ' NUMBER ', text)
+            text = re.sub(match_numbers, ' NUMBER ', text)
             text = text.translate(str.maketrans('', '', punctuation)).lower()
-            words = word_tokenize(text)
-            c.append(" ".join([self.stemmer.stem(word) for word in words]))
+            tokenized = word_tokenize(text, language="english")
+            # Remove stopwords
+            tokenized_nostop = [
+                token for token in tokenized if not token in stops]
+            c.append(" ".join([self.stemmer.stem(word)
+                               for word in tokenized_nostop]))
         return c
 
 
