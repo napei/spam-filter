@@ -324,12 +324,20 @@ test_classifiers = [
     KNeighborsClassifier()
 ]
 
+max_vocab_size = 1000
+# No max vocab size
 test_vectorizers = [
-    TfidfVectorizer(max_features=1000),
-    HashingVectorizer(n_features=1000),
-    CountVectorizer(max_features=1000),
+    TfidfVectorizer(max_features=max_vocab_size),
+    HashingVectorizer(n_features=max_vocab_size),
+    CountVectorizer(max_features=max_vocab_size),
 ]
 
+# Specify max vocab size
+# test_vectorizers = [
+#     TfidfVectorizer(max_features=1000),
+#     HashingVectorizer(n_features=1000),
+#     CountVectorizer(max_features=1000),
+# ]
 
 # Benchmark lots of classifiers
 print("Benchmarking")
